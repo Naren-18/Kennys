@@ -1,0 +1,481 @@
+/* src/index.css */
+/* Remove Geometos Neue Black font-face */
+/* Add Anton Google Fonts import */
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Satisfy&family=Source+Serif+Pro:wght@400;600;700&family=Fredoka+One&family=Lobster&family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 80% 98%;
+    --foreground: 25 100% 5%;
+
+    --card: 36 40% 96%;
+    --card-foreground: 25 100% 5%;
+
+    --popover: 36 40% 96%;
+    --popover-foreground: 25 100% 5%;
+
+    --primary: 33 100% 47%;
+    --primary-foreground: 36 100% 97%;
+
+    --secondary: 36 40% 85%;
+    --secondary-foreground: 25 100% 15%;
+
+    --muted: 36 20% 90%;
+    --muted-foreground: 25 60% 30%;
+
+    --accent: 28 90% 60%;
+    --accent-foreground: 25 100% 5%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 36 100% 97%;
+
+    --border: 36 40% 80%;
+    --input: 36 40% 80%;
+    --ring: 33 100% 47%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 25 75% 9%;
+    --foreground: 36 80% 90%;
+
+    --card: 25 75% 12%;
+    --card-foreground: 36 80% 90%;
+
+    --popover: 25 75% 12%;
+    --popover-foreground: 36 80% 90%;
+
+    --primary: 33 100% 47%;
+    --primary-foreground: 36 100% 97%;
+
+    --secondary: 25 40% 25%;
+    --secondary-foreground: 36 80% 90%;
+
+    --muted: 25 40% 20%;
+    --muted-foreground: 36 40% 70%;
+
+    --accent: 28 90% 50%;
+    --accent-foreground: 36 80% 90%;
+
+    --destructive: 0 62.8% 40.6%;
+    --destructive-foreground: 36 100% 97%;
+
+    --border: 25 40% 25%;
+    --input: 25 40% 25%;
+    --ring: 33 100% 47%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+  html {
+    @apply scroll-smooth;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    line-height: 1;
+  }
+  h1, h2, h3, h4 {
+    @apply font-title;
+  }
+  
+  /* Ensure no extra space after footer */
+  body::after,
+  #root::after {
+    display: none;
+  }
+}
+
+@layer components {
+  .warmth-filter {
+    filter: sepia(15%) brightness(102%) contrast(105%);
+  }
+
+  .paper-texture {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23FF6F1F' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+  }
+
+  .wood-grain {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v50H0z' fill='%23000000' fill-opacity='0.05'/%3E%3Cpath d='M0 50h100v50H0z' fill='%23000000' fill-opacity='0.025'/%3E%3C/svg%3E");
+  }
+
+  .glow {
+    box-shadow: 0 0 15px rgba(255, 111, 31, 0.3);
+  }
+
+  .handwritten {
+    @apply font-handwritten text-kenny-amber;
+  }
+
+  /* Section background variations */
+  .section-black {
+    @apply bg-kenny-dark text-white relative z-10 py-16;
+  }
+
+  .section-brown {
+    @apply bg-[#3a1c0f] text-white relative z-10 py-16;
+  }
+
+  .section-orange {
+    @apply bg-gradient-to-r from-[#FF6F1F]/20 to-[#FF6F1F]/40 text-kenny-dark relative z-10 py-16;
+  }
+
+  .kenny-logo-font {
+    font-family: 'Permanent Marker', cursive;
+    letter-spacing: 1px;
+  }
+
+  /* Enhanced animation effects */
+  .section-animate {
+    transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    opacity: 0;
+    transform: translateY(50px);
+    will-change: transform, opacity;
+  }
+
+  .section-animate.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered children animations */
+  .stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .section-animate.show .stagger-item {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section-animate.show .stagger-item:nth-child(1) { transition-delay: 100ms; }
+  .section-animate.show .stagger-item:nth-child(2) { transition-delay: 200ms; }
+  .section-animate.show .stagger-item:nth-child(3) { transition-delay: 300ms; }
+  .section-animate.show .stagger-item:nth-child(4) { transition-delay: 400ms; }
+  .section-animate.show .stagger-item:nth-child(5) { transition-delay: 500ms; }
+  .section-animate.show .stagger-item:nth-child(6) { transition-delay: 600ms; }
+
+  /* Dust particles animation */
+  .dust-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .dust-particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 20s infinite ease-in-out;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+      opacity: 0;
+    }
+    25% {
+      opacity: 0.5;
+    }
+    50% {
+      transform: translateY(-20px) translateX(10px);
+      opacity: 0.8;
+    }
+    75% {
+      opacity: 0.3;
+    }
+  }
+
+  /* Liquid fill animation for hero heading */
+  .liquid-fill-letter {
+    display: inline-block;
+    color: #fff; /* base color is white */
+    position: relative;
+    font-weight: bold;
+    overflow: hidden;
+  }
+
+  .liquid-fill-letter::before {
+    content: attr(data-char);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #FF6F1F; /* fill color is orange */
+    transform: translateY(100%);
+    animation: liquid-fill 1s forwards;
+    animation-delay: var(--delay);
+    width: 100%;
+    height: 100%;
+  }
+
+  @keyframes liquid-fill {
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  /* Liquid fill animation for the whole "WELCOME TO" word */
+  .liquid-fill-word {
+    display: inline-block;
+    position: relative;
+    color: #fff; /* base color is white */
+    font-weight: bold;
+    overflow: hidden;
+  }
+
+  .liquid-fill-word .liquid-fill-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  .liquid-fill-word::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: #FF6F1F;
+    z-index: 2;
+    pointer-events: none;
+    transform: translateY(100%);
+    animation: liquid-fill-word 1.2s cubic-bezier(.22,1.2,.36,1) forwards;
+  }
+
+  @keyframes liquid-fill-word {
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  /* --- NEW BEER FILL HEADING STYLES --- */
+  .beer-fill-heading {
+    /* Use the 'Permanent Marker' font you already import */
+    font-family: 'Permanent Marker', cursive;
+    font-size: 8em; /* Adjust as needed for larger screens */
+    font-weight: 900; /* Make it bold */
+    text-transform: uppercase;
+    letter-spacing: 5px; /* Adjust spacing */
+    line-height: 1; /* Prevent extra space above/below text */
+
+    /* Make the text transparent to show the background */
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    /* The "beer" background */
+    background-image: linear-gradient(to top,
+        #FFD700 0%,    /* Darker amber/gold at the bottom */
+        #FFBF00 20%,   /* Medium amber */
+        #FFC107 40%,   /* Lighter amber */
+        #FFEB3B 70%,   /* Pale yellow for beer body */
+        rgba(255, 255, 255, 0.8) 90%, /* Semi-transparent white for foam */
+        rgba(255, 255, 255, 1) 100% /* Solid white for top of foam */
+    );
+    background-size: 100% 200%; /* Background twice as tall for animation */
+    background-position: 0% 100%; /* Start with "beer" below text */
+
+    /* Animation for filling */
+    animation: fillBeer 2s ease-out forwards; /* 2 seconds duration, stays at end state */
+    /* You might want a delay if your 'loaded' state has its own animation.
+       Consider `animation: fillBeer 2s 1s ease-out forwards;` if you want it to start after other elements load. */
+
+    /* Optional: Subtle stroke for definition, matching your logo style */
+    -webkit-text-stroke: 2px #333; /* Dark outline */
+    text-stroke: 2px #333; /* Dark outline */
+
+    /* Optional: Adjust text shadow if needed, or remove if stroke is enough */
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Keyframes for the beer filling animation */
+  @keyframes fillBeer {
+    from {
+      background-position: 0% 100%; /* Beer starts completely below the text */
+    }
+    to {
+      background-position: 0% 0%; /* Beer fills up to the top of the text */
+    }
+  }
+
+  /* Keyframes for the bottom-to-top fill animation */
+  @keyframes fillBeerBottomTop {
+    0% {
+      -webkit-clip-path: inset(100% 0 0 0);
+      clip-path: inset(100% 0 0 0);
+    }
+    100% {
+      -webkit-clip-path: inset(0 0 0% 0);
+      clip-path: inset(0 0 0% 0);
+    }
+  }
+
+  /* Adjust font size for responsiveness (optional, but good practice) */
+  @media (max-width: 768px) {
+    .beer-fill-heading {
+      font-size: 4em; /* Smaller font size on smaller screens */
+      letter-spacing: 2px;
+      -webkit-text-stroke: 1px #333;
+      text-stroke: 1px #333;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .beer-fill-heading {
+      font-size: 2.5em; /* Even smaller on very small screens */
+      letter-spacing: 1px;
+      -webkit-text-stroke: 0.5px #333;
+      text-stroke: 0.5px #333;
+    }
+  }
+  /* Responsive adjustments for the header */
+  @media (max-width: 768px) {
+    .header-container {
+      font-size: 15vw !important;
+      -webkit-text-stroke: 1.5px #f0f0f0 !important;
+      text-stroke: 1.5px #f0f0f0 !important;
+    }
+  }
+}
+
+.highlight-text {
+  @apply relative inline-block;
+}
+
+.highlight-text::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-full h-[5px] bg-kenny-amber/20 -z-10;
+}
+
+/* Add a subtle grain texture to certain elements */
+.grain-texture {
+  position: relative;
+}
+
+.grain-texture::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Menu animation effects */
+.menu-item-appear {
+  transform: translateY(15px);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section-animate.show .menu-item-appear {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Drink condensation effect */
+.drink-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.drink-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(130deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 30%, rgba(255,255,255,0) 60%);
+  transform: translateX(-100%);
+  animation: condensation 5s infinite linear;
+}
+
+@keyframes condensation {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Enhanced animations for accessibility */
+@media (prefers-reduced-motion) {
+  .section-animate,
+  .stagger-item,
+  .menu-item-appear {
+    transition: opacity 0.5s ease-out;
+    transform: none;
+  }
+
+  .section-animate.show,
+  .section-animate.show .stagger-item,
+  .section-animate.show .menu-item-appear {
+    transform: none;
+  }
+
+  .dust-particle {
+    animation: none;
+    opacity: 0.2;
+  }
+}
+
+/* Sidebar styling for sections with ml-16 */
+.section-with-sidebar {
+  position: relative;
+}
+
+.section-with-sidebar::before {
+  content: "";
+  position: absolute;
+  left: -4rem;
+  top: 0;
+  bottom: 0;
+  width: 4rem;
+  background-color: #18120b; /* kenny-dark color */
+  z-index: -1;
+}
+
+/* Additional footer spacing control */
+.section-with-sidebar::before {
+  content: "";
+  position: absolute;
+  left: -4rem;
+  top: 0;
+  bottom: 0;
+  width: 4rem;
+  background-color: #18120b; /* kenny-dark color */
+  z-index: -1;
+}
+
+/* Ensure footer ends cleanly */
+footer:last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 1rem !important;
+}
