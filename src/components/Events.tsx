@@ -99,12 +99,12 @@ const Events = () => {
           className="text-center mb-16 relative"
         >
           <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-[#FF6F1F] to-transparent"></div>
-          <h2 className="text-[#FF8C42] font-handwritten text-6xl mb-4 relative inline-block">
+          <h2 className="text-[#FF8C42] font-bold font-['League_Spartan'] text-5xl md:text-6xl mb-4 relative inline-block">
             Join Us
             <div className="absolute -bottom-3 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FF6F1F] to-transparent"></div>
           </h2>
-          <h3 className="text-white text-2xl mb-6 font-title">Upcoming Events</h3>
-          <p className="text-white/80 max-w-2xl mx-auto text-lg">
+          <h3 className="text-white font-semibold font-['League_Spartan'] text-2xl md:text-3xl mb-6">Upcoming Events</h3>
+          <p className="text-white/80 font-['Montserrat'] max-w-2xl mx-auto text-base md:text-lg">
             There's always something happening at Kenny's. Check out our upcoming events and mark your calendar!
           </p>
           <div className="flex justify-center mt-8">
@@ -156,7 +156,7 @@ const Events = () => {
                       <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-[#FF6F1F]/40 rounded-tl-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                       <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-[#FF6F1F]/40 rounded-br-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                       <div className="flex justify-between items-start mb-5">
-                        <h4 className="text-white text-xl font-medium group-hover:text-[#FF8C42] transition-colors duration-300">{event.title}</h4>
+                        <h4 className="text-white font-semibold font-['League_Spartan'] text-xl group-hover:text-[#FF8C42] transition-colors duration-300">{event.title}</h4>
                         <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-[#FF6F1F]/20 to-[#FF8C42]/20 backdrop-blur-sm text-white text-xs font-medium">
                           {categoryIcon[event.category]}
                           <span>{categoryLabel[event.category]}</span>
@@ -204,11 +204,11 @@ const Events = () => {
                   <div className="absolute top-4 right-4 bg-[#FF6F1F]/10 p-2 rounded-full">
                     <CalendarClock className="h-5 w-5 text-[#FF8C42]" />
                   </div>
-                  <h4 className="text-[#FF6F1F] text-xl mb-4 font-alt1 flex items-center gap-2">
+                  <h4 className="text-[#FF6F1F] font-semibold font-['League_Spartan'] text-xl mb-4 flex items-center gap-2">
                     <Star className="h-5 w-5" />
                     <span>Looking for More?</span>
                   </h4>
-                  <p className="text-white/80 mb-6 max-w-xs">
+                  <p className="text-white/80 font-['Montserrat'] mb-6 max-w-xs">
                     Check out our full calendar to see all upcoming events, or suggest one of your own!
                   </p>
                   <Button
@@ -241,7 +241,7 @@ const Events = () => {
             <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#FF6F1F]/50"></div>
           </div>
           <GlassCard className="inline-block px-6 py-3">
-            <p className="text-white/70 italic">
+            <p className="text-white/70 font-['Montserrat'] italic">
               All events take place at Kenny's Bar unless otherwise noted. Events are subject to change.
             </p>
           </GlassCard>

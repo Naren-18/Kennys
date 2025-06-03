@@ -19,7 +19,7 @@ const MenuSection = ({ title, items }: { title: string, items: Array<{name: stri
       <div className="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-[#FF6F1F]/40"></div>
       <div className="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-[#FF6F1F]/40"></div>
       <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-[#FF6F1F]/40"></div>
-      <h3 className="text-2xl font-title text-[#FF8C42] mb-6 inline-block relative group">
+      <h3 className="text-2xl font-semibold font-['League_Spartan'] text-[#FF8C42] mb-6 inline-block relative group">
         {title}
         <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FF6F1F] to-transparent group-hover:w-full transition-all duration-300"></span>
       </h3>
@@ -35,11 +35,11 @@ const MenuSection = ({ title, items }: { title: string, items: Array<{name: stri
           >
             <div className="flex items-center justify-between">
               <div className="flex-1 min-w-0">
-                <h4 className="text-2xl font-bold text-white group-hover:text-[#FF8C42] flex items-center gap-2">
+                <h4 className="text-2xl font-semibold font-['League_Spartan'] text-white group-hover:text-[#FF8C42] flex items-center gap-2">
                   {item.name}
                   <Sparkles className="w-4 h-4 text-[#FF8C42] opacity-70" />
                 </h4>
-                <p className="text-white/70 mt-2 text-base tracking-wide">
+                <p className="text-white/70 font-['Montserrat'] mt-2 text-base tracking-wide">
                   {item.description}
                 </p>
               </div>
@@ -285,11 +285,11 @@ const Menu = () => {
           className="text-center mb-16 relative"
         >
           <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-[#FF6F1F] to-transparent"></div>
-          <h2 className="text-[#FF8C42] font-handwritten text-6xl mb-4 relative inline-block">
+          <h2 className="text-[#FF8C42] font-bold font-['League_Spartan'] text-5xl md:text-6xl mb-4 relative inline-block">
             Our Menu
             <div className="absolute -bottom-3 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FF6F1F] to-transparent"></div>
           </h2>
-          <p className="text-white/80 max-w-xl mx-auto text-lg">
+          <p className="text-white/80 font-['Montserrat'] max-w-xl mx-auto text-base md:text-lg">
             Carefully crafted drinks and delicious comfort food, made with love for our neighborhood.
           </p>
         </motion.div>
@@ -385,7 +385,7 @@ const Menu = () => {
         >
           <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-[#FF6F1F]/40 to-transparent mx-auto mb-6"></div>
           <GlassCard className="p-6 max-w-lg mx-auto">
-            <p className="text-white/70 italic mb-4">
+            <p className="text-white/70 font-['Montserrat'] italic mb-4">
               Menu and prices subject to change. Please ask your server about allergens.
               <br />
               <span className="text-[#FF8C42]/80 text-sm mt-2 block">We source ingredients locally whenever possible.</span>

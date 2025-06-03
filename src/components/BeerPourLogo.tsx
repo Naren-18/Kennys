@@ -5,7 +5,7 @@ const FOAM_HEIGHT = 22; // px
 const WAVE_AMPLITUDE = 16; // px
 const WAVE_FREQUENCY = 2.2; // number of waves across the width
 const WAVE_SPEED = 1.3; // speed of wave animation
-const BUBBLE_COUNT = 28;
+const BUBBLE_COUNT = 0;
 
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 

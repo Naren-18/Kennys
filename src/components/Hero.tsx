@@ -50,7 +50,7 @@ const Hero = () => {
           {/* Redesigned Subtitle */}
           <div className={`mb-10 max-w-4xl mx-auto transition-all duration-700 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                style={{ transitionDelay: loaded ? '200ms' : '0ms' }}>
-            <p className="text-white font-serif text-4xl md:text-5xl lg:text-6xl font-medium mx-auto tracking-wider leading-tight">
+            <p className="text-white font-serif text-xl md:text-3xl lg:text-4xl font-medium mx-auto tracking-wider leading-tight">
               NEIGHBOURHOOD BAR
             </p>
           </div>
@@ -87,7 +87,7 @@ const Hero = () => {
         <div className="w-full flex flex-col items-center justify-center mt-12 gap-10 z-30">
           <div className="flex flex-col md:flex-row gap-8 w-full max-w-5xl">
             {/* Book a Table */}
-            <Card className="flex-1 bg-black/60 border-[#FF6F1F] border rounded-2xl shadow-lg p-0 relative overflow-hidden">
+            {/* <Card className="flex-1 bg-black/60 border-[#FF6F1F] border rounded-2xl shadow-lg p-0 relative overflow-hidden">
               <div className="p-8 flex flex-col h-full justify-between">
                 <div className="flex items-center gap-3 mb-4">
                   <Calendar className="text-[#FF8C42] w-7 h-7" />
@@ -99,9 +99,9 @@ const Hero = () => {
                   <Users className="w-5 h-5" /> Make Reservation
                 </button>
               </div>
-            </Card>
+            </Card> */}
             {/* Order Online */}
-            <Card className="flex-1 bg-black/60 border-[#FF6F1F] border rounded-2xl shadow-lg p-0 relative overflow-hidden">
+            {/* <Card className="flex-1 bg-black/60 border-[#FF6F1F] border rounded-2xl shadow-lg p-0 relative overflow-hidden">
               <div className="p-8 flex flex-col h-full justify-between">
                 <div className="flex items-center gap-3 mb-4">
                   <Utensils className="text-[#FF8C42] w-7 h-7" />
@@ -122,10 +122,10 @@ const Hero = () => {
                   </button>
                 </div>
               </div>
-            </Card>
+            </Card> */}
           </div>
           {/* Find Us */}
-          <div className="w-full max-w-2xl">
+          {/* <div className="w-full max-w-2xl">
             <Card className="flex items-center bg-black/60 border-[#FF6F1F] border rounded-2xl shadow-lg p-0 overflow-hidden">
               <div className="flex items-center gap-6 p-8 w-full">
                 <div className="bg-[#1a120b] rounded-full w-16 h-16 flex items-center justify-center">
@@ -141,7 +141,7 @@ const Hero = () => {
                 </div>
               </div>
             </Card>
-          </div>
+          </div> */}
         </div>
 
         {/* Simple scroll indicator

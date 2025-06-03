@@ -37,7 +37,7 @@ const GalleryGrid = ({ images }: { images: Array<{src: string, alt: string}> }) 
             <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-[#FF6F1F]/60 rounded-tl-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
             <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-[#FF6F1F]/60 rounded-br-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-70 group-hover:opacity-40 transition-opacity duration-500 flex items-end p-5 z-10">
-              <p className="text-white text-sm font-medium group-hover:text-[#FF8C42] transition-colors duration-300">{image.alt}</p>
+              <p className="text-white text-sm font-['Montserrat'] font-medium group-hover:text-[#FF8C42] transition-colors duration-300">{image.alt}</p>
             </div>
             <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-sm p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0 z-20">
               <Camera className="h-4 w-4 text-[#FF8C42]" />
@@ -164,11 +164,11 @@ const Gallery = () => {
           className="text-center mb-16 relative"
         >
           <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-[#FF6F1F] to-transparent"></div>
-          <h2 className="text-[#FF8C42] font-handwritten text-6xl mb-4 relative inline-block">
+          <h2 className="text-[#FF8C42] font-bold font-['League_Spartan'] text-5xl md:text-6xl mb-4 relative inline-block">
             Our Gallery
             <div className="absolute -bottom-3 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FF6F1F] to-transparent"></div>
           </h2>
-          <p className="text-white/80 max-w-xl mx-auto text-lg">
+          <p className="text-white/80 font-['Montserrat'] max-w-xl mx-auto text-base md:text-lg">
             Take a peek at Kenny's ambiance, our delicious food, and craft drinks that keep our neighborhood coming back.
           </p>
         </motion.div>
@@ -234,7 +234,7 @@ const Gallery = () => {
             <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#FF6F1F]/50"></div>
           </div>
           <GlassCard className="inline-block px-6 py-3">
-            <p className="text-white/70 italic">
+            <p className="text-white/70 font-['Montserrat'] italic">
               Follow us on Instagram{' '}
               <a
                 href="https://instagram.com/kenny.sbar"

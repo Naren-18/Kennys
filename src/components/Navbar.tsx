@@ -222,36 +222,37 @@ const Navbar = () => {
             'px-4 py-4 mt-auto flex',
             isExpanded || isMobileMenuOpen ? 'justify-start' : 'justify-center'
           )}>
-            <Button 
-              variant="outline" 
-              className={cn(
-                isExpanded || isMobileMenuOpen 
-                  ? 'w-full h-[56px] px-4' 
-                  : 'w-[56px] h-[56px] p-0 flex items-center justify-center',
-                'border-[#FF6F1F] text-[#FF6F1F] bg-black/30',
-                'hover:bg-[#FF6F1F] hover:text-white transition-all duration-300',
-                'rounded-xl font-bold shadow-lg',
-                'overflow-hidden relative'
-              )}
-              onClick={() => window.location.href = "/book-table"}
-            >
-              {/* Glow effect in the background */}
-              <div className="absolute -inset-[1px] bg-[#FF6F1F]/10 rounded-xl blur-sm opacity-70" />
-              <div className="w-[26px] h-[26px] flex items-center justify-center flex-shrink-0 relative z-10">
-                <div className="flex items-center justify-center w-6 h-6 rounded-full bg-[#FF6F1F]/20 p-1">
-                  <UtensilsCrossed className="w-4 h-4" />
-                </div>
-              </div>
-              <span 
+            <Link to="/book-table">
+              <Button 
+                variant="outline" 
                 className={cn(
-                  'transition-all duration-300 ml-3 whitespace-nowrap overflow-hidden font-bold',
-                  (isExpanded || isMobileMenuOpen) ? 'opacity-100 max-w-[200px] block' : 'opacity-0 max-w-0 w-0 h-0 p-0 m-0 block'
+                  isExpanded || isMobileMenuOpen 
+                    ? 'w-full h-[56px] px-4' 
+                    : 'w-[56px] h-[56px] p-0 flex items-center justify-center',
+                  'border-[#FF6F1F] text-[#FF6F1F] bg-black/30',
+                  'hover:bg-[#FF6F1F] hover:text-white transition-all duration-300',
+                  'rounded-xl font-bold shadow-lg',
+                  'overflow-hidden relative'
                 )}
-                aria-hidden={!(isExpanded || isMobileMenuOpen)}
               >
-                RESERVE NOW
-              </span>
-            </Button>
+                {/* Glow effect in the background */}
+                <div className="absolute -inset-[1px] bg-[#FF6F1F]/10 rounded-xl blur-sm opacity-70" />
+                <div className="w-[26px] h-[26px] flex items-center justify-center flex-shrink-0 relative z-10">
+                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-[#FF6F1F]/20 p-1">
+                    <UtensilsCrossed className="w-4 h-4" />
+                  </div>
+                </div>
+                <span 
+                  className={cn(
+                    'transition-all duration-300 ml-3 whitespace-nowrap overflow-hidden font-bold',
+                    (isExpanded || isMobileMenuOpen) ? 'opacity-100 max-w-[200px] block' : 'opacity-0 max-w-0 w-0 h-0 p-0 m-0 block'
+                  )}
+                  aria-hidden={!(isExpanded || isMobileMenuOpen)}
+                >
+                  RESERVE NOW
+                </span>
+              </Button>
+            </Link>
           </div>
         </div>
       </aside>

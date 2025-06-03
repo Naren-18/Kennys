@@ -46,12 +46,14 @@ const Promotions: React.FC<PromotionsProps> = ({ loaded }) => {
 					{promotions.map((promo, index) => (
 						<div
 							key={promo.id}
-							className={`bg-black/60 border border-[#FF6F1F] rounded-2xl shadow-lg p-8 flex flex-col text-left transition-all duration-500 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
-							style={{ transitionDelay: loaded ? `${index * 100 + 700}ms` : '0ms' }}
+							className={`relative bg-gradient-to-br from-[#FF6F1F] to-[#FF8C42] rounded-2xl shadow-[0_2px_16px_0_rgba(255,111,31,0.25)] p-8 flex flex-col text-left transition-all duration-300 hover:scale-105 hover:shadow-[0_8px_32px_8px_rgba(255,140,66,0.55),0_0_0_8px_rgba(255,111,31,0.18)] group before:absolute before:inset-0 before:rounded-2xl before:pointer-events-none before:shadow-[inset_0_2px_16px_0_rgba(255,255,255,0.08)] ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+							style={{ transitionDelay: loaded ? `${index * 100 + 700}ms` : '0ms', transitionProperty: 'box-shadow, transform' }}
 						>
-							<h3 className="font-serif text-[#FF8C42] text-2xl mb-3 font-semibold">
+							<div className="absolute left-0 top-8 w-1 h-10 bg-yellow-300/80 rounded-r-lg shadow-lg"></div>
+							<h3 className="text-2xl font-bold text-white mb-2 group-hover:text-yellow-100 transition-colors duration-300">
 								{promo.title}
 							</h3>
+							<div className="h-[2px] w-12 bg-white/30 rounded-full mb-3"></div>
 							<p className="text-white/90 text-lg leading-relaxed">
 								{promo.description}
 							</p>

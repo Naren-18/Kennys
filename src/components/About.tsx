@@ -51,8 +51,8 @@ const About = () => (
     >
       {/* Hero Section */}
       <div className="text-center mb-2">
-        <h1 className="text-[#FF8C42] font-bold uppercase tracking-wide text-4xl md:text-5xl mb-1" style={{ fontFamily: 'Anton, sans-serif', letterSpacing: '0.04em' }}>KENNY'S</h1>
-        <p className="text-white/80 text-base md:text-lg font-medium mb-1">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bangalore</p>
+        <h1 className="text-[#FF8C42] font-bold uppercase tracking-wide text-4xl md:text-5xl mb-1 font-['League_Spartan']" style={{ letterSpacing: '0.04em', fontFamily: 'Anton, sans-serif' }}>KENNY'S</h1>
+        <p className="text-white/80 font-['Montserrat'] text-base md:text-lg font-medium mb-1">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bangalore</p>
       </div>
       {/* Contact */}
       <div className="flex justify-center items-center gap-2 mb-4">
@@ -63,12 +63,12 @@ const About = () => (
       <div className="w-full h-px bg-gradient-to-r from-transparent via-[#FF8C42]/40 to-transparent mb-4" />
       {/* Explore */}
       <div className="mb-4">
-        <h2 className="text-[#FF8C42] text-xl font-bold mb-2 text-center">Explore</h2>
+        <h2 className="text-[#FF8C42] font-semibold font-['League_Spartan'] text-xl mb-2 text-center">Explore</h2>
         <ul className="flex flex-wrap gap-4 justify-center">
           {aboutLinks.map((link, i) => (
             <li key={link.label} className="flex items-center gap-2">
               {link.icon}
-              <a href={link.href} className="text-white/90 hover:text-[#FF8C42] font-medium text-base transition-colors duration-300">{link.label}</a>
+              <a href={link.href} className="text-white/90 hover:text-[#FF8C42] font-['Montserrat'] font-medium text-base transition-colors duration-300">{link.label}</a>
             </li>
           ))}
         </ul>
@@ -77,10 +77,10 @@ const About = () => (
       <div className="w-full h-px bg-gradient-to-r from-transparent via-[#FF8C42]/40 to-transparent mb-4" />
       {/* This Week at Kenny's */}
       <div className="mb-4">
-        <h2 className="text-[#FF8C42] text-xl font-bold mb-2 text-center">This Week at Kenny's</h2>
+        <h2 className="text-[#FF8C42] font-semibold font-['League_Spartan'] text-xl mb-2 text-center">This Week at Kenny's</h2>
         <ul className="space-y-2">
           {weekEvents.map((event, i) => (
-            <li key={event.text} className="flex items-center gap-2 text-white/90 text-base justify-center">
+            <li key={event.text} className="flex items-center gap-2 text-white/90 font-['Montserrat'] text-base justify-center">
               <span className="text-xl">{event.icon}</span>
               {event.text}
             </li>
@@ -91,10 +91,10 @@ const About = () => (
       <div className="w-full h-px bg-gradient-to-r from-transparent via-[#FF8C42]/40 to-transparent mb-4" />
       {/* Hours */}
       <div>
-        <h2 className="text-[#FF8C42] text-xl font-bold mb-2 text-center">Hours</h2>
+        <h2 className="text-[#FF8C42] font-semibold font-['League_Spartan'] text-xl mb-2 text-center">Hours</h2>
         <ul className="divide-y divide-white/10">
           {hours.map((h, i) => (
-            <li key={h.day} className="flex justify-between items-center py-1 text-white/90 text-base">
+            <li key={h.day} className="flex justify-between items-center py-1 text-white/90 font-['Montserrat'] text-base">
               <span>{h.day}</span>
               <span className="font-semibold">{h.time}</span>
             </li>
