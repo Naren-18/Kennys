@@ -53,35 +53,44 @@ const Hero = () => {
           <AnimatePresence>
             <motion.div
               key="hero-main"
+              layout
               initial={{ opacity: 1, y: 0, scale: 1 }}
               animate={heroShrunk
                 ? { opacity: 1, y: -120, scale: 0.7 }
                 : { opacity: 1, y: 0, scale: 1 }
               }
               transition={{ duration: 1.2, ease: 'easeInOut' }}
-              className="w-full flex flex-col items-center"
+              className="w-full flex flex-col items-center mt-6 md:mt-0"
               style={{ height: heroShrunk ? '190px' : '340px', transition: 'height 1.2s cubic-bezier(0.4,0,0.2,1)' }}
             >
-              <div
+              <motion.div
+                layout
                 className={`mb-4 flex justify-center transition-all duration-700 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                 style={{ transitionDelay: loaded ? '100ms' : '0ms', position: 'relative' }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, ease: 'easeInOut' }}
               >
                 <motion.img
+                  layout
                   src="/kennys_orange_glass_funky_spaced40.svg"
-                  alt="KENNY'S" 
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1.2, ease: 'easeInOut' }}
+                  alt="KENNY'S"
+                  initial={false}
+                  animate={false}
                   className="mx-auto block w-full max-w-[320px] sm:max-w-[420px] md:max-w-[600px] lg:max-w-[800px] xl:max-w-[1000px]"
-                  style={{ 
+                  style={{
                     filter: 'drop-shadow(0 2px 8px rgba(255, 111, 31, 0.25))',
                   }}
                 />
-              </div>
+              </motion.div>
               {/* Redesigned Subtitle */}
-              <div
+              <motion.div
+                layout
                 className={`mb-6 max-w-4xl mx-auto transition-all duration-700 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                 style={{ transitionDelay: loaded ? '200ms' : '0ms' }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, ease: 'easeInOut' }}
               >
                 <p className="text-[#FF8C42] font-handwritten font-medium mx-auto tracking-wider leading-tight" style={{ fontSize: heroShrunk ? '1.5rem' : '2.7rem', fontFamily: 'Satisfy, cursive', transition: 'font-size 0.8s cubic-bezier(0.4,0,0.2,1)' }}>
                   NEIGHBOURHOOD BAR
@@ -89,7 +98,7 @@ const Hero = () => {
                 {/* Reserve Now and Events Buttons */}
                 <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
                   <Link to="/book-table">
-                  <button className="py-3 px-8 text-center uppercase font-semibold tracking-wide text-[#FF6F1F] text-lg bg-transparent border-2 border-[#FF6F1F] hover:bg-[#FF6F1F] hover:text-white rounded-full transform hover:scale-105 transition-all duration-300 ease-in-out">
+                    <button className="py-3 px-8 text-center uppercase font-semibold tracking-wide text-[#FF6F1F] text-lg bg-transparent border-2 border-[#FF6F1F] hover:bg-[#FF6F1F] hover:text-white rounded-full transform hover:scale-105 transition-all duration-300 ease-in-out">
                       Reserve Now
                     </button>
                   </Link>
@@ -99,23 +108,24 @@ const Hero = () => {
                     </button>
                   </Link>
                 </div>
-              </div>
+              </motion.div>
               {/* Redesigned Tagline */}
               {/* <p className={`text-gray-300 text-md md:text-lg mb-12 font-normal tracking-widest transition-all duration-700 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
                 style={{ transitionDelay: loaded ? '300ms' : '0ms' }}>
                 GOOD DRINKS • GOOD TIMES • SINCE 2010
               </p> */}
-                          </motion.div>
+            </motion.div>
           </AnimatePresence>
           {/* Special Offers section fade/slide in */}
           <AnimatePresence>
             {showSpecialOffers && (
               <motion.div
                 key="special-offers"
-                initial={{ opacity: 0, y: 120 }}
-                animate={{ opacity: 1, y: 0 }}
+                layout
+                initial={{ opacity: 0, y: 120, marginTop: heroShrunk ? 24 : 96 }}
+                animate={{ opacity: 1, y: 0, marginTop: heroShrunk ? 24 : 96 }}
                 exit={{ opacity: 0, y: 120 }}
-                transition={{ duration: 0.8, ease: 'easeInOut' }}
+                transition={{ duration: 1.2, ease: 'easeInOut' }}
                 className="w-full"
               >
                 <div
