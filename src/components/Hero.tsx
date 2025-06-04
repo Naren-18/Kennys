@@ -68,12 +68,12 @@ const Hero = () => {
               >
                 <motion.img
                   src="/kennys_orange_glass_funky_spaced40.svg"
-                  alt="KENNY'S"
+                  alt="KENNY'S" 
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1.2, ease: 'easeInOut' }}
                   className="mx-auto block w-full max-w-[320px] sm:max-w-[420px] md:max-w-[600px] lg:max-w-[800px] xl:max-w-[1000px]"
-                  style={{
+                  style={{ 
                     filter: 'drop-shadow(0 2px 8px rgba(255, 111, 31, 0.25))',
                   }}
                 />
