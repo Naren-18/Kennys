@@ -120,25 +120,46 @@ const ScrollButtons = () => {
   );
 };
 
-// Loader component with animated KENNY'S using SVG for border and fluid fill
 const Loader = () => {
+  const text = "KENNY'S ";
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black">
-      <span className="loader-fadein-text">KENNY'S</span>
+    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black">
+      <div className="flex gap-1 funky-loader-text" aria-label="KENNY'S">
+        {text.split("").map((char, i) => (
+          <span
+            key={i}
+            style={{
+              display: "inline-block",
+              animation: `letterBounce 4s cubic-bezier(.22,1,.36,1) forwards, funkyGlow 2.5s infinite alternate`,
+              animationDelay: `${i * 0.09 + 0.1}s`,
+              opacity: 0,
+              color: "#FF8C42",
+              textShadow: "0 2px 16px #FF8C42aa, 0 0 0 2px #FF8C42, 0 1px 0 #fff, 0 4px 12px rgba(0,40,120,0.10), 0 0 24px rgba(255, 111, 31, 0.10)",
+              fontFamily: "'Permanent Marker', 'Satisfy', cursive",
+              fontSize: "4.2rem",
+              letterSpacing: "0.13em",
+            }}
+          >
+            {char}
+          </span>
+        ))}
+      </div>
+      
       <style>{`
-        .loader-fadein-text {
-          font-family: 'Anton', sans-serif;
-          font-size: 5rem;
-          font-weight: 700;
-          color: #FF6F1F;
-          opacity: 0;
-          animation: fadeIn 3s ease-in forwards;
-          letter-spacing: 0.12em;
+        @keyframes letterBounce {
+          0% { opacity: 0; transform: translateY(40px) scale(0.7) rotate(-8deg);}
+          60% { opacity: 1; transform: translateY(-10px) scale(1.12) rotate(2deg);}
+          80% { opacity: 1; transform: translateY(2px) scale(0.98) rotate(-1deg);}
+          100% { opacity: 1; transform: translateY(0) scale(1) rotate(0);}
         }
-        @keyframes fadeIn {
-          to {
-            opacity: 1;
-          }
+        @keyframes funkyGlow {
+          0% { text-shadow: 0 2px 16px #FF8C42aa, 0 0 0 2px #FF8C42, 0 1px 0 #fff, 0 4px 12px rgba(0,40,120,0.10), 0 0 24px rgba(255, 111, 31, 0.10);}
+          100% { text-shadow: 0 4px 32px #FF8C42, 0 0 0 4px #FF8C42, 0 2px 0 #fff, 0 8px 24px rgba(0,40,120,0.18), 0 0 48px rgba(255, 111, 31, 0.18);}
+        }
+        @keyframes typeIn {
+          0% { opacity: 0; width: 0; }
+          10% { opacity: 1; width: 0; }
+          100% { opacity: 1; width: 100%; }
         }
       `}</style>
     </div>

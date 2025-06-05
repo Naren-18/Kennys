@@ -77,26 +77,49 @@ const Hero = () => {
                   alt="KENNY'S"
                   initial={false}
                   animate={false}
-                  className="mx-auto block w-full max-w-[320px] sm:max-w-[420px] md:max-w-[600px] lg:max-w-[800px] xl:max-w-[1000px]"
+                  className={
+                    "mx-auto block w-full " +
+                    (heroShrunk
+                      ? "max-w-[320px] sm:max-w-[420px] md:max-w-[600px] lg:max-w-[800px] xl:max-w-[1000px]"
+                      : "max-w-[420px] sm:max-w-[480px] md:max-w-[600px] lg:max-w-[800px] xl:max-w-[1000px]")
+                  }
                   style={{
                     filter: 'drop-shadow(0 2px 8px rgba(255, 111, 31, 0.25))',
+                    position: 'relative',
+                    left: '-4%'
                   }}
                 />
               </motion.div>
               {/* Redesigned Subtitle */}
               <motion.div
                 layout
-                className={`mb-6 max-w-4xl mx-auto transition-all duration-700 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+                className={
+                  `max-w-4xl mx-auto transition-all duration-700 ease-out ` +
+                  (loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5') +
+                  (heroShrunk ? ' mb-4 sm:mb-4' : ' mb-6')
+                }
                 style={{ transitionDelay: loaded ? '200ms' : '0ms' }}
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, ease: 'easeInOut' }}
               >
-                <p className="text-[#FF8C42] font-handwritten font-medium mx-auto tracking-wider leading-tight" style={{ fontSize: heroShrunk ? '1.5rem' : '2.7rem', fontFamily: 'Satisfy, cursive', transition: 'font-size 0.8s cubic-bezier(0.4,0,0.2,1)' }}>
+                <p
+                  className={
+                    "text-[#FF8C42] font-handwritten font-medium mx-auto tracking-wider leading-tight " +
+                    (heroShrunk
+                      ? "text-sm sm:text-base"
+                      : "")
+                  }
+                  style={{
+                    fontSize: heroShrunk ? '2.25rem' : '3.5rem',
+                    fontFamily: 'Satisfy, cursive',
+                    transition: 'font-size 0.8s cubic-bezier(0.4,0,0.2,1)'
+                  }}
+                >
                   NEIGHBOURHOOD BAR
                 </p>
                 {/* Reserve Now and Events Buttons */}
-                <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
+                <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
                   <Link to="/book-table">
                     <button className="py-3 px-8 text-center uppercase font-semibold tracking-wide text-[#FF6F1F] text-lg bg-transparent border-2 border-[#FF6F1F] hover:bg-[#FF6F1F] hover:text-white rounded-full transform hover:scale-105 transition-all duration-300 ease-in-out">
                       Reserve Now
@@ -122,15 +145,28 @@ const Hero = () => {
               <motion.div
                 key="special-offers"
                 layout
-                initial={{ opacity: 0, y: 120, marginTop: heroShrunk ? 24 : 96 }}
-                animate={{ opacity: 1, y: 0, marginTop: heroShrunk ? 24 : 96 }}
+                initial={{
+                  opacity: 0,
+                  y: 120,
+                  marginTop: heroShrunk ? 8 : 32 // fallback, will be overridden by style below
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  marginTop: heroShrunk ? 8 : 32 // fallback, will be overridden by style below
+                }}
                 exit={{ opacity: 0, y: 120 }}
                 transition={{ duration: 1.2, ease: 'easeInOut' }}
                 className="w-full"
+                style={{
+                  marginTop: heroShrunk
+                    ? '0rem' // no gap after transition on mobile
+                    : '2rem',  // mobile before: larger gap
+                  // On md+ screens, the parent div's marginTop (1.5rem/6rem) will take over
+                }}
               >
                 <div
                   className="transition-all duration-700"
-                  style={{ marginTop: heroShrunk ? '1.5rem' : '6rem' }}
                 >
                   <Promotions loaded={loaded} />
                 </div>

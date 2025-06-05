@@ -145,14 +145,14 @@ const Navbar = () => {
         {/* Fixed height container for the entire sidebar content */}
         <div className="flex flex-col h-full w-full">
           {/* Logo area - fixed height and width to prevent blinking during transitions */}
-          <div className="h-[180px] flex items-center justify-center">
+          <div className="h-[120px] sm:h-[180px] flex items-center justify-center overflow-visible">
             <div 
               className={cn(
                 'transition-all duration-500 overflow-visible',
                 isExpanded || isMobileMenuOpen ? 'w-[95%] max-w-[300px]' : 'w-16'
               )}
               style={{
-                height: isExpanded || isMobileMenuOpen ? '150px' : '70px', // Further enlarge height when expanded
+                height: isExpanded || isMobileMenuOpen ? (window.innerWidth < 640 ? '100px' : '150px') : '70px',
                 aspectRatio: isExpanded || isMobileMenuOpen ? 'auto' : '1 / 1',
                 display: 'flex',
                 alignItems: 'center',
@@ -168,7 +168,9 @@ const Navbar = () => {
                 style={{
                   maxHeight: '100%',
                   objectPosition: 'center',
-                  transform: isExpanded || isMobileMenuOpen ? 'scale(1.32)' : 'scale(1)'
+                  transform: isExpanded || isMobileMenuOpen
+                    ? (window.innerWidth < 640 ? 'scale(1.08)' : 'scale(1.32)')
+                    : 'scale(1)'
                 }}
               />
             </div>
@@ -237,7 +239,7 @@ const Navbar = () => {
               >
                 {/* Glow effect in the background */}
                 <div className="absolute -inset-[1px] bg-[#FF6F1F]/10 rounded-xl blur-sm opacity-70" />
-                <div className="w-[26px] h-[26px] flex items-center justify-center flex-shrink-0 relative z-10">
+                <div className="w-[26px] h-[26px] flex items-center justify-center flex-shrink-0 relative z-10" style={{position: 'relative', left: '7%'}}>
                   <div className="flex items-center justify-center w-6 h-6 rounded-full bg-[#FF6F1F]/20 p-1">
                     <UtensilsCrossed className="w-4 h-4" />
                   </div>
