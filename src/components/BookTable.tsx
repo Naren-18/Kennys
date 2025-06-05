@@ -401,6 +401,13 @@ const BookTable = () => {
           </form>
         </DialogContent>
       </Dialog>
+      {/* Copyright Claim */}
+      <div className="mt-12 flex justify-center">
+        <div className="flex items-center gap-2 px-6 py-2 rounded-full bg-gradient-to-r from-[#FF6F1F]/20 via-[#FF8C42]/20 to-[#FF6F1F]/20 border border-[#FF8C42]/30 shadow-sm text-xs text-white/70 font-medium tracking-wide">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#FF8C42]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
+          <span>Website designed by <span className="text-[#FF8C42] font-semibold">COGNITIMAX</span> &copy; {new Date().getFullYear()}</span>
+        </div>
+      </div>
     </section>
   );
 };
