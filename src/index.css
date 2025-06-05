@@ -606,3 +606,26 @@ footer:last-child {
   opacity: 0.7;
   z-index: 2;
 }
+
+/* Custom Scrollbar Styles for Dark Theme */
+::-webkit-scrollbar {
+  width: 10px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #FF6F1F 30%, #FF8C42 100%);
+  border-radius: 8px;
+  border: 2px solid #1a1a1a;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 8px;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #FF8C42 #1a1a1a;
+}

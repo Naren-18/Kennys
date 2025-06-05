@@ -195,36 +195,33 @@ const BookTable = () => {
       
       {/* Booking Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="bg-black/90 border border-[#FF6F1F]/30 text-white sm:max-w-lg w-full max-w-[95vw] min-h-[60vh] max-h-[90vh] rounded-xl shadow-xl p-4 sm:p-8 flex flex-col mx-auto my-auto">
+        <DialogContent className="bg-black/90 border border-[#FF6F1F]/30 text-white w-full max-w-[98vw] sm:max-w-lg md:max-w-xl lg:max-w-2xl max-h-[90vh] h-auto overflow-y-auto rounded-xl shadow-xl p-2 sm:p-4 md:p-8 flex flex-col mx-auto my-auto">
           {/* Decorative corner elements */}
-          <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-[#FF6F1F]/40 rounded-tl-xl"></div>
-          <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#FF6F1F]/40 rounded-br-xl"></div>
-          
+          <div className="absolute top-0 left-0 w-10 h-10 md:w-16 md:h-16 border-t-2 border-l-2 border-[#FF6F1F]/40 rounded-tl-xl"></div>
+          <div className="absolute bottom-0 right-0 w-10 h-10 md:w-16 md:h-16 border-b-2 border-r-2 border-[#FF6F1F]/40 rounded-br-xl"></div>
           {/* Decorative blur elements */}
-          <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-[#FF6F1F]/10 blur-[80px] opacity-60"></div>
-          <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-[#FF8C42]/10 blur-[80px] opacity-60"></div>
-          
+          <div className="absolute -top-10 -right-10 md:-top-20 md:-right-20 w-32 h-32 md:w-64 md:h-64 rounded-full bg-[#FF6F1F]/10 blur-[40px] md:blur-[80px] opacity-60"></div>
+          <div className="absolute -bottom-10 -left-10 md:-bottom-20 md:-left-20 w-32 h-32 md:w-64 md:h-64 rounded-full bg-[#FF8C42]/10 blur-[40px] md:blur-[80px] opacity-60"></div>
           <DialogHeader className="relative z-10">
             <div className="flex justify-center mb-2">
-              <div className="bg-gradient-to-r from-[#FF6F1F]/20 to-[#FF8C42]/20 p-3 rounded-full">
-                <CalendarClock className="h-6 w-6 text-[#FF8C42]" />
+              <div className="bg-gradient-to-r from-[#FF6F1F]/20 to-[#FF8C42]/20 p-2 md:p-3 rounded-full">
+                <CalendarClock className="h-5 w-5 md:h-6 md:w-6 text-[#FF8C42]" />
               </div>
             </div>
             <DialogTitle className="text-center">
-              <h2 className="text-[#FF8C42] font-handwritten text-4xl mb-1 relative inline-block">
+              <h2 className="text-[#FF8C42] font-handwritten text-2xl md:text-4xl mb-1 relative inline-block">
                 Book Your Table
                 <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FF6F1F] to-transparent"></div>
               </h2>
             </DialogTitle>
-            <DialogDescription className="text-white/70 text-center">
+            <DialogDescription className="text-white/70 text-center text-sm md:text-base">
               Fill out the form below and we'll confirm your reservation shortly.
             </DialogDescription>
           </DialogHeader>
-          
-          <form onSubmit={handleSubmit} className="space-y-5 pt-6 relative z-10 w-full max-w-md">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5 pt-4 md:pt-6 relative z-10 w-full max-w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
               <div className="space-y-2 relative">
-                <label htmlFor="name" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
+                <label htmlFor="name" className="text-xs md:text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
                   <span>Full Name</span>
                 </label>
                 <div className="relative">
@@ -235,17 +232,16 @@ const BookTable = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-3 pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300"
+                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-2 md:p-3 pl-8 md:pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300 text-sm md:text-base"
                     placeholder="John Doe"
                   />
-                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
+                  <div className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
                     <Users className="h-4 w-4" />
                   </div>
                 </div>
               </div>
-              
               <div className="space-y-2 relative">
-                <label htmlFor="phone" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
+                <label htmlFor="phone" className="text-xs md:text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
                   <span>Phone Number</span>
                 </label>
                 <div className="relative">
@@ -256,18 +252,17 @@ const BookTable = () => {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-3 pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300"
+                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-2 md:p-3 pl-8 md:pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300 text-sm md:text-base"
                     placeholder="(123) 456-7890"
                   />
-                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
+                  <div className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
                     <Phone className="h-4 w-4" />
                   </div>
                 </div>
               </div>
             </div>
-            
             <div className="space-y-2 relative">
-              <label htmlFor="email" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
+              <label htmlFor="email" className="text-xs md:text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
                 <span>Email Address</span>
               </label>
               <div className="relative">
@@ -278,18 +273,17 @@ const BookTable = () => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-3 pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300"
+                  className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-2 md:p-3 pl-8 md:pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300 text-sm md:text-base"
                   placeholder="your@email.com"
                 />
-                <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
+                <div className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
                   <Mail className="h-4 w-4" />
                 </div>
               </div>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
               <div className="space-y-2 relative">
-                <label htmlFor="date" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
+                <label htmlFor="date" className="text-xs md:text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
                   <span>Date</span>
                 </label>
                 <div className="relative">
@@ -300,17 +294,16 @@ const BookTable = () => {
                     required
                     value={formData.date}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-3 pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300"
+                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-2 md:p-3 pl-8 md:pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300 text-sm md:text-base"
                     min={new Date().toISOString().split('T')[0]}
                   />
-                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
+                  <div className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
                     <Calendar className="h-4 w-4" />
                   </div>
                 </div>
               </div>
-              
               <div className="space-y-2 relative">
-                <label htmlFor="time" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
+                <label htmlFor="time" className="text-xs md:text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
                   <span>Time</span>
                 </label>
                 <div className="relative">
@@ -321,18 +314,17 @@ const BookTable = () => {
                     required
                     value={formData.time}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-3 pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300"
+                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-2 md:p-3 pl-8 md:pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300 text-sm md:text-base"
                   />
-                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
+                  <div className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
                     <Clock className="h-4 w-4" />
                   </div>
                 </div>
               </div>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
               <div className="space-y-2 relative">
-                <label htmlFor="guests" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
+                <label htmlFor="guests" className="text-xs md:text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
                   <span>Number of Guests</span>
                 </label>
                 <div className="relative">
@@ -342,21 +334,20 @@ const BookTable = () => {
                     required
                     value={formData.guests}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-3 pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300 appearance-none"
+                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-2 md:p-3 pl-8 md:pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300 appearance-none text-sm md:text-base"
                   >
                     {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
                       <option key={num} value={num}>{num} {num === 1 ? 'Person' : 'People'}</option>
                     ))}
                     <option value="9+">9+ People (Large Party)</option>
                   </select>
-                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
+                  <div className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
                     <Users className="h-4 w-4" />
                   </div>
                 </div>
               </div>
-              
               <div className="space-y-2 relative">
-                <label htmlFor="occasion" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
+                <label htmlFor="occasion" className="text-xs md:text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
                   <span>Occasion (Optional)</span>
                 </label>
                 <div className="relative">
@@ -365,7 +356,7 @@ const BookTable = () => {
                     name="occasion"
                     value={formData.occasion}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-3 pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300 appearance-none"
+                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-2 md:p-3 pl-8 md:pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300 appearance-none text-sm md:text-base"
                   >
                     <option value="none">None</option>
                     <option value="birthday">Birthday</option>
@@ -374,24 +365,22 @@ const BookTable = () => {
                     <option value="business">Business Meeting</option>
                     <option value="other">Other</option>
                   </select>
-                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
+                  <div className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
                     <PartyPopper className="h-4 w-4" />
                   </div>
                 </div>
               </div>
             </div>
-            
-            <div className="pt-4">
+            <div className="pt-2 md:pt-4">
               <button 
                 type="submit" 
-                className="w-full py-3 px-6 text-center inline-flex justify-center items-center gap-2 text-base rounded-lg transition-all duration-300 bg-gradient-to-r from-[#FF6F1F] to-[#FF8C42] text-white font-medium hover:shadow-lg hover:shadow-[#FF6F1F]/20 group"
+                className="w-full py-2 md:py-3 px-4 md:px-6 text-center inline-flex justify-center items-center gap-2 text-base rounded-lg transition-all duration-300 bg-gradient-to-r from-[#FF6F1F] to-[#FF8C42] text-white font-medium hover:shadow-lg hover:shadow-[#FF6F1F]/20 group"
               >
                 <Calendar className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                 <span>Confirm Reservation</span>
               </button>
             </div>
-            
-            <div className="text-center text-white/50 text-xs mt-4 italic">
+            <div className="text-center text-white/50 text-xs mt-2 md:mt-4 italic">
               <p>We'll send a confirmation to your email once your reservation is confirmed.</p>
               <p className="mt-1 flex items-center justify-center gap-1">
                 <MapPin className="h-3 w-3 text-[#FF6F1F]/70" />
