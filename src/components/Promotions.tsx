@@ -36,7 +36,7 @@ const Promotions: React.FC<PromotionsProps> = ({ loaded }) => {
 	return (
 		<section
 			id="promotions"
-			className="relative z-20 py-12 md:py-16" // Adjusted padding
+			className="relative z-20 " // Adjusted padding
 		>
 			<div className="container mx-auto px-4">
 				<h2 className="text-center text-3xl md:text-4xl font-alt2 mb-10 md:mb-12 text-[#FF8C42] drop-shadow-xl">

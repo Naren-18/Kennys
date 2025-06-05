@@ -6,12 +6,20 @@ import Promotions from '@/components/Promotions';
 import { Calendar, Home, Utensils, MapPin, Users, ShoppingBag, Phone } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import BeerPourLogo from './BeerPourLogo';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Hero = () => {
   const [loaded, setLoaded] = useState(false);
+  const [showSpecialOffers, setShowSpecialOffers] = useState(false);
+  const [heroShrunk, setHeroShrunk] = useState(false);
 
   useEffect(() => {
     setLoaded(true);
+    const timer = setTimeout(() => {
+      setShowSpecialOffers(true);
+      setHeroShrunk(true);
+    }, 5000); // 5 seconds delay
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -41,46 +49,94 @@ const Hero = () => {
       <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 md:pt-24 lg:pt-28">
         {/* Content */}
         <div className="container mx-auto px-4 relative z-30 text-center max-w-6xl flex flex-col items-center">
-          {/* Main logo/heading */}
-          <div className={`mb-8 flex justify-center transition-all duration-700 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
-               style={{ transitionDelay: loaded ? '100ms' : '0ms', position: 'relative' }}>
-            <BeerPourLogo />
-          </div>
-            
-          {/* Redesigned Subtitle */}
-          <div className={`mb-10 max-w-4xl mx-auto transition-all duration-700 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
-               style={{ transitionDelay: loaded ? '200ms' : '0ms' }}>
-            <p className="text-white font-serif text-xl md:text-3xl lg:text-4xl font-medium mx-auto tracking-wider leading-tight">
-              NEIGHBOURHOOD BAR
-            </p>
-          </div>
-
-          {/* Redesigned Tagline */}
-          <p className={`text-gray-300 text-md md:text-lg mb-12 font-normal tracking-widest transition-all duration-700 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
-             style={{ transitionDelay: loaded ? '300ms' : '0ms' }}>
-            GOOD DRINKS • GOOD TIMES • SINCE 2010
-          </p>
-
-          {/* Redesigned Buttons */}
-          <div className={`flex flex-col sm:flex-row justify-center gap-6 mt-10 transition-all duration-700 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
-               style={{ transitionDelay: loaded ? '400ms' : '0ms' }}>
-            <Link to="/about">
-              <button className="py-3 px-8 text-center uppercase font-semibold tracking-wide text-white bg-[#FF6F1F] hover:bg-[#E0601A] rounded-full transform hover:scale-105 transition-all duration-300 ease-in-out">
-                Our Story
-              </button>
-            </Link>
-            <Link to="/events">
-              <button className="py-3 px-8 text-center uppercase font-semibold tracking-wide text-[#FF6F1F] bg-transparent border-2 border-[#FF6F1F] hover:bg-[#FF6F1F] hover:text-white rounded-full transform hover:scale-105 transition-all duration-300 ease-in-out">
-                Today's Events
-              </button>
-            </Link>
-          </div>
-        </div>
-
-        {/* Promotions section */}
-        <div className={`w-full relative z-30 mt-24 transition-all duration-700 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-             style={{ transitionDelay: loaded ? '600ms' : '0ms' }}>
-          <Promotions loaded={loaded} />
+          {/* Glass-style KENNY'S heading */}
+          <AnimatePresence>
+            <motion.div
+              key="hero-main"
+              layout
+              initial={{ opacity: 1, y: 0, scale: 1 }}
+              animate={heroShrunk
+                ? { opacity: 1, y: -120, scale: 0.7 }
+                : { opacity: 1, y: 0, scale: 1 }
+              }
+              transition={{ duration: 1.2, ease: 'easeInOut' }}
+              className="w-full flex flex-col items-center mt-6 md:mt-0"
+              style={{ height: heroShrunk ? '190px' : '340px', transition: 'height 1.2s cubic-bezier(0.4,0,0.2,1)' }}
+            >
+              <motion.div
+                layout
+                className={`mb-4 flex justify-center transition-all duration-700 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+                style={{ transitionDelay: loaded ? '100ms' : '0ms', position: 'relative' }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, ease: 'easeInOut' }}
+              >
+                <motion.img
+                  layout
+                  src="/kennys_orange_glass_funky_spaced40.svg"
+                  alt="KENNY'S"
+                  initial={false}
+                  animate={false}
+                  className="mx-auto block w-full max-w-[320px] sm:max-w-[420px] md:max-w-[600px] lg:max-w-[800px] xl:max-w-[1000px]"
+                  style={{
+                    filter: 'drop-shadow(0 2px 8px rgba(255, 111, 31, 0.25))',
+                  }}
+                />
+              </motion.div>
+              {/* Redesigned Subtitle */}
+              <motion.div
+                layout
+                className={`mb-6 max-w-4xl mx-auto transition-all duration-700 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+                style={{ transitionDelay: loaded ? '200ms' : '0ms' }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, ease: 'easeInOut' }}
+              >
+                <p className="text-[#FF8C42] font-handwritten font-medium mx-auto tracking-wider leading-tight" style={{ fontSize: heroShrunk ? '1.5rem' : '2.7rem', fontFamily: 'Satisfy, cursive', transition: 'font-size 0.8s cubic-bezier(0.4,0,0.2,1)' }}>
+                  NEIGHBOURHOOD BAR
+                </p>
+                {/* Reserve Now and Events Buttons */}
+                <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
+                  <Link to="/book-table">
+                    <button className="py-3 px-8 text-center uppercase font-semibold tracking-wide text-[#FF6F1F] text-lg bg-transparent border-2 border-[#FF6F1F] hover:bg-[#FF6F1F] hover:text-white rounded-full transform hover:scale-105 transition-all duration-300 ease-in-out">
+                      Reserve Now
+                    </button>
+                  </Link>
+                  <Link to="/events">
+                    <button className="py-3 px-8 text-center uppercase font-semibold tracking-wide text-[#FF6F1F] text-lg bg-transparent border-2 border-[#FF6F1F] hover:bg-[#FF6F1F] hover:text-white rounded-full transform hover:scale-105 transition-all duration-300 ease-in-out">
+                      Events
+                    </button>
+                  </Link>
+                </div>
+              </motion.div>
+              {/* Redesigned Tagline */}
+              {/* <p className={`text-gray-300 text-md md:text-lg mb-12 font-normal tracking-widest transition-all duration-700 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
+                style={{ transitionDelay: loaded ? '300ms' : '0ms' }}>
+                GOOD DRINKS • GOOD TIMES • SINCE 2010
+              </p> */}
+            </motion.div>
+          </AnimatePresence>
+          {/* Special Offers section fade/slide in */}
+          <AnimatePresence>
+            {showSpecialOffers && (
+              <motion.div
+                key="special-offers"
+                layout
+                initial={{ opacity: 0, y: 120, marginTop: heroShrunk ? 24 : 96 }}
+                animate={{ opacity: 1, y: 0, marginTop: heroShrunk ? 24 : 96 }}
+                exit={{ opacity: 0, y: 120 }}
+                transition={{ duration: 1.2, ease: 'easeInOut' }}
+                className="w-full"
+              >
+                <div
+                  className="transition-all duration-700"
+                  style={{ marginTop: heroShrunk ? '1.5rem' : '6rem' }}
+                >
+                  <Promotions loaded={loaded} />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
         {/* Info Cards Section - below Promotions */}
