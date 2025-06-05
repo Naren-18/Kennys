@@ -106,12 +106,14 @@ const Hero = () => {
                 <p
                   className={
                     "text-[#FF8C42] font-handwritten font-medium mx-auto tracking-wider leading-tight " +
+                    // Responsive font size: small on mobile, large on md+ screens
                     (heroShrunk
-                      ? "text-sm sm:text-base"
-                      : "")
+                      ? "text-xl md:text-4xl"
+                      : "text-base md:text-3.5xl")
                   }
                   style={{
-                    fontSize: heroShrunk ? '2.25rem' : '3.5rem',
+                    // Only apply large font size on md+ screens, let Tailwind handle mobile
+                    fontSize: heroShrunk ? undefined : undefined,
                     fontFamily: 'Satisfy, cursive',
                     transition: 'font-size 0.8s cubic-bezier(0.4,0,0.2,1)'
                   }}
