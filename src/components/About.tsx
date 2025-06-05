@@ -25,10 +25,10 @@ const weekEvents = [
 ];
 
 const hours = [
-  { day: 'Monday - Thursday', time: '4pm - 12am' },
-  { day: 'Friday', time: '4pm - 2am' },
-  { day: 'Saturday', time: '2pm - 2am' },
-  { day: 'Sunday', time: '2pm - 10pm' },
+  { day: 'Monday - Thursday', time: '4pm - 1am' },
+  { day: 'Friday', time: '4pm - 1am' },
+  { day: 'Saturday', time: '2pm - 1am' },
+  { day: 'Sunday', time: '2pm - 1pm' },
 ];
 
 const aboutDescription = `Kenny's Bar is your friendly neighborhood spot for great drinks, good company, and unforgettable nights. Whether you're here for our weekly events or just to unwind, we offer a welcoming atmosphere and top-notch service. Join us and experience the best of Marathahalli's nightlife!`;

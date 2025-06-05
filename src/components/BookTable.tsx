@@ -384,7 +384,7 @@ const BookTable = () => {
               <p>We'll send a confirmation to your email once your reservation is confirmed.</p>
               <p className="mt-1 flex items-center justify-center gap-1">
                 <MapPin className="h-3 w-3 text-[#FF6F1F]/70" />
-                <span>Kenny's Bar, 123 Main Street, Downtown</span>
+                <span>Kenny's Bar</span>
               </p>
             </div>
           </form>
