@@ -12,10 +12,10 @@ const GlassCard = ({ children, className = "" }) => (
 );
 
 const aboutLinks = [
-  { icon: <BookOpen className="h-5 w-5 text-[#FF8C42]" />, label: 'About Us', href: '#' },
-  { icon: <Users className="h-5 w-5 text-[#FF8C42]" />, label: 'Neighborhood Stories', href: '#' },
-  { icon: <Calendar className="h-5 w-5 text-[#FF8C42]" />, label: 'Events Calendar', href: '#' },
-  { icon: <Star className="h-5 w-5 text-[#FF8C42]" />, label: 'Digital Regulars', href: '#' },
+  { icon: <BookOpen className="h-5 w-5 text-[#FF8C42]" />, label: 'Menu', href: '/menu' },
+  { icon: <Users className="h-5 w-5 text-[#FF8C42]" />, label: 'Stories', href: '/stories' },
+  { icon: <Calendar className="h-5 w-5 text-[#FF8C42]" />, label: 'Events', href: '/events' },
+  { icon: <Star className="h-5 w-5 text-[#FF8C42]" />, label: 'Gallery', href: '/gallery' },
 ];
 
 const weekEvents = [
