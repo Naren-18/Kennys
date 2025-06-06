@@ -45,7 +45,7 @@ const BookTable = () => {
   };
 
   return (
-    <section id="book-table" className="py-24 bg-kenny-dark relative overflow-hidden ml-16 section-with-sidebar">
+    <section id="book-table" className="py-24 bg-kenny-dark relative overflow-hidden section-with-sidebar">
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
         <div className="absolute top-40 right-40 w-96 h-96 rounded-full bg-[#FF6F1F]/20 blur-[100px] opacity-50"></div>
@@ -195,14 +195,14 @@ const BookTable = () => {
       
       {/* Booking Dialog */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="bg-black/90 border border-[#FF6F1F]/30 text-white w-full max-w-[98vw] sm:max-w-lg md:max-w-xl lg:max-w-2xl max-h-[90vh] h-auto overflow-y-auto rounded-xl shadow-xl p-2 sm:p-4 md:p-8 flex flex-col mx-auto my-auto">
+        <DialogContent className="bg-black/90 border border-[#FF6F1F]/30 text-white w-full max-w-[98vw] sm:max-w-lg md:max-w-xl lg:max-w-2xl max-h-[90vh] h-auto overflow-y-auto rounded-xl shadow-xl p-4 sm:p-6 md:p-8 flex flex-col items-center mx-auto my-auto">
           {/* Decorative corner elements */}
           <div className="absolute top-0 left-0 w-10 h-10 md:w-16 md:h-16 border-t-2 border-l-2 border-[#FF6F1F]/40 rounded-tl-xl"></div>
           <div className="absolute bottom-0 right-0 w-10 h-10 md:w-16 md:h-16 border-b-2 border-r-2 border-[#FF6F1F]/40 rounded-br-xl"></div>
           {/* Decorative blur elements */}
           <div className="absolute -top-10 -right-10 md:-top-20 md:-right-20 w-32 h-32 md:w-64 md:h-64 rounded-full bg-[#FF6F1F]/10 blur-[40px] md:blur-[80px] opacity-60"></div>
           <div className="absolute -bottom-10 -left-10 md:-bottom-20 md:-left-20 w-32 h-32 md:w-64 md:h-64 rounded-full bg-[#FF8C42]/10 blur-[40px] md:blur-[80px] opacity-60"></div>
-          <DialogHeader className="relative z-10">
+          <DialogHeader className="relative z-10 w-full max-w-[280px] sm:max-w-none">
             <div className="flex justify-center mb-2">
               <div className="bg-gradient-to-r from-[#FF6F1F]/20 to-[#FF8C42]/20 p-2 md:p-3 rounded-full">
                 <CalendarClock className="h-5 w-5 md:h-6 md:w-6 text-[#FF8C42]" />
@@ -218,7 +218,7 @@ const BookTable = () => {
               Fill out the form below and we'll confirm your reservation shortly.
             </DialogDescription>
           </DialogHeader>
-          <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5 pt-4 md:pt-6 relative z-10 w-full max-w-full">
+          <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5 pt-4 md:pt-6 relative z-10 w-full max-w-[280px] sm:max-w-none">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
               <div className="space-y-2 relative">
                 <label htmlFor="name" className="text-xs md:text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
