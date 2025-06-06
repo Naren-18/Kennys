@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, BookOpen, Users, Calendar, Star } from 'lucide-react';
+import { Phone, BookOpen, Users, Calendar, Star, Instagram, Facebook, Mail } from 'lucide-react';
 import { useEffect } from 'react';
 
 // Updated GlassCard for better glassmorphism
@@ -75,11 +75,29 @@ const About = () => (
           <p className="text-[#FF8C42] text-lg font-semibold mb-4">NEIGHBOURHOOD BAR</p>
           <p className="text-white/90 text-base md:text-lg mb-4" style={{ maxWidth: '600px' }}>{aboutDescription}</p>
           <p className="text-white/80 font-['Montserrat'] text-base md:text-lg font-medium mb-1">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bangalore</p>
-          <div className="flex items-center gap-2 mb-6 mt-2">
-            <Phone className="h-5 w-5 text-[#FF8C42]" />
-            <span className="text-white text-base font-semibold">+91 9317417517</span>
+          {/* Contact Buttons: Phone & Email */}
+          <div className="flex gap-4 mb-3 mt-4 flex-wrap">
+            <a href="tel:+919317417517" className="flex-1 min-w-[140px] flex items-center justify-center gap-2 bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full px-3 py-2 transition-colors duration-300 font-medium text-white">
+              <Phone className="h-6 w-6 text-[#FF8C42]" />
+              <span className="text-sm">+91 9317417517</span>
+            </a>
+            <a href="mailto:info@kennys.bar" className="flex-1 min-w-[140px] flex items-center justify-center gap-2 bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full px-3 py-2 transition-colors duration-300 font-medium text-white">
+              <Mail className="h-6 w-6 text-[#FF8C42]" />
+              <span className="text-sm">info@kennys.bar</span>
+            </a>
           </div>
-          <a href="#book-table">
+          {/* Social Icons: Instagram & Facebook */}
+          <div className="flex gap-4 mb-6 flex-wrap">
+            <a href="https://www.instagram.com/kenny.sbar?igsh=ajFkamh0dzZueXR6" target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[140px] flex items-center justify-center gap-2 bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full px-3 py-2 transition-colors duration-300 font-medium text-white">
+              <Instagram className="h-6 w-6 text-[#FF8C42]" />
+              <span className="text-sm">Instagram</span>
+            </a>
+            <a href="https://www.facebook.com/people/Kennys-Bar/61576548480813/" target="_blank" rel="noopener noreferrer" className="flex-1 min-w-[140px] flex items-center justify-center gap-2 bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full px-3 py-2 transition-colors duration-300 font-medium text-white">
+              <Facebook className="h-6 w-6 text-[#FF8C42]" />
+              <span className="text-sm">Facebook</span>
+            </a>
+          </div>
+          <a href="/book-table">
             <button className="mt-2 py-3 px-8 text-center uppercase font-semibold tracking-wide text-white text-lg bg-[#FF8C42] hover:bg-[#E0601A] rounded-full shadow-lg transition-all duration-300 ease-in-out">
               Book a Table
             </button>

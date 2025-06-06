@@ -131,23 +131,21 @@ const BookTable = () => {
                 <p className="text-white/80 mb-1">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bangalore</p>
                 <p className="text-white/80 mb-6">Open daily from 11:00 AM to 1:00 AM</p>
                 
-                <div className="flex flex-wrap justify-center gap-3 w-full">
+                <div className="flex flex-wrap justify-center gap-4 w-full mt-6">
                   <a 
                     href="https://maps.app.goo.gl/c5P23wAwkaBWzrTD9" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm py-2 px-4 bg-gradient-to-r from-[#FF6F1F]/10 to-[#FF8C42]/10 hover:from-[#FF6F1F]/20 hover:to-[#FF8C42]/20 border border-[#FF6F1F]/30 text-white rounded-lg transition-all duration-300 flex-1 justify-center"
+                    className="flex-1 min-w-[180px] flex items-center justify-center gap-2 text-base py-3 px-4 bg-gradient-to-r from-[#FF6F1F]/10 to-[#FF8C42]/10 hover:from-[#FF6F1F]/20 hover:to-[#FF8C42]/20 border border-[#FF6F1F]/30 text-white rounded-lg transition-all duration-300 font-semibold text-center"
                   >
-                    <span>Get Directions</span>
+                    Get Directions
                   </a>
                   <a 
-                    href="tel:+919317417517
-" 
-                    className="inline-flex items-center gap-1 text-sm py-2 px-4 bg-gradient-to-r from-[#FF6F1F]/10 to-[#FF8C42]/10 hover:from-[#FF6F1F]/20 hover:to-[#FF8C42]/20 border border-[#FF6F1F]/30 text-white rounded-lg transition-all duration-300 flex-1 justify-center"
+                    href="tel:+919317417517" 
+                    className="flex-1 min-w-[180px] flex items-center justify-center gap-2 text-base py-3 px-4 bg-gradient-to-r from-[#FF6F1F]/10 to-[#FF8C42]/10 hover:from-[#FF6F1F]/20 hover:to-[#FF8C42]/20 border border-[#FF6F1F]/30 text-white rounded-lg transition-all duration-300 font-semibold text-center"
                   >
-                    <Phone className="h-3 w-3" />
-                    <span>+91 9317417517
-                    </span>
+                    <Phone className="h-5 w-5 text-[#FF8C42]" />
+                    +91 9317417517
                   </a>
                 </div>
               </div>
@@ -170,7 +168,7 @@ const BookTable = () => {
                 
                 {/* Takeaway Section */}
                 <div className="mt-8 w-full">
-                  <h3 className="text-[#FF8C42] font-title text-lg mb-3 text-center md:text-left">Takeaway Available</h3>
+                  {/* <h3 className="text-[#FF8C42] font-title text-lg mb-3 text-center md:text-left">Takeaway Available</h3> */}
                   <div className="flex flex-wrap justify-center gap-3 w-full">
                     <a 
                       href="https://www.swiggy.com/" 

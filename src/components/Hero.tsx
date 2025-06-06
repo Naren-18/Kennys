@@ -36,7 +36,7 @@ const Hero = () => {
           className="absolute top-1/2 left-1/2 w-auto h-auto min-w-full min-h-full object-cover transform -translate-x-1/2 -translate-y-1/2"
           poster="/images/hero-poster.jpg" // Optional: A poster image shown while the video loads
         >
-          <source src="/background.MOV" type="video/quicktime" />
+          {/* <source src="/background.MOV" type="video/quicktime" /> */}
           {/* You can add more <source> tags for different video formats if needed, e.g., webm, ogg */}
           Your browser does not support the video tag.
           {/* Fallback: You could place an <img> tag here for browsers that don't support video */}
