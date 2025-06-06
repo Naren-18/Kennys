@@ -176,7 +176,7 @@ const Footer = () => {
                 </button>
               </a>
             </div>
-            {/* Order Online Card */}
+            Order Online Card
             <div className="bg-[#3a1c0f] rounded-2xl shadow-lg p-8 flex-1 flex flex-col justify-between max-w-md">
               <h3 className="text-2xl font-title text-kenny-amber mb-4">Order Online</h3>
               <div className="flex flex-col gap-4 mt-4">
