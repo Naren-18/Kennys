@@ -58,7 +58,7 @@ const About = () => (
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}
-      className="relative z-20 w-full max-w-6xl mx-auto px-4 py-10 md:py-16 flex flex-col md:flex-row gap-10 md:gap-0 items-stretch"
+      className="relative z-20 w-full max-w-6xl mx-auto px-4 py-10 md:py-16 flex flex-col md:flex-row gap-10 md:gap-0 items-stretch md:mr-16"
     >
       {/* Left Column */}
       <motion.div
