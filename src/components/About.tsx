@@ -71,10 +71,10 @@ const About = () => (
         {/* Accent Bar */}
         <div className="absolute left-0 top-8 bottom-8 w-2 bg-[#FF8C42] rounded-r-lg accent-bar-glow" style={{ minHeight: '120px', animation: 'accentBarPulse 2.5s infinite' }} />
         <div className="relative z-10 pl-6">
-          <h1 className="text-white font-bold text-4xl md:text-5xl mb-4 leading-tight font-['League_Spartan']" style={{ letterSpacing: '0.04em', fontFamily: 'Anton, sans-serif' }}>About Kenny's Bar</h1>
+          <h1 className="text-white font-bold text-4xl md:text-5xl mb-4 leading-tight font-sans" style={{ letterSpacing: '0.04em' }}>About Kenny's Bar</h1>
           <p className="text-[#FF8C42] text-lg font-semibold mb-4">NEIGHBOURHOOD BAR</p>
           <p className="text-white/90 text-base md:text-lg mb-4" style={{ maxWidth: '600px' }}>{aboutDescription}</p>
-          <p className="text-white/80 font-['Montserrat'] text-base md:text-lg font-medium mb-1">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bangalore</p>
+          <p className="text-white/80 font-sans text-base md:text-lg font-medium mb-1">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bangalore</p>
           {/* Contact Buttons: Phone & Email */}
           <div className="flex gap-4 mb-3 mt-4 flex-wrap">
             <a href="tel:+919317417517" className="flex-1 min-w-[140px] flex items-center justify-center gap-2 bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full px-3 py-2 transition-colors duration-300 font-medium text-white">

@@ -124,7 +124,7 @@ const Loader = () => {
   const text = "KENNY'S ";
   return (
     <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black">
-      <div className="flex gap-1 funky-loader-text" aria-label="KENNY'S">
+      <div className="flex gap-1 funky-loader-text font-sans" aria-label="KENNY'S">
         {text.split("").map((char, i) => (
           <span
             key={i}
@@ -135,7 +135,7 @@ const Loader = () => {
               opacity: 0,
               color: "#FF8C42",
               textShadow: "0 2px 16px #FF8C42aa, 0 0 0 2px #FF8C42, 0 1px 0 #fff, 0 4px 12px rgba(0,40,120,0.10), 0 0 24px rgba(255, 111, 31, 0.10)",
-              fontFamily: "'Permanent Marker', 'Satisfy', cursive",
+              fontFamily: "Trebuchet MS, sans-serif",
               fontSize: "4.2rem",
               letterSpacing: "0.13em",
             }}

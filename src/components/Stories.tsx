@@ -62,11 +62,11 @@ const Stories = () => {
           className="text-center mb-16 relative"
         >
           <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-[#FF6F1F] to-transparent"></div>
-          <h2 className="text-[#FF8C42] font-bold font-['League_Spartan'] text-5xl md:text-6xl mb-4 relative inline-block">
+          <h2 className="text-[#FF8C42] font-bold font-sans text-5xl md:text-6xl mb-4 relative inline-block">
             Neighborhood Stories
           </h2>
-          <h3 className="text-white font-semibold font-['League_Spartan'] text-2xl md:text-3xl mb-6">Memories Made at Kenny's</h3>
-          <p className="text-white/80 font-['Montserrat'] max-w-2xl mx-auto text-base md:text-lg">
+          <h3 className="text-white font-semibold font-sans text-2xl md:text-3xl mb-6">Memories Made at Kenny's</h3>
+          <p className="text-white/80 font-sans max-w-2xl mx-auto text-base md:text-lg">
             Our walls have witnessed countless moments of celebration, reconciliation, friendship, and love. 
             Here are some of the stories our customers have shared.
           </p>
@@ -102,12 +102,12 @@ const Stories = () => {
                 <CardContent className="p-6 flex flex-col flex-grow relative">
                   <Quote className="absolute text-[#FF6F1F]/20 h-12 w-12 -top-2 -left-2 rotate-180" />
                   <div className="flex-grow relative">
-                    <p className="text-white/90 font-['Montserrat'] italic mb-6 text-base leading-relaxed relative z-10">"{story.content}"</p>
+                    <p className="text-white/90 font-sans italic mb-6 text-base leading-relaxed relative z-10">"{story.content}"</p>
                   </div>
                   <div className="flex justify-between items-end pt-4 border-t border-white/10 mt-2">
                     <div className="flex items-center gap-2">
                       <Heart className="h-4 w-4 text-[#FF8C42]" />
-                      <span className="text-[#FF8C42] font-semibold font-['League_Spartan']">{story.author}</span>
+                      <span className="text-[#FF8C42] font-semibold font-sans">{story.author}</span>
                     </div>
                     <div className="flex items-center gap-2 text-white/50 text-sm">
                       <Calendar className="h-3.5 w-3.5" />
@@ -130,18 +130,17 @@ const Stories = () => {
                 <div className="absolute top-4 right-4 bg-[#FF6F1F]/10 p-2 rounded-full">
                   <PenLine className="h-5 w-5 text-[#FF8C42]" />
                 </div>
-                <h4 className="text-[#FF6F1F] font-semibold font-['League_Spartan'] text-xl mb-4 flex items-center gap-2">
+                <h4 className="text-[#FF6F1F] font-semibold font-sans text-xl mb-4 flex items-center gap-2">
                   <Star className="h-5 w-5" />
                   <span>Share Your Kenny's Story</span>
                 </h4>
-                <p className="text-white/80 font-['Montserrat'] mb-6 max-w-xs">
+                <p className="text-white/80 font-sans mb-6 max-w-xs">
                   Everyone who's spent time at Kenny's has a story. What's yours?
                 </p>
                 <Button
                   asChild
-                  className="relative cursor-pointer py-3 px-6 text-center font-barlow inline-flex justify-center text-base uppercase rounded-lg border-solid transition-all duration-300 ease-in-out group outline-offset-4 focus:outline focus:outline-2 focus:outline-white focus:outline-offset-4 overflow-hidden font-extrabold w-full"
+                  className="relative cursor-pointer py-3 px-6 text-center font-sans inline-flex justify-center text-base uppercase rounded-lg border-solid transition-all duration-300 ease-in-out group outline-offset-4 focus:outline focus:outline-2 focus:outline-white focus:outline-offset-4 overflow-hidden font-extrabold w-full"
                   style={{
-                    fontFamily: "'Montserrat', 'League Spartan', Arial, sans-serif",
                     background: 'linear-gradient(to right, #FF6F1F, #FF8C42)',
                     textShadow: '0 1px 4px #0008',
                     color: '#fff',
@@ -172,7 +171,7 @@ const Stories = () => {
             <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#FF6F1F]/50"></div>
           </div>
           <GlassCard className="inline-block px-6 py-3">
-            <p className="text-white/70 font-['Montserrat'] italic">
+            <p className="text-white/70 font-sans italic">
               Every story adds to the rich tapestry of Kenny's history. We're grateful for each one.
             </p>
           </GlassCard>

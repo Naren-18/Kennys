@@ -36,7 +36,7 @@ const Hero = () => {
           className="absolute top-1/2 left-1/2 w-auto h-auto min-w-full min-h-full object-cover transform -translate-x-1/2 -translate-y-1/2"
           poster="/images/hero-poster.jpg" // Optional: A poster image shown while the video loads
         >
-          {/* <source src="/background.MOV" type="video/quicktime" /> */}
+          <source src="/background.MOV" type="video/quicktime" />
           {/* You can add more <source> tags for different video formats if needed, e.g., webm, ogg */}
           Your browser does not support the video tag.
           {/* Fallback: You could place an <img> tag here for browsers that don't support video */}
@@ -106,16 +106,13 @@ const Hero = () => {
               >
                 <p
                   className={
-                    "text-[#FF8C42] font-handwritten font-medium mx-auto tracking-wider leading-tight " +
-                    // Responsive font size: small on mobile, large on md+ screens
+                    "text-[#FF8C42] font-sans font-medium mx-auto tracking-wider leading-tight " +
                     (heroShrunk
                       ? "text-xl md:text-4xl"
                       : "text-base md:text-3.5xl")
                   }
                   style={{
-                    // Only apply large font size on md+ screens, let Tailwind handle mobile
                     fontSize: heroShrunk ? undefined : undefined,
-                    fontFamily: 'Satisfy, cursive',
                     transition: 'font-size 0.8s cubic-bezier(0.4,0,0.2,1)'
                   }}
                 >

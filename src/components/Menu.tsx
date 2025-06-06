@@ -19,7 +19,7 @@ const MenuSection = ({ title, items }: { title: string, items: Array<{name: stri
       <div className="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-[#FF6F1F]/40"></div>
       <div className="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-[#FF6F1F]/40"></div>
       <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-[#FF6F1F]/40"></div>
-      <h3 className="text-2xl font-semibold font-['League_Spartan'] text-[#FF8C42] mb-6 inline-block relative group">
+      <h3 className="text-2xl font-semibold font-sans text-[#FF8C42] mb-6 inline-block relative group">
         {title}
         <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FF6F1F] to-transparent group-hover:w-full transition-all duration-300"></span>
       </h3>
@@ -285,11 +285,11 @@ const Menu = () => {
           className="text-center mb-16 relative"
         >
           <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-[#FF6F1F] to-transparent"></div>
-          <h2 className="text-[#FF8C42] font-bold font-['League_Spartan'] text-5xl md:text-6xl mb-4 relative inline-block">
+          <h2 className="text-[#FF8C42] font-bold font-sans text-5xl md:text-6xl mb-4 relative inline-block">
             Our Menu
             <div className="absolute -bottom-3 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FF6F1F] to-transparent"></div>
           </h2>
-          <p className="text-white/80 font-['Montserrat'] max-w-xl mx-auto text-base md:text-lg">
+          <p className="text-white/80 font-sans max-w-xl mx-auto text-base md:text-lg">
             Carefully crafted drinks and delicious comfort food, made with love for our neighborhood.
           </p>
         </motion.div>

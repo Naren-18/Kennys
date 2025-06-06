@@ -123,12 +123,13 @@ export default {
                 'fillBeer': 'fillBeer 2s ease-out forwards', // Link the keyframe here
             },
             fontFamily: {
-                handwritten: ['Satisfy', 'cursive'],
-                title: ['Playfair Display', 'serif'],
-                body: ['Source Serif Pro', 'serif'],
-                logo: ['Permanent Marker', 'cursive'], // Keeping this as a Tailwind font utility
-                alt1: ['Fredoka One', 'cursive'],
-                alt2: ['Lobster', 'cursive'],
+                handwritten: ['Trebuchet MS', 'sans-serif'],
+                title: ['Trebuchet MS', 'sans-serif'],
+                body: ['Trebuchet MS', 'sans-serif'],
+                logo: ['Trebuchet MS', 'sans-serif'],
+                alt1: ['Trebuchet MS', 'sans-serif'],
+                alt2: ['Trebuchet MS', 'sans-serif'],
+                sans: ['Trebuchet MS', 'sans-serif'],
             },
             backgroundImage: {
                 'wood-texture': "url('/wood-texture.jpg')",

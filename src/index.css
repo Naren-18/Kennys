@@ -85,14 +85,15 @@
     height: 100%;
   }
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    @apply bg-background text-foreground font-sans antialiased;
     margin: 0;
     padding: 0;
     min-height: 100vh;
     line-height: 1;
+    font-family: 'Trebuchet MS', sans-serif;
   }
   h1, h2, h3, h4 {
-    @apply font-title;
+    /* Remove custom font for headings, use default */
   }
   
   /* Ensure no extra space after footer */
@@ -120,7 +121,7 @@
   }
 
   .handwritten {
-    @apply font-handwritten text-kenny-amber;
+    @apply font-sans text-kenny-amber;
   }
 
   /* Section background variations */
@@ -137,7 +138,7 @@
   }
 
   .kenny-logo-font {
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Trebuchet MS', sans-serif;
     letter-spacing: 1px;
   }
 
@@ -276,7 +277,7 @@
   /* --- NEW BEER FILL HEADING STYLES --- */
   .beer-fill-heading {
     /* Use the 'Permanent Marker' font you already import */
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Trebuchet MS', sans-serif;
     font-size: 8em; /* Adjust as needed for larger screens */
     font-weight: 900; /* Make it bold */
     text-transform: uppercase;
@@ -519,7 +520,7 @@ footer:last-child {
 
 /* Glass logo effect for KENNY'S */
 .glass-logo-text {
-  font-family: 'Fredoka One', 'Poppins', Arial, sans-serif;
+  font-family: 'Trebuchet MS', sans-serif;
   color: #e6f0fa;
   font-weight: bold;
   background: none;
@@ -559,7 +560,7 @@ footer:last-child {
 }
 
 .glass-3d-text {
-  font-family: 'Anton', 'Fredoka One', Arial, sans-serif;
+  font-family: 'Trebuchet MS', sans-serif;
   font-weight: 900;
   font-size: 6em; /* Adjust as needed */
   letter-spacing: 0.04em;
