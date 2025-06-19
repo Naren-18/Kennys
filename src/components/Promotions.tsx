@@ -37,7 +37,7 @@ const promotions = [
 		id: 1,
 		title: 'Happy Hour',
 		description: 'Everyday 4PM-7PM: Half-price drafts & well drinks',
-		image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80', // Beer glasses
+		image: '/images/1.jpg',
 		backgroundColor: 'from-amber-700/80 to-amber-900/90',
 		icon: <Beer className="w-8 h-8 text-white/90" />
 	},
@@ -45,7 +45,7 @@ const promotions = [
 		id: 2,
 		title: 'Whiskey Wednesday',
 		description: '25% off premium whiskeys every Wednesday',
-		image: 'https://images.unsplash.com/photo-1514361892635-cebb9b6c7ca7?auto=format&fit=crop&w=800&q=80', // Whiskey glass
+		image: '/images/2.jpg',
 		backgroundColor: 'from-amber-800/80 to-amber-950/90',
 		icon: <Wine className="w-8 h-8 text-white/90" />
 	},
@@ -53,7 +53,7 @@ const promotions = [
 		id: 3,
 		title: 'Live Music Weekends',
 		description: 'No cover charge Fri-Sat 8PM-12AM',
-		image: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80', // Live music
+		image: '/images/3.jpeg',
 		backgroundColor: 'from-orange-700/80 to-orange-900/90',
 		icon: <Music className="w-8 h-8 text-white/90" />
 	},
@@ -61,7 +61,7 @@ const promotions = [
 		id: 4,
 		title: 'Thursday Trivia Night',
 		description: 'Win bar tabs & prizes starting at 8PM',
-		image: 'https://images.unsplash.com/photo-1515168833906-d2a3b82b302b?auto=format&fit=crop&w=800&q=80', // Trivia/quiz night
+		image: '/images/4.jpg',
 		backgroundColor: 'from-amber-600/80 to-amber-800/90',
 		icon: <Trophy className="w-8 h-8 text-white/90" />
 	},
@@ -69,7 +69,7 @@ const promotions = [
 		id: 5,
 		title: 'Sunday Brunch Special',
 		description: 'Bottomless mimosas with any brunch entree 11AM-3PM',
-		image: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=800&q=80', // Brunch/mimosas
+		image: '/images/5.jpg',
 		backgroundColor: 'from-orange-600/80 to-orange-800/90',
 		icon: <Calendar className="w-8 h-8 text-white/90" />
 	},
