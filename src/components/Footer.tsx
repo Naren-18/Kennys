@@ -33,7 +33,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 lg:gap-16 md:pl-[150px] md:pr-[150px]">
         {/* About Section */}
         <div>
-          <h2 className="text-[#FF8C42] text-2xl font-bold mb-2 tracking-wide">About Kenny's Bar</h2>
+          <h2 className="text-[#FF8C42] text-2xl font-bold mb-2 tracking-wide">About  Kenny's</h2>
           <p className="text-[#FF8C42] text-sm font-semibold mb-2">NEIGHBOURHOOD BAR</p>
           {/* <p className="text-white/90 text-base mb-4">Kenny's Bar is your friendly neighborhood spot for great drinks, good company, and unforgettable nights. Whether you're here for our weekly events or just to unwind, we offer a welcoming atmosphere and top-notch service.</p> */}
           <p className="text-white/80 text-sm mb-2">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bangalore</p>

@@ -118,16 +118,21 @@ const Hero = () => {
                 >
                   NEIGHBOURHOOD BAR
                 </p>
-                {/* Reserve Now and Events Buttons */}
-                <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
-                  <Link to="/book-table">
-                    <button className="py-3 px-8 text-center uppercase font-semibold tracking-wide text-[#FF6F1F] text-lg bg-transparent border-2 border-[#FF6F1F] hover:bg-[#FF6F1F] hover:text-white rounded-full transform hover:scale-105 transition-all duration-300 ease-in-out">
+                {/* Reserve Now, Events, and Menu Buttons */}
+                <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6 w-full max-w-xl mx-auto">
+                  <Link to="/book-table" className="flex-1">
+                    <button className="flex items-center justify-center w-full sm:w-44 whitespace-nowrap py-3 px-8 text-center uppercase font-semibold tracking-wide text-[#FF6F1F] text-lg bg-transparent border-2 border-[#FF6F1F] hover:bg-[#FF6F1F] hover:text-white rounded-full transform hover:scale-105 transition-all duration-300 ease-in-out">
                       Reserve Now
                     </button>
                   </Link>
-                  <Link to="/events">
-                    <button className="py-3 px-8 text-center uppercase font-semibold tracking-wide text-[#FF6F1F] text-lg bg-transparent border-2 border-[#FF6F1F] hover:bg-[#FF6F1F] hover:text-white rounded-full transform hover:scale-105 transition-all duration-300 ease-in-out">
+                  <Link to="/events" className="flex-1">
+                    <button className="w-full sm:w-44 whitespace-nowrap py-3 px-8 text-center uppercase font-semibold tracking-wide text-[#FF6F1F] text-lg bg-transparent border-2 border-[#FF6F1F] hover:bg-[#FF6F1F] hover:text-white rounded-full transform hover:scale-105 transition-all duration-300 ease-in-out">
                       Events
+                    </button>
+                  </Link>
+                  <Link to="/menu" className="flex-1">
+                    <button className="w-full sm:w-44 whitespace-nowrap py-3 px-8 text-center uppercase font-semibold tracking-wide text-[#FF6F1F] text-lg bg-transparent border-2 border-[#FF6F1F] hover:bg-[#FF6F1F] hover:text-white rounded-full transform hover:scale-105 transition-all duration-300 ease-in-out">
+                      Menu
                     </button>
                   </Link>
                 </div>

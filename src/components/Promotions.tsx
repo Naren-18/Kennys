@@ -37,35 +37,39 @@ const promotions = [
 		id: 1,
 		title: 'Happy Hour',
 		description: 'Everyday 4PM-7PM: Half-price drafts & well drinks',
-		image: '/images/happy-hour.jpg',
+		image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80', // Beer glasses
 		backgroundColor: 'from-amber-700/80 to-amber-900/90',
 		icon: <Beer className="w-8 h-8 text-white/90" />
-	},	{
+	},
+	{
 		id: 2,
 		title: 'Whiskey Wednesday',
 		description: '25% off premium whiskeys every Wednesday',
-		image: '/images/whiskey.jpg',
+		image: 'https://images.unsplash.com/photo-1514361892635-cebb9b6c7ca7?auto=format&fit=crop&w=800&q=80', // Whiskey glass
 		backgroundColor: 'from-amber-800/80 to-amber-950/90',
 		icon: <Wine className="w-8 h-8 text-white/90" />
-	},{
+	},
+	{
 		id: 3,
 		title: 'Live Music Weekends',
 		description: 'No cover charge Fri-Sat 8PM-12AM',
-		image: '/images/live-music.jpg',
+		image: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80', // Live music
 		backgroundColor: 'from-orange-700/80 to-orange-900/90',
 		icon: <Music className="w-8 h-8 text-white/90" />
-	},	{
+	},
+	{
 		id: 4,
 		title: 'Thursday Trivia Night',
 		description: 'Win bar tabs & prizes starting at 8PM',
-		image: '/images/trivia.jpg',
+		image: 'https://images.unsplash.com/photo-1515168833906-d2a3b82b302b?auto=format&fit=crop&w=800&q=80', // Trivia/quiz night
 		backgroundColor: 'from-amber-600/80 to-amber-800/90',
 		icon: <Trophy className="w-8 h-8 text-white/90" />
-	},	{
+	},
+	{
 		id: 5,
 		title: 'Sunday Brunch Special',
 		description: 'Bottomless mimosas with any brunch entree 11AM-3PM',
-		image: '/images/brunch.jpg',
+		image: 'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=800&q=80', // Brunch/mimosas
 		backgroundColor: 'from-orange-600/80 to-orange-800/90',
 		icon: <Calendar className="w-8 h-8 text-white/90" />
 	},
@@ -135,7 +139,7 @@ const Promotions: React.FC<PromotionsProps> = ({ loaded }) => {
 			style={{ marginTop: "-6%" }}
 		>
 			<div className="mx-auto w-full">
-				<h2 className="text-center text-3xl md:text-4xl font-alt2 mb-8 md:mb-10 text-[#FF8C42] drop-shadow-xl">
+				<h2 className="text-center text-3xl md:text-4xl font-alt2 mb-8 md:mb-10 text-white drop-shadow-xl">
 					Special Offers
 				</h2>				<Carousel 
 					className={`mx-auto w-full ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} group overflow-visible`}
@@ -161,53 +165,25 @@ const Promotions: React.FC<PromotionsProps> = ({ loaded }) => {
 									initial={{ opacity: 0, y: 50 }}
 									animate={{ opacity: 1, y: 0 }}
 									transition={{ duration: 0.5, delay: index * 0.1 }}
-									className="promo-card relative h-[350px] sm:h-[380px] md:h-[400px] rounded-2xl overflow-hidden group mx-auto w-full transition-all duration-500"
+									className="promo-card relative h-[350px] sm:h-[380px] md:h-[400px] rounded-3xl overflow-hidden group mx-auto w-full transition-all duration-500 shadow-2xl border border-[#FF8C42]/30"
 								>
-									{/* Background gradient overlay */}
-									<div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10"></div>									{/* Background Image or Gradient with loading optimization */}
-									<div className="absolute inset-0 bg-[#FF6F1F]/20">
-										{/* Skeleton loading state */}
-										<div className={cn(
-											"absolute inset-0 bg-gradient-to-br",
-											promo.backgroundColor,
-											loadedImages[promo.id] ? "opacity-0" : "opacity-100"
-										)}></div>
-										
-										{/* Actual image with lazy loading */}
-										<div 
-											className={`absolute inset-0 bg-center bg-cover transform transition-all duration-700 
-												group-hover:scale-110 
-												${loadedImages[promo.id] ? "opacity-100" : "opacity-0"}`}
-											style={{ 
-												backgroundImage: `url(${promo.image})`,
-												backgroundPosition: 'center',
-												backgroundSize: 'cover',
-												transitionProperty: 'transform, opacity'
-											}}
-										>
-											{/* Hidden image preloader */}
-											<img 
-												src={promo.image} 
-												alt={promo.title}
-												className="hidden"
-												onLoad={() => handleImageLoad(promo.id)}
-											/>
-										</div>
-									</div>
-											{/* Content */}
-									<div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8 z-20 transform transition-transform duration-500 group-hover:translate-y-[-10px]">
-										<div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-											<div className="p-2 sm:p-3 bg-[#FF6F1F] rounded-full">
+									{/* Solid/Gradient background */}
+									<div className="absolute inset-0 bg-gradient-to-br from-[#1a120b] via-[#2d1606] to-[#FF8C42]/90 z-0" />
+									{/* Image overlay for subtle texture */}
+									<div className="absolute inset-0 bg-center bg-cover opacity-30 z-10" style={{ backgroundImage: `url(${promo.image})` }} />
+									{/* Subtle overlay for softer edges */}
+									<div className="absolute inset-0 bg-black/30 z-20 pointer-events-none" />
+									{/* Content */}
+									<div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-30 flex flex-col h-full justify-end">
+										<div className="flex items-center gap-4 mb-4">
+											<div className="p-3 bg-[#FF8C42] rounded-full shadow-lg flex items-center justify-center">
 												{promo.icon}
 											</div>
-											<h3 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-[#FF8C42] transition-colors duration-300 truncate">
+											<h3 className="text-white text-2xl font-bold tracking-wide flex-1 text-left">
 												{promo.title}
 											</h3>
 										</div>
-										
-										<div className="h-[2px] w-16 sm:w-20 bg-[#FF8C42] rounded-full mb-3 sm:mb-4 transform origin-left transition-all duration-500 group-hover:w-40"></div>
-										
-										<p className="text-white/90 text-lg sm:text-xl leading-relaxed w-full pr-2">
+										<p className="text-[#FF8C42] text-lg font-semibold mb-2 text-left">
 											{promo.description}
 										</p>
 									</div>

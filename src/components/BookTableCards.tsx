@@ -75,32 +75,8 @@ const BookTableCards = () => {
             <span>Order Online</span>
           </h3>
           <p className="text-white/80 mb-6">Craving Kenny's at home? Order through our delivery partners for the same great taste, delivered to your door.</p>
-          <div className="flex gap-4">
-            <a
-              href="https://www.swiggy.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1"
-            >
-              <button className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-gradient-to-r from-[#FF6F1F]/10 to-[#FF8C42]/10 hover:from-[#FF6F1F]/20 hover:to-[#FF8C42]/20 border border-[#FF6F1F]/30 text-white rounded-lg transition-all duration-300 group">
-                <img src="https://seeklogo.com/images/S/swiggy-logo-8EF8260FA4-seeklogo.com.png" alt="Swiggy" className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                <span>Swiggy</span>
-              </button>
-            </a>
-            <a
-              href="https://www.zomato.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1"
-            >
-              <button className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-gradient-to-r from-[#FF6F1F]/10 to-[#FF8C42]/10 hover:from-[#FF6F1F]/20 hover:to-[#FF8C42]/20 border border-[#FF6F1F]/30 text-white rounded-lg transition-all duration-300 group">
-                <svg className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zm83.8 211.9c-17.1-17.1-40.7-27.7-66.8-27.7s-49.7 10.6-66.8 27.7c-17.1 17.1-27.7 40.7-27.7 66.8s10.6 49.7 27.7 66.8c17.1 17.1 40.7 27.7 66.8 27.7s49.7-10.6 66.8-27.7c17.1-17.1 27.7-40.7 27.7-66.8s-10.6-49.7-27.7-66.8zm-34.4 100.6c-10 10-23.8 16.2-39.4 16.2s-29.4-6.2-39.4-16.2-16.2-23.8-16.2-39.4 6.2-29.4 16.2-39.4 23.8-16.2 39.4-16.2 29.4 6.2 39.4 16.2 16.2 23.8 16.2 39.4-6.2 29.4-16.2 39.4z" fill="#E23744"/>
-                  <circle cx="256" cy="278.7" r="25" fill="#E23744"/>
-                </svg>
-                <span>Zomato</span>
-              </button>
-            </a>
+          <div className="flex items-center justify-center h-16">
+            <span className="text-[#FF8C42] text-lg font-semibold">Coming Soon</span>
           </div>
         </div>
       </div>

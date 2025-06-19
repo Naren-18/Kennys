@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Home, BookOpen, Image, Users, Calendar, Info, UtensilsCrossed, CircleCheck } from 'lucide-react';
+import { Menu, X, Home, BookOpen, Image, Users, Calendar, Info, UtensilsCrossed, CircleCheck, Mail } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { cn } from '@/lib/utils';
 
@@ -10,7 +10,8 @@ const navLinks = [
   { name: 'Gallery', path: '/gallery', icon: <Image className="w-5 h-5" /> },
   { name: 'Stories', path: '/stories', icon: <Users className="w-5 h-5" /> },
   { name: 'Events', path: '/events', icon: <Calendar className="w-5 h-5" /> },
-  { name: 'About', path: '/about', icon: <Info className="w-5 h-5" /> },
+  { name: 'Contact', path: '/contact', icon: <Mail className="w-5 h-5" /> },
+  // { name: 'About', path: '/about', icon: <Info className="w-5 h-5" /> },
 ];
 
 const Navbar = () => {

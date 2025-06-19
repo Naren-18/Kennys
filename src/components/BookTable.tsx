@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useToast } from "@/components/ui/use-toast";
 import { Calendar, Clock, Users, Utensils, CalendarClock, ChefHat, Phone, Mail, PartyPopper, MapPin, UtensilsCrossed } from 'lucide-react';
+import BookTableCards from './BookTableCards';
 
 const BookTable = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -72,128 +73,8 @@ const BookTable = () => {
           </div>
         </div>
         
-        <div className="backdrop-blur-sm bg-black/30 rounded-2xl p-8 border border-white/5 shadow-xl relative overflow-hidden max-w-6xl mx-auto">
-          {/* Corner decorative elements */}
-          <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-[#FF6F1F]/40 rounded-tl-2xl"></div>
-          <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-[#FF6F1F]/40 rounded-br-2xl"></div>
-          
-          <div className="flex flex-col md:flex-row gap-8 items-stretch justify-center">
-            {/* Book A Table Card */}
-            <div className="bg-black/50 backdrop-blur-sm p-8 rounded-xl border border-[#FF6F1F]/30 flex-1 max-w-md shadow-lg shadow-black/30 group hover:border-[#FF6F1F]/50 transition-all duration-500 relative">
-              {/* Corner decorative elements */}
-              <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-[#FF6F1F]/40 rounded-tl-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-[#FF6F1F]/40 rounded-br-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="absolute top-4 right-4 bg-[#FF6F1F]/10 p-2 rounded-full">
-                <CalendarClock className="h-5 w-5 text-[#FF8C42]" />
-              </div>
-              
-              <h3 className="text-[#FF8C42] font-title text-2xl mb-4 flex items-center gap-2">
-                <Calendar className="h-5 w-5" />
-                <span>Book A Table</span>
-              </h3>
-              
-              <p className="text-white/80 mb-6">Reserve your spot at Kenny's and skip the wait. We'll hold your table for 15 minutes past your reservation time.</p>
-              
-              <button
-                className="relative cursor-pointer py-3 px-6 text-center inline-flex justify-center items-center gap-2 text-base rounded-lg transition-all duration-300 w-full bg-gradient-to-r from-[#FF6F1F] to-[#FF8C42] text-white group"
-                onClick={() => setIsDialogOpen(true)}
-              >
-                <Users className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                <span className="font-medium">Make Reservation</span>
-              </button>
-            </div>
-            
-            
-            {/* </div> */}
-          </div>
-        </div>
-        
-        {/* Location Information */}
-        <div className="mt-16 relative">
-          <div className="flex justify-center mb-6">
-            <div className="h-px w-32 bg-gradient-to-r from-transparent via-[#FF6F1F]/50 to-transparent"></div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-            {/* Location Card */}
-            <div className="bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-[#FF6F1F]/20 relative overflow-hidden group hover:border-[#FF6F1F]/40 transition-all duration-300">
-            {/* Corner decorative elements */}
-              <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-[#FF6F1F]/30 rounded-tl-lg group-hover:border-[#FF6F1F]/50 transition-all duration-300"></div>
-              <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-[#FF6F1F]/30 rounded-br-lg group-hover:border-[#FF6F1F]/50 transition-all duration-300"></div>
-            
-              <div className="flex flex-col items-center text-center">
-                <div className="flex-shrink-0 bg-gradient-to-br from-[#FF6F1F]/10 to-[#FF8C42]/10 p-4 rounded-full mb-4 group-hover:from-[#FF6F1F]/20 group-hover:to-[#FF8C42]/20 transition-all duration-300">
-                <MapPin className="h-8 w-8 text-[#FF8C42]" />
-              </div>
-              
-                <h3 className="text-[#FF8C42] font-title text-xl mb-3">Find Us</h3>
-                <p className="text-white/80 mb-1">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bangalore</p>
-                <p className="text-white/80 mb-6">Open daily from 11:00 AM to 1:00 AM</p>
-                
-                <div className="flex flex-wrap justify-center gap-4 w-full mt-6">
-                  <a 
-                    href="https://maps.app.goo.gl/c5P23wAwkaBWzrTD9" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex-1 min-w-[180px] flex items-center justify-center gap-2 text-base py-3 px-4 bg-gradient-to-r from-[#FF6F1F]/10 to-[#FF8C42]/10 hover:from-[#FF6F1F]/20 hover:to-[#FF8C42]/20 border border-[#FF6F1F]/30 text-white rounded-lg transition-all duration-300 font-semibold text-center"
-                  >
-                    Get Directions
-                  </a>
-                  <a 
-                    href="tel:+919317417517" 
-                    className="flex-1 min-w-[180px] flex items-center justify-center gap-2 text-base py-3 px-4 bg-gradient-to-r from-[#FF6F1F]/10 to-[#FF8C42]/10 hover:from-[#FF6F1F]/20 hover:to-[#FF8C42]/20 border border-[#FF6F1F]/30 text-white rounded-lg transition-all duration-300 font-semibold text-center"
-                  >
-                    <Phone className="h-5 w-5 text-[#FF8C42]" />
-                    +91 9317417517
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Takeaway Card */}
-            <div className="bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-[#FF6F1F]/20 relative overflow-hidden group hover:border-[#FF6F1F]/40 transition-all duration-300">
-              {/* Corner decorative elements */}
-              <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-[#FF6F1F]/30 rounded-tl-lg group-hover:border-[#FF6F1F]/50 transition-all duration-300"></div>
-              <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-[#FF6F1F]/30 rounded-br-lg group-hover:border-[#FF6F1F]/50 transition-all duration-300"></div>
-              
-              <div className="flex flex-col items-center text-center">
-                <div className="flex-shrink-0 bg-gradient-to-br from-[#FF6F1F]/10 to-[#FF8C42]/10 p-4 rounded-full mb-4 group-hover:from-[#FF6F1F]/20 group-hover:to-[#FF8C42]/20 transition-all duration-300">
-                  <UtensilsCrossed className="h-8 w-8 text-[#FF8C42]" />
-                </div>
-                
-                <h3 className="text-[#FF8C42] font-title text-xl mb-3">Takeaway Available</h3>
-                <p className="text-white/80 mb-1">Enjoy Kenny's flavors at home</p>
-                <p className="text-white/80 mb-6">Order online or call for pickup</p>
-                
-                {/* Takeaway Section */}
-                <div className="mt-8 w-full">
-                  {/* <h3 className="text-[#FF8C42] font-title text-lg mb-3 text-center md:text-left">Takeaway Available</h3> */}
-                  <div className="flex flex-wrap justify-center gap-3 w-full">
-                    <a 
-                      href="https://www.swiggy.com/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm py-2 px-4 bg-gradient-to-r from-[#FF6F1F]/10 to-[#FF8C42]/10 hover:from-[#FF6F1F]/20 hover:to-[#FF8C42]/20 border border-[#FF6F1F]/30 text-white rounded-lg transition-all duration-300 flex-1 justify-center"
-                    >
-                      <img src="/lovable-uploads/swiggy.png" alt="Swiggy" className="h-8 w-8 md:h-10 md:w-10 object-contain" />
-                      <span>Order on Swiggy</span>
-                    </a>
-                    <a 
-                      href="https://www.zomato.com/" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm py-2 px-4 bg-gradient-to-r from-[#FF6F1F]/10 to-[#FF8C42]/10 hover:from-[#FF6F1F]/20 hover:to-[#FF8C42]/20 border border-[#FF6F1F]/30 text-white rounded-lg transition-all duration-300 flex-1 justify-center"
-                    >
-                      <img src="/lovable-uploads/zomato.png" alt="Zomato" className="h-8 w-8 md:h-10 md:w-10 object-contain" />
-                      <span>Order on Zomato</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/* Modern Card Layout */}
+        <BookTableCards />
       </div>
       
       {/* Booking Dialog */}

@@ -11,6 +11,7 @@ import StoriesPage from "./pages/StoriesPage";
 import EventsPage from "./pages/EventsPage";
 import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
+import ContactPage from "./pages/ContactPage";
 import { useEffect, useState } from "react";
 import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
@@ -166,6 +167,7 @@ const App = () => {
                 <Route path="/book-table" element={<BookTablePage />} />
                 <Route path="/stories" element={<StoriesPage />} />
                 <Route path="/events" element={<EventsPage />} />
+                <Route path="/contact" element={<ContactPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
