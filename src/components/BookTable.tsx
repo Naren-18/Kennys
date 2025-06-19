@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
-import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { useToast } from "@/components/ui/use-toast";
-import { Calendar, Clock, Users, Utensils, CalendarClock, ChefHat, Phone, Mail, PartyPopper, MapPin, UtensilsCrossed } from 'lucide-react';
-import BookTableCards from './BookTableCards';
+import { Calendar, Clock, Users, Phone, Mail, PartyPopper, Utensils } from 'lucide-react';
+import emailjs from 'emailjs-com';
 
 const BookTable = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,57 +10,70 @@ const BookTable = () => {
     date: '',
     time: '',
     guests: '2',
-    occasion: 'none',
+    occasion: '',
   });
-  const { toast } = useToast();
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState<string | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // In a real application, this would be connected to a backend service
-    // For now, we'll just show a success message
-    toast({
-      title: "Reservation Request Submitted",
-      description: `Thanks ${formData.name}! We'll confirm your table for ${formData.guests} on ${formData.date} shortly.`,
-    });
-    
-    setIsDialogOpen(false);
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      date: '',
-      time: '',
-      guests: '2',
-      occasion: 'none',
-    });
+    setLoading(true);
+    setResult(null);
+    try {
+      await emailjs.send(
+        'service_tnzidfj', // Replace with your actual service ID
+        'template_99mma4f', // Replace with your actual template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          date: formData.date,
+          time: formData.time,
+          guests: formData.guests,
+          occasion: formData.occasion,
+        },
+        'z0yL-CfuTqtMyFvRr' // Replace with your actual public key
+      );
+      setResult('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        date: '',
+        time: '',
+        guests: '2',
+        occasion: '',
+      });
+    } catch (error) {
+      setResult('error');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <section id="book-table" className="py-24 bg-kenny-dark relative overflow-hidden section-with-sidebar">
+    <section id="book-table" className="py-24 bg-kenny-dark relative overflow-hidden section-with-sidebar min-h-screen">
       {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
         <div className="absolute top-40 right-40 w-96 h-96 rounded-full bg-[#FF6F1F]/20 blur-[100px] opacity-50"></div>
         <div className="absolute bottom-40 left-40 w-80 h-80 rounded-full bg-[#FF8C42]/20 blur-[100px]"></div>
         <div className="absolute inset-0 wood-grain opacity-30"></div>
       </div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16 relative">
+      <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
+        <div className="text-center mb-12 relative">
           <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-[#FF6F1F] to-transparent"></div>
           <h2 className="text-[#FF8C42] font-handwritten text-6xl mb-4 relative inline-block">
-            Dine With Us or Order In
+            Reserve Your Table
             <div className="absolute -bottom-3 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FF6F1F] to-transparent"></div>
           </h2>
           <p className="text-white/80 max-w-2xl mx-auto text-lg">
-            Whether you're planning a cozy night out or craving our flavors at home, Kenny's has you covered.
+            Whether you're planning a cozy night out or a special celebration, book your table at Kenny's and let us make your evening memorable.
           </p>
-          
           <div className="flex justify-center mt-8">
             <div className="flex items-center gap-2">
               <Utensils className="h-6 w-6 text-[#FF6F1F]" />
@@ -72,40 +81,13 @@ const BookTable = () => {
             </div>
           </div>
         </div>
-        
-        {/* Modern Card Layout */}
-        <BookTableCards />
-      </div>
-      
-      {/* Booking Dialog */}
-      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="bg-black/90 border border-[#FF6F1F]/30 text-white w-full max-w-[98vw] sm:max-w-lg md:max-w-xl lg:max-w-2xl max-h-[90vh] h-auto overflow-y-auto rounded-xl shadow-xl p-4 sm:p-6 md:p-8 flex flex-col items-center mx-auto my-auto">
-          {/* Decorative corner elements */}
-          <div className="absolute top-0 left-0 w-10 h-10 md:w-16 md:h-16 border-t-2 border-l-2 border-[#FF6F1F]/40 rounded-tl-xl"></div>
-          <div className="absolute bottom-0 right-0 w-10 h-10 md:w-16 md:h-16 border-b-2 border-r-2 border-[#FF6F1F]/40 rounded-br-xl"></div>
-          {/* Decorative blur elements */}
-          <div className="absolute -top-10 -right-10 md:-top-20 md:-right-20 w-32 h-32 md:w-64 md:h-64 rounded-full bg-[#FF6F1F]/10 blur-[40px] md:blur-[80px] opacity-60"></div>
-          <div className="absolute -bottom-10 -left-10 md:-bottom-20 md:-left-20 w-32 h-32 md:w-64 md:h-64 rounded-full bg-[#FF8C42]/10 blur-[40px] md:blur-[80px] opacity-60"></div>
-          <DialogHeader className="relative z-10 w-full max-w-[280px] sm:max-w-none">
-            <div className="flex justify-center mb-2">
-              <div className="bg-gradient-to-r from-[#FF6F1F]/20 to-[#FF8C42]/20 p-2 md:p-3 rounded-full">
-                <CalendarClock className="h-5 w-5 md:h-6 md:w-6 text-[#FF8C42]" />
-              </div>
-            </div>
-            <DialogTitle className="text-center">
-              <h2 className="text-[#FF8C42] font-handwritten text-2xl md:text-4xl mb-1 relative inline-block">
-                Book Your Table
-                <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FF6F1F] to-transparent"></div>
-              </h2>
-            </DialogTitle>
-            <DialogDescription className="text-white/70 text-center text-sm md:text-base">
-              Fill out the form below and we'll confirm your reservation shortly.
-            </DialogDescription>
-          </DialogHeader>
-          <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5 pt-4 md:pt-6 relative z-10 w-full max-w-[280px] sm:max-w-none">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+        <div className="w-full max-w-2xl bg-black/60 backdrop-blur-md rounded-2xl border border-[#FF6F1F]/30 shadow-2xl p-10 relative mb-12">
+          <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-[#FF6F1F]/40 rounded-tl-2xl"></div>
+          <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#FF6F1F]/40 rounded-br-2xl"></div>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2 relative">
-                <label htmlFor="name" className="text-xs md:text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
+                <label htmlFor="name" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
                   <span>Full Name</span>
                 </label>
                 <div className="relative">
@@ -116,16 +98,17 @@ const BookTable = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-2 md:p-3 pl-8 md:pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300 text-sm md:text-base"
+                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-3 pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300"
                     placeholder="John Doe"
+                    disabled={loading}
                   />
-                  <div className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
+                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
                     <Users className="h-4 w-4" />
                   </div>
                 </div>
               </div>
               <div className="space-y-2 relative">
-                <label htmlFor="phone" className="text-xs md:text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
+                <label htmlFor="phone" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
                   <span>Phone Number</span>
                 </label>
                 <div className="relative">
@@ -136,17 +119,18 @@ const BookTable = () => {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-2 md:p-3 pl-8 md:pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300 text-sm md:text-base"
+                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-3 pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300"
                     placeholder="(123) 456-7890"
+                    disabled={loading}
                   />
-                  <div className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
+                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
                     <Phone className="h-4 w-4" />
                   </div>
                 </div>
               </div>
             </div>
             <div className="space-y-2 relative">
-              <label htmlFor="email" className="text-xs md:text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
+              <label htmlFor="email" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
                 <span>Email Address</span>
               </label>
               <div className="relative">
@@ -157,17 +141,18 @@ const BookTable = () => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-2 md:p-3 pl-8 md:pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300 text-sm md:text-base"
+                  className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-3 pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300"
                   placeholder="your@email.com"
+                  disabled={loading}
                 />
-                <div className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
+                <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
                   <Mail className="h-4 w-4" />
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2 relative">
-                <label htmlFor="date" className="text-xs md:text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
+                <label htmlFor="date" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
                   <span>Date</span>
                 </label>
                 <div className="relative">
@@ -178,16 +163,17 @@ const BookTable = () => {
                     required
                     value={formData.date}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-2 md:p-3 pl-8 md:pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300 text-sm md:text-base"
+                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-3 pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300"
                     min={new Date().toISOString().split('T')[0]}
+                    disabled={loading}
                   />
-                  <div className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
+                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
                     <Calendar className="h-4 w-4" />
                   </div>
                 </div>
               </div>
               <div className="space-y-2 relative">
-                <label htmlFor="time" className="text-xs md:text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
+                <label htmlFor="time" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
                   <span>Time</span>
                 </label>
                 <div className="relative">
@@ -198,84 +184,88 @@ const BookTable = () => {
                     required
                     value={formData.time}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-2 md:p-3 pl-8 md:pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300 text-sm md:text-base"
+                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-3 pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300"
+                    disabled={loading}
                   />
-                  <div className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
+                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
                     <Clock className="h-4 w-4" />
                   </div>
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2 relative">
-                <label htmlFor="guests" className="text-xs md:text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
+                <label htmlFor="guests" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
                   <span>Number of Guests</span>
                 </label>
                 <div className="relative">
-                  <select
+                  <input
                     id="guests"
                     name="guests"
+                    type="number"
+                    min="1"
+                    max="20"
                     required
                     value={formData.guests}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-2 md:p-3 pl-8 md:pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300 appearance-none text-sm md:text-base"
-                  >
-                    {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
-                      <option key={num} value={num}>{num} {num === 1 ? 'Person' : 'People'}</option>
-                    ))}
-                    <option value="9+">9+ People (Large Party)</option>
-                  </select>
-                  <div className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
+                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-3 pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300"
+                    placeholder="2"
+                    disabled={loading}
+                  />
+                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
                     <Users className="h-4 w-4" />
                   </div>
                 </div>
               </div>
               <div className="space-y-2 relative">
-                <label htmlFor="occasion" className="text-xs md:text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
-                  <span>Occasion (Optional)</span>
+                <label htmlFor="occasion" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
+                  <span>Occasion</span>
                 </label>
                 <div className="relative">
-                  <select
+                  <input
                     id="occasion"
                     name="occasion"
+                    type="text"
                     value={formData.occasion}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-2 md:p-3 pl-8 md:pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300 appearance-none text-sm md:text-base"
-                  >
-                    <option value="none">None</option>
-                    <option value="birthday">Birthday</option>
-                    <option value="anniversary">Anniversary</option>
-                    <option value="date">Date Night</option>
-                    <option value="business">Business Meeting</option>
-                    <option value="other">Other</option>
-                  </select>
-                  <div className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
+                    className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-3 pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300"
+                    placeholder="Birthday, Anniversary, etc. (optional)"
+                    disabled={loading}
+                  />
+                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
                     <PartyPopper className="h-4 w-4" />
                   </div>
                 </div>
               </div>
             </div>
-            <div className="pt-2 md:pt-4">
-              <button 
-                type="submit" 
-                className="w-full py-2 md:py-3 px-4 md:px-6 text-center inline-flex justify-center items-center gap-2 text-base rounded-lg transition-all duration-300 bg-gradient-to-r from-[#FF6F1F] to-[#FF8C42] text-white font-medium hover:shadow-lg hover:shadow-[#FF6F1F]/20 group"
-              >
-                <Calendar className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                <span>Confirm Reservation</span>
-              </button>
-            </div>
-            <div className="text-center text-white/50 text-xs mt-2 md:mt-4 italic">
-              <p>We'll send a confirmation to your email once your reservation is confirmed.</p>
-              <p className="mt-1 flex items-center justify-center gap-1">
-                <MapPin className="h-3 w-3 text-[#FF6F1F]/70" />
-                <span>Kenny's Bar</span>
-              </p>
-            </div>
+            <button
+              type="submit"
+              className="w-full py-3 px-6 rounded-lg bg-gradient-to-r from-[#FF6F1F] to-[#FF8C42] text-white font-semibold text-lg shadow-md hover:scale-[1.03] transition-transform duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
+              disabled={loading}
+            >
+              {loading ? 'Submitting...' : 'Submit Reservation'}
+            </button>
+            {result === 'success' && (
+              <div className="text-green-400 text-center mt-4">Reservation request submitted! We'll confirm your table soon.</div>
+            )}
+            {result === 'error' && (
+              <div className="text-red-400 text-center mt-4">Failed to send reservation. Please try again later.</div>
+            )}
           </form>
-        </DialogContent>
-      </Dialog>
-      {/* Copyright Claim */}
-      
+        </div>
+        {/* Order Online Card */}
+        <div className="w-full max-w-2xl bg-black/60 backdrop-blur-md rounded-2xl border border-[#FF6F1F]/30 shadow-2xl p-10 relative flex flex-col items-center">
+          <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-[#FF6F1F]/40 rounded-tl-2xl"></div>
+          <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#FF6F1F]/40 rounded-br-2xl"></div>
+          <h3 className="text-[#FF8C42] font-title text-2xl mb-4 flex items-center gap-2">
+            <span>Order Online</span>
+          </h3>
+          <p className="text-white/80 mb-6 text-center">Enjoy Kenny's at home! Online ordering is launching soon.</p>
+          <div className="w-full flex justify-center">
+            <span className="inline-block bg-gradient-to-r from-[#FF6F1F] to-[#FF8C42] text-white px-6 py-3 rounded-lg font-semibold text-lg opacity-80 cursor-not-allowed select-none">Coming Soon</span>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
