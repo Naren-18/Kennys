@@ -142,6 +142,17 @@ const Navbar = () => {
         tabIndex={0}
         onFocus={handleMouseEnter}
       >
+        {/* Close button for mobile */}
+        {isMobileMenuOpen && (
+          <button
+            className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/70 border border-[#FF8C42]/30 text-white md:hidden flex items-center justify-center"
+            onClick={toggleMobileMenu}
+            aria-label="Close menu"
+            type="button"
+          >
+            <X className="w-6 h-6 text-[#FF8C42]" />
+          </button>
+        )}
         {/* Fixed height container for the entire sidebar content */}
         <div className="flex flex-col h-full w-full">
           {/* Logo area - fixed height and width to prevent blinking during transitions */}

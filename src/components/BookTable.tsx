@@ -118,15 +118,15 @@ const BookTable = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             {/* Location Card */}
             <div className="bg-black/30 backdrop-blur-sm p-6 rounded-xl border border-[#FF6F1F]/20 relative overflow-hidden group hover:border-[#FF6F1F]/40 transition-all duration-300">
-              {/* Corner decorative elements */}
+            {/* Corner decorative elements */}
               <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-[#FF6F1F]/30 rounded-tl-lg group-hover:border-[#FF6F1F]/50 transition-all duration-300"></div>
               <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-[#FF6F1F]/30 rounded-br-lg group-hover:border-[#FF6F1F]/50 transition-all duration-300"></div>
-              
+            
               <div className="flex flex-col items-center text-center">
                 <div className="flex-shrink-0 bg-gradient-to-br from-[#FF6F1F]/10 to-[#FF8C42]/10 p-4 rounded-full mb-4 group-hover:from-[#FF6F1F]/20 group-hover:to-[#FF8C42]/20 transition-all duration-300">
-                  <MapPin className="h-8 w-8 text-[#FF8C42]" />
-                </div>
-                
+                <MapPin className="h-8 w-8 text-[#FF8C42]" />
+              </div>
+              
                 <h3 className="text-[#FF8C42] font-title text-xl mb-3">Find Us</h3>
                 <p className="text-white/80 mb-1">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bangalore</p>
                 <p className="text-white/80 mb-6">Open daily from 11:00 AM to 1:00 AM</p>
@@ -394,12 +394,7 @@ const BookTable = () => {
         </DialogContent>
       </Dialog>
       {/* Copyright Claim */}
-      <div className="mt-12 flex justify-center">
-        <div className="flex items-center gap-2 px-6 py-2 rounded-full bg-gradient-to-r from-[#FF6F1F]/20 via-[#FF8C42]/20 to-[#FF6F1F]/20 border border-[#FF8C42]/30 shadow-sm text-xs text-white/70 font-medium tracking-wide">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#FF8C42]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
-          <span>Website designed by <a href="https://cognitimax.com" target="_blank" rel="noopener noreferrer" className="text-[#FF8C42] font-semibold hover:text-[#FF6F1F] transition-colors">COGNITIMAX</a> &copy; {new Date().getFullYear()}</span>
-        </div>
-      </div>
+      
     </section>
   );
 };

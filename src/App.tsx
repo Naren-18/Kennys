@@ -13,6 +13,7 @@ import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
 import { useEffect, useState } from "react";
 import ScrollToTop from "@/components/ScrollToTop";
+import Footer from "@/components/Footer";
 
 const queryClient = new QueryClient();
 
@@ -55,34 +56,7 @@ const ScrollButtons = () => {
         zIndex: 999,
       }}
     >
-      {visible && (
-        <>
-          <button
-            className="scroll-uiverse-btn"
-            onClick={scrollToTop}
-            aria-label="Scroll to top"
-          >
-            <svg className="svgIcon" viewBox="0 0 20 20">
-              <path
-                d="M10 4.167a.833.833 0 0 1 .589.244l5 5a.833.833 0 1 1-1.178 1.178l-3.244-3.244V15a.833.833 0 1 1-1.666 0V7.345L5.255 10.59A.833.833 0 1 1 4.077 9.41l5-5A.833.833 0 0 1 10 4.167z"
-                style={{ fill: "#FF6F1F" }}
-              />
-            </svg>
-          </button>
-          <button
-            className="scroll-uiverse-btn"
-            onClick={scrollToBottom}
-            aria-label="Scroll to bottom"
-          >
-            <svg className="svgIcon" viewBox="0 0 20 20">
-              <path
-                d="M10 15.833a.833.833 0 0 1-.589-.244l-5-5a.833.833 0 1 1 1.178-1.178l3.244 3.244V5a.833.833 0 1 1 1.666 0v7.655l3.244-3.244a.833.833 0 1 1 1.178 1.178l-5 5a.833.833 0 0 1-.589.244z"
-                style={{ fill: "#FF6F1F" }}
-              />
-            </svg>
-          </button>
-        </>
-      )}
+      
       <style>{`
         .scroll-uiverse-btn {
           width: 50px;
@@ -167,25 +141,24 @@ const Loader = () => {
 };
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 5000);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => setLoading(false), 5000);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
-  if (loading) return <Loader />;
+  // if (loading) return <Loader />;
 
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <div className="page-container">
-          {/* Static logo in top-left corner */}
+        <div className="page-container min-h-screen flex flex-col">
           <Toaster />
           <Sonner />
           <BrowserRouter>
             <ScrollToTop />
-            <div className="page-content">
+            <div className="page-content flex-grow">
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/menu" element={<MenuPage />} />
@@ -197,6 +170,7 @@ const App = () => {
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </div>
+            <Footer />
           </BrowserRouter>
           <ScrollButtons />
         </div>
