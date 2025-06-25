@@ -18,8 +18,8 @@ const weekEvents = [
 ];
 
 const hours = [
-  { day: 'Monday - Thursday', time: '4pm - 1am' },
-  { day: 'Friday', time: '4pm - 1am' },
+  { day: 'Monday - Friday', time: '4pm - 1am' },
+  // { day: 'Friday', time: '4pm - 1am' },
   { day: 'Saturday', time: '2pm - 1am' },
   { day: 'Sunday', time: '2pm - 1pm' },
 ];
@@ -36,7 +36,7 @@ const Footer = () => {
           <h2 className="text-[#FF8C42] text-2xl font-bold mb-2 tracking-wide">About  Kenny's</h2>
           <p className="text-[#FF8C42] text-sm font-semibold mb-2">NEIGHBOURHOOD BAR</p>
           {/* <p className="text-white/90 text-base mb-4">Kenny's Bar is your friendly neighborhood spot for great drinks, good company, and unforgettable nights. Whether you're here for our weekly events or just to unwind, we offer a welcoming atmosphere and top-notch service.</p> */}
-          <p className="text-white/80 text-sm mb-2">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bangalore</p>
+          <p className="text-white/80 text-sm mb-2">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bengaluru, Karnataka 560037</p>
           <div className="flex flex-col gap-2 mb-3 mt-4">
             {/* <a href="tel:+919317417517" className="flex items-center gap-2 bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full px-3 py-2 transition-colors font-medium text-white w-max">
               <Phone className="h-5 w-5 text-[#FF8C42]" />

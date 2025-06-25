@@ -69,7 +69,7 @@ const ContactPage = () => {
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="text-[#FF8C42] w-6 h-6" />
-                <span className="text-white/90">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bangalore</span>
+                <span className="text-white/90">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bengaluru, Karnataka 560037</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="text-[#FF8C42] w-6 h-6" />

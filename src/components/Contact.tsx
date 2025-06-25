@@ -74,7 +74,7 @@ const About = () => (
           <h1 className="text-white font-bold text-4xl md:text-5xl mb-4 leading-tight font-sans" style={{ letterSpacing: '0.04em' }}>About Kenny's Bar</h1>
           <p className="text-[#FF8C42] text-lg font-semibold mb-4">NEIGHBOURHOOD BAR</p>
           <p className="text-white/90 text-base md:text-lg mb-4" style={{ maxWidth: '600px' }}>{aboutDescription}</p>
-          <p className="text-white/80 font-sans text-base md:text-lg font-medium mb-1">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bangalore</p>
+          <p className="text-white/80 font-sans text-base md:text-lg font-medium mb-1">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bengaluru, Karnataka 560037</p>
           {/* Contact Buttons: Phone & Email */}
           <div className="flex gap-4 mb-3 mt-4 flex-wrap">
             <a href="tel:+919317417517" className="flex-1 min-w-[140px] flex items-center justify-center gap-2 bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full px-3 py-2 transition-colors duration-300 font-medium text-white">
