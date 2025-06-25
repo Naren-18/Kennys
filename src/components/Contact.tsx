@@ -25,8 +25,8 @@ const weekEvents = [
 ];
 
 const hours = [
-  { day: 'Monday - Thursday', time: '4pm - 1am' },
-  { day: 'Friday', time: '4pm - 1am' },
+  { day: 'Monday - Friday', time: '4pm - 1am' },
+  // { day: 'Friday', time: '4pm - 1am' },
   { day: 'Saturday', time: '2pm - 1am' },
   { day: 'Sunday', time: '2pm - 1pm' },
 ];
