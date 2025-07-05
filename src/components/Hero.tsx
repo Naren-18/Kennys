@@ -116,7 +116,7 @@ const Hero = () => {
                     transition: 'font-size 0.8s cubic-bezier(0.4,0,0.2,1)'
                   }}
                 >
-                  NEIGHBOURHOOD BAR
+                  Neighbourhood Bar
                 </p>
                 {/* Reserve Now, Events, and Menu Buttons */}
                 <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6 w-full max-w-xl mx-auto">
@@ -130,11 +130,7 @@ const Hero = () => {
                       Events
                     </button>
                   </Link>
-                  <Link to="/menu" className="flex-1">
-                    <button className="w-full sm:w-44 whitespace-nowrap py-3 px-8 text-center uppercase font-semibold tracking-wide text-[#FF6F1F] text-lg bg-transparent border-2 border-[#FF6F1F] hover:bg-[#FF6F1F] hover:text-white rounded-full transform hover:scale-105 transition-all duration-300 ease-in-out">
-                      Menu
-                    </button>
-                  </Link>
+                 
                 </div>
               </motion.div>
               {/* Redesigned Tagline */}

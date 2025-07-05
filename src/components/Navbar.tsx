@@ -6,12 +6,11 @@ import { cn } from '@/lib/utils';
 
 const navLinks = [
   { name: 'Home', path: '/', icon: <Home className="w-5 h-5" /> },
-  { name: 'Menu', path: '/menu', icon: <BookOpen className="w-5 h-5" /> },
+  { name: 'About Us', path: '/about', icon: <Info className="w-5 h-5" /> },
   { name: 'Gallery', path: '/gallery', icon: <Image className="w-5 h-5" /> },
   { name: 'Stories', path: '/stories', icon: <Users className="w-5 h-5" /> },
   { name: 'Events', path: '/events', icon: <Calendar className="w-5 h-5" /> },
   { name: 'Contact', path: '/contact', icon: <Mail className="w-5 h-5" /> },
-  // { name: 'About', path: '/about', icon: <Info className="w-5 h-5" /> },
 ];
 
 const Navbar = () => {

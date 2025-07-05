@@ -43,10 +43,10 @@ const InstagramEmbed = ({ url }: { url: string }) => {
           borderRadius: 3,
           boxShadow: '0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)',
           margin: 1,
-          maxWidth: 540,
-          minWidth: 326,
+          maxWidth: 320,
+          minWidth: 200,
           padding: 0,
-          width: '99.375%',
+          width: '100%',
         }}
       ></blockquote>
     </div>

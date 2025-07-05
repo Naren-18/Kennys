@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import MenuPage from "./pages/MenuPage";
 import GalleryPage from "./pages/GalleryPage";
@@ -141,6 +141,31 @@ const Loader = () => {
   );
 };
 
+const AppContent = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
+  return (
+    <>
+      <ScrollToTop />
+      <div className="page-content flex-grow">
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/book-table" element={<BookTablePage />} />
+          <Route path="/stories" element={<StoriesPage />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+      {!isHomePage && <Footer />}
+    </>
+  );
+};
+
 const App = () => {
   // const [loading, setLoading] = useState(true);
 
@@ -158,21 +183,7 @@ const App = () => {
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <ScrollToTop />
-            <div className="page-content flex-grow">
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/menu" element={<MenuPage />} />
-                <Route path="/gallery" element={<GalleryPage />} />
-                <Route path="/book-table" element={<BookTablePage />} />
-                <Route path="/stories" element={<StoriesPage />} />
-                <Route path="/events" element={<EventsPage />} />
-                <Route path="/contact" element={<ContactPage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </div>
-            <Footer />
+            <AppContent />
           </BrowserRouter>
           <ScrollButtons />
         </div>

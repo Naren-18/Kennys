@@ -253,18 +253,6 @@ const BookTable = () => {
             )}
           </form>
         </div>
-        {/* Order Online Card */}
-        <div className="w-full max-w-2xl bg-black/60 backdrop-blur-md rounded-2xl border border-[#FF6F1F]/30 shadow-2xl p-10 relative flex flex-col items-center">
-          <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-[#FF6F1F]/40 rounded-tl-2xl"></div>
-          <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#FF6F1F]/40 rounded-br-2xl"></div>
-          <h3 className="text-[#FF8C42] font-title text-2xl mb-4 flex items-center gap-2">
-            <span>Order Online</span>
-          </h3>
-          <p className="text-white/80 mb-6 text-center">Enjoy Kenny's at home! Online ordering is launching soon.</p>
-          <div className="w-full flex justify-center">
-            <span className="inline-block bg-gradient-to-r from-[#FF6F1F] to-[#FF8C42] text-white px-6 py-3 rounded-lg font-semibold text-lg opacity-80 cursor-not-allowed select-none">Coming Soon</span>
-          </div>
-        </div>
       </div>
     </section>
   );

@@ -64,10 +64,10 @@ const GalleryGrid = ({ images }: { images: Array<{src: string, alt: string}> }) 
   );
 };
 
-const instaPosts = [
-  "https://www.instagram.com/reel/DK1Lf73PBm7/",
-  "https://www.instagram.com/p/DKkCbW5ylpi/",
-  // Add more Instagram post URLs here
+const instagramPosts = [
+   "https://www.instagram.com/reel/DK1Lf73PBm7/",
+  "https://www.instagram.com/reel/DLPpkIMSr6j/",
+  "https://www.instagram.com/reel/DLbl6vzzfGa/",
 ];
 
 const Gallery = () => {
@@ -102,9 +102,9 @@ const Gallery = () => {
           {/* Corner decorative elements */}
           <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-[#FF6F1F]/40 rounded-tl-2xl"></div>
           <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-[#FF6F1F]/40 rounded-br-2xl"></div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {instaPosts.map((url, idx) => (
-              <InstagramEmbed key={idx} url={url} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {instagramPosts.map((url) => (
+              <InstagramEmbed key={url} url={url} />
             ))}
           </div>
         </GlassCard>

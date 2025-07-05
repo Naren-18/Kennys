@@ -31,7 +31,7 @@ const hours = [
   { day: 'Sunday', time: '2pm - 1pm' },
 ];
 
-const aboutDescription = `Kenny's Bar is your friendly neighborhood spot for great drinks, good company, and unforgettable nights. Whether you're here for our weekly events or just to unwind, we offer a welcoming atmosphere and top-notch service. Join us and experience the best of Marathahalli's nightlife!`;
+const aboutDescription = `Kenny's, Bengaluru's a true neighbourhood bar, where every visit feels like coming home. We're not just a place to grab a drink; we're your community's favourite hangout, where our bartenders remember your usual and a spot at the bar always feels reserved just for you.\n\nYour Perfect Local Escape; Whether you're unwinding after a long day with our happy hour specials, cheering on your favourite team at our bar, or simply looking for a cozy pub to connect with friends, Kenny's offers the ideal setting. We've curated an exceptional experience with a focus on:\n• Warm & Welcoming Atmosphere: Enjoy the genuine hospitality that makes us Bengaluru's go-to neighbourhood bar, fostering intimate conversations and unforgettable evenings.\n• Classic Spirits: Explore a diverse selection of local and international beers, single malts, gins, and more alongside expertly mixed classic cocktails designed to delight your palate.`;
 
 // Accent bar glow animation
 const accentBarGlow = `
