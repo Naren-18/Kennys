@@ -15,6 +15,7 @@ import ContactPage from "./pages/ContactPage";
 import { useEffect, useState } from "react";
 import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 const queryClient = new QueryClient();
 
@@ -150,14 +151,86 @@ const AppContent = () => {
       <ScrollToTop />
       <div className="page-content flex-grow">
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/menu" element={<MenuPage />} />
-          <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/book-table" element={<BookTablePage />} />
-          <Route path="/stories" element={<StoriesPage />} />
-          <Route path="/events" element={<EventsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/about" element={<AboutPage />} />
+          <Route path="/" element={
+            <>
+              <SEO 
+                title="Kenny's Neighbourhood Bar | Best Bar in Marathahalli, Bengaluru | Live Music & Events"
+                description="Kenny's Bar - Marathahalli's premier neighbourhood bar offering craft cocktails, live music, trivia nights, and whiskey tastings. Book your table today for an unforgettable experience in Bengaluru."
+                keywords="Kenny's Bar, Marathahalli bar, Bengaluru bar, neighbourhood bar, craft cocktails, live music, trivia night, whiskey tasting, book table, Outer Ring Road, best bar Bengaluru"
+              />
+              <Index />
+            </>
+          } />
+          <Route path="/menu" element={
+            <>
+              <SEO 
+                title="Menu | Kenny's Neighbourhood Bar | Craft Cocktails & Bar Food in Marathahalli"
+                description="Explore Kenny's Bar menu featuring craft cocktails, classic spirits, and delicious bar food. Limited choices, familiar items, perfect for pairing with drinks in Marathahalli, Bengaluru."
+                keywords="Kenny's Bar menu, craft cocktails, bar food, Marathahalli restaurant, Bengaluru bar menu, classic spirits, pub food"
+              />
+              <MenuPage />
+            </>
+          } />
+          <Route path="/gallery" element={
+            <>
+              <SEO 
+                title="Gallery | Kenny's Neighbourhood Bar | Photos from Marathahalli's Best Bar"
+                description="Browse photos from Kenny's Bar - see our vibrant atmosphere, events, and happy customers. Experience the best neighbourhood bar in Marathahalli, Bengaluru."
+                keywords="Kenny's Bar gallery, Marathahalli bar photos, Bengaluru bar images, neighbourhood bar atmosphere, bar events photos"
+              />
+              <GalleryPage />
+            </>
+          } />
+          <Route path="/book-table" element={
+            <>
+              <SEO 
+                title="Book Table | Kenny's Neighbourhood Bar | Reserve Your Spot in Marathahalli"
+                description="Reserve your table at Kenny's Bar, Marathahalli. Book online for live music nights, trivia events, and whiskey tastings. Best neighbourhood bar in Bengaluru."
+                keywords="book table Kenny's Bar, reserve table Marathahalli, Bengaluru bar reservation, table booking, Kenny's Bar reservation"
+              />
+              <BookTablePage />
+            </>
+          } />
+          <Route path="/stories" element={
+            <>
+              <SEO 
+                title="Stories | Kenny's Neighbourhood Bar | Customer Stories from Marathahalli"
+                description="Read stories and experiences from Kenny's Bar customers. Discover why we're Marathahalli's favorite neighbourhood bar in Bengaluru."
+                keywords="Kenny's Bar stories, customer experiences, Marathahalli bar reviews, neighbourhood bar testimonials, Bengaluru bar stories"
+              />
+              <StoriesPage />
+            </>
+          } />
+          <Route path="/events" element={
+            <>
+              <SEO 
+                title="Events | Kenny's Neighbourhood Bar | Live Music, Trivia & More in Marathahalli"
+                description="Join us for exciting events at Kenny's Bar - live music, trivia nights, whiskey tastings, and more. Check our event calendar for Marathahalli's best neighbourhood bar."
+                keywords="Kenny's Bar events, live music Marathahalli, trivia night, whiskey tasting, bar events Bengaluru, neighbourhood bar entertainment"
+              />
+              <EventsPage />
+            </>
+          } />
+          <Route path="/contact" element={
+            <>
+              <SEO 
+                title="Contact | Kenny's Neighbourhood Bar | Get in Touch | Marathahalli, Bengaluru"
+                description="Contact Kenny's Bar in Marathahalli, Bengaluru. Get directions, phone number, and email. Located at Outer Ring Road, we're your friendly neighbourhood bar."
+                keywords="Kenny's Bar contact, Marathahalli bar location, Bengaluru bar address, contact Kenny's Bar, Outer Ring Road bar"
+              />
+              <ContactPage />
+            </>
+          } />
+          <Route path="/about" element={
+            <>
+              <SEO 
+                title="About | Kenny's Neighbourhood Bar | Marathahalli's Premier Bar Experience"
+                description="Learn about Kenny's Bar - more than a bar, we're a neighborhood living room where memories are made and stories are shared in Marathahalli, Bengaluru."
+                keywords="about Kenny's Bar, Marathahalli neighbourhood bar, Bengaluru bar story, Kenny's Bar history, local bar Marathahalli"
+              />
+              <AboutPage />
+            </>
+          } />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

@@ -630,3 +630,54 @@ footer:last-child {
   scrollbar-width: thin;
   scrollbar-color: #FF8C42 #1a1a1a;
 }
+
+
+/* Add after the existing CSS variables in :root */
+:root {
+  /* Navbar width tracking for footer animations */
+  --navbar-width: 80px; /* Default collapsed width */
+}
+
+/* When navbar is expanded */
+.navbar-expanded {
+  --navbar-width: 256px; /* 64 * 4 = 256px (w-64) */
+}
+
+/* Smooth footer transitions */
+.footer-animated {
+  transition: margin-left 0.5s ease-in-out, padding-left 0.5s ease-in-out;
+  margin-left: var(--navbar-width);
+}
+
+/* Enhanced location section animations */
+.location-section {
+  animation: locationFloat 3s ease-in-out infinite;
+}
+
+@keyframes locationFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Slide animation for footer content */
+@keyframes slideWithNavbar {
+  from {
+    margin-left: 80px;
+  }
+  to {
+    margin-left: var(--navbar-width);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  :root {
+    --navbar-width: 0px;
+  }
+  .navbar-expanded {
+    --navbar-width: 0px;
+  }
+  .footer-animated {
+    margin-left: 0;
+  }
+}

@@ -34,7 +34,7 @@ const Hero = () => {
           muted
           playsInline
           className="absolute top-1/2 left-1/2 w-auto h-auto min-w-full min-h-full object-cover transform -translate-x-1/2 -translate-y-1/2"
-          poster="/images/hero-poster.jpg" // Optional: A poster image shown while the video loads
+          poster="/images/hero-poster.jpg"
         >
           <source src="/background.MOV" type="video/quicktime" />
           {/* You can add more <source> tags for different video formats if needed, e.g., webm, ogg */}
