@@ -13,12 +13,18 @@ const Index = () => {
       {/* Static backdrop */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-black opacity-95"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-kenny-dark to-transparent opacity-50"></div>
-        <img 
-          src="https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2830&q=80" 
-          alt="Background" 
-          className="h-full w-full object-cover object-center warmth-filter opacity-20"
-        />
+        <div className="absolute inset-0 bg-gradient-to-b from-kenny-dark to-transparent opacity-80"></div>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="h-full w-full object-cover object-center warmth-filter opacity-50"
+          poster="/images/hero-poster.jpg"
+        >
+          <source src="/background.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         {/* Subtle dust particles could be added here */}
         <div className="absolute inset-0 bg-gradient-to-t from-kenny-dark via-transparent to-transparent"></div>
       </div>

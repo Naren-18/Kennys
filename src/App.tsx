@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import MenuPage from "./pages/MenuPage";
 import GalleryPage from "./pages/GalleryPage";
@@ -11,8 +11,10 @@ import StoriesPage from "./pages/StoriesPage";
 import EventsPage from "./pages/EventsPage";
 import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
+import ContactPage from "./pages/ContactPage";
 import { useEffect, useState } from "react";
 import ScrollToTop from "@/components/ScrollToTop";
+import Footer from "@/components/Footer";
 
 const queryClient = new QueryClient();
 
@@ -55,34 +57,7 @@ const ScrollButtons = () => {
         zIndex: 999,
       }}
     >
-      {visible && (
-        <>
-          <button
-            className="scroll-uiverse-btn"
-            onClick={scrollToTop}
-            aria-label="Scroll to top"
-          >
-            <svg className="svgIcon" viewBox="0 0 20 20">
-              <path
-                d="M10 4.167a.833.833 0 0 1 .589.244l5 5a.833.833 0 1 1-1.178 1.178l-3.244-3.244V15a.833.833 0 1 1-1.666 0V7.345L5.255 10.59A.833.833 0 1 1 4.077 9.41l5-5A.833.833 0 0 1 10 4.167z"
-                style={{ fill: "#FF6F1F" }}
-              />
-            </svg>
-          </button>
-          <button
-            className="scroll-uiverse-btn"
-            onClick={scrollToBottom}
-            aria-label="Scroll to bottom"
-          >
-            <svg className="svgIcon" viewBox="0 0 20 20">
-              <path
-                d="M10 15.833a.833.833 0 0 1-.589-.244l-5-5a.833.833 0 1 1 1.178-1.178l3.244 3.244V5a.833.833 0 1 1 1.666 0v7.655l3.244-3.244a.833.833 0 1 1 1.178 1.178l-5 5a.833.833 0 0 1-.589.244z"
-                style={{ fill: "#FF6F1F" }}
-              />
-            </svg>
-          </button>
-        </>
-      )}
+      
       <style>{`
         .scroll-uiverse-btn {
           width: 50px;
@@ -120,62 +95,95 @@ const ScrollButtons = () => {
   );
 };
 
-// Loader component with animated KENNY'S using SVG for border and fluid fill
 const Loader = () => {
+  const text = "KENNY'S ";
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black">
-      <span className="loader-fadein-text">KENNY'S</span>
+    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black">
+      <div className="flex gap-1 funky-loader-text font-sans" aria-label="KENNY'S">
+        {text.split("").map((char, i) => (
+          <span
+            key={i}
+            style={{
+              display: "inline-block",
+              animation: `letterBounce 4s cubic-bezier(.22,1,.36,1) forwards, funkyGlow 2.5s infinite alternate`,
+              animationDelay: `${i * 0.09 + 0.1}s`,
+              opacity: 0,
+              color: "#FF8C42",
+              textShadow: "0 2px 16px #FF8C42aa, 0 0 0 2px #FF8C42, 0 1px 0 #fff, 0 4px 12px rgba(0,40,120,0.10), 0 0 24px rgba(255, 111, 31, 0.10)",
+              fontFamily: "Trebuchet MS, sans-serif",
+              fontSize: "4.2rem",
+              letterSpacing: "0.13em",
+            }}
+          >
+            {char}
+          </span>
+        ))}
+      </div>
+      
       <style>{`
-        .loader-fadein-text {
-          font-family: 'Anton', sans-serif;
-          font-size: 5rem;
-          font-weight: 700;
-          color: #FF6F1F;
-          opacity: 0;
-          animation: fadeIn 3s ease-in forwards;
-          letter-spacing: 0.12em;
+        @keyframes letterBounce {
+          0% { opacity: 0; transform: translateY(40px) scale(0.7) rotate(-8deg);}
+          60% { opacity: 1; transform: translateY(-10px) scale(1.12) rotate(2deg);}
+          80% { opacity: 1; transform: translateY(2px) scale(0.98) rotate(-1deg);}
+          100% { opacity: 1; transform: translateY(0) scale(1) rotate(0);}
         }
-        @keyframes fadeIn {
-          to {
-            opacity: 1;
-          }
+        @keyframes funkyGlow {
+          0% { text-shadow: 0 2px 16px #FF8C42aa, 0 0 0 2px #FF8C42, 0 1px 0 #fff, 0 4px 12px rgba(0,40,120,0.10), 0 0 24px rgba(255, 111, 31, 0.10);}
+          100% { text-shadow: 0 4px 32px #FF8C42, 0 0 0 4px #FF8C42, 0 2px 0 #fff, 0 8px 24px rgba(0,40,120,0.18), 0 0 48px rgba(255, 111, 31, 0.18);}
+        }
+        @keyframes typeIn {
+          0% { opacity: 0; width: 0; }
+          10% { opacity: 1; width: 0; }
+          100% { opacity: 1; width: 100%; }
         }
       `}</style>
     </div>
   );
 };
 
+const AppContent = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
+  return (
+    <>
+      <ScrollToTop />
+      <div className="page-content flex-grow">
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/book-table" element={<BookTablePage />} />
+          <Route path="/stories" element={<StoriesPage />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+      {!isHomePage && <Footer />}
+    </>
+  );
+};
+
 const App = () => {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 5000);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => setLoading(false), 5000);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
-  if (loading) return <Loader />;
+  // if (loading) return <Loader />;
 
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <div className="page-container">
-          {/* Static logo in top-left corner */}
+        <div className="page-container min-h-screen flex flex-col">
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <ScrollToTop />
-            <div className="page-content">
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/menu" element={<MenuPage />} />
-                <Route path="/gallery" element={<GalleryPage />} />
-                <Route path="/book-table" element={<BookTablePage />} />
-                <Route path="/stories" element={<StoriesPage />} />
-                <Route path="/events" element={<EventsPage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </div>
+            <AppContent />
           </BrowserRouter>
           <ScrollButtons />
         </div>

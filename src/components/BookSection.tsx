@@ -54,13 +54,10 @@ const Footer = () => {
               <h4 className="text-white text-lg font-medium mb-4">Hours</h4>
               <ul className="space-y-2 text-white/70">
                 <li className="flex justify-between">
-                  <span>Monday - Thursday</span>
+                  <span>Monday - Friday</span>
                   <span>4pm - 12am</span>
                 </li>
-                <li className="flex justify-between">
-                  <span>Friday</span>
-                  <span>4pm - 2am</span>
-                </li>
+                
                 <li className="flex justify-between">
                   <span>Saturday</span>
                   <span>2pm - 2am</span>
@@ -176,7 +173,7 @@ const Footer = () => {
                 </button>
               </a>
             </div>
-            {/* Order Online Card */}
+            Order Online Card
             <div className="bg-[#3a1c0f] rounded-2xl shadow-lg p-8 flex-1 flex flex-col justify-between max-w-md">
               <h3 className="text-2xl font-title text-kenny-amber mb-4">Order Online</h3>
               <div className="flex flex-col gap-4 mt-4">

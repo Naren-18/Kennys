@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Home, BookOpen, Image, Users, Calendar, Info, UtensilsCrossed, CircleCheck } from 'lucide-react';
+import { Menu, X, Home, BookOpen, Image, Users, Calendar, Info, UtensilsCrossed, CircleCheck, Mail } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { cn } from '@/lib/utils';
 
 const navLinks = [
   { name: 'Home', path: '/', icon: <Home className="w-5 h-5" /> },
-  { name: 'Menu', path: '/menu', icon: <BookOpen className="w-5 h-5" /> },
+  { name: 'About Us', path: '/about', icon: <Info className="w-5 h-5" /> },
   { name: 'Gallery', path: '/gallery', icon: <Image className="w-5 h-5" /> },
   { name: 'Stories', path: '/stories', icon: <Users className="w-5 h-5" /> },
   { name: 'Events', path: '/events', icon: <Calendar className="w-5 h-5" /> },
-  { name: 'About', path: '/about', icon: <Info className="w-5 h-5" /> },
+  { name: 'Contact', path: '/contact', icon: <Mail className="w-5 h-5" /> },
 ];
 
 const Navbar = () => {
@@ -142,17 +142,28 @@ const Navbar = () => {
         tabIndex={0}
         onFocus={handleMouseEnter}
       >
+        {/* Close button for mobile */}
+        {isMobileMenuOpen && (
+          <button
+            className="absolute top-4 right-4 z-50 p-2 rounded-full bg-black/70 border border-[#FF8C42]/30 text-white md:hidden flex items-center justify-center"
+            onClick={toggleMobileMenu}
+            aria-label="Close menu"
+            type="button"
+          >
+            <X className="w-6 h-6 text-[#FF8C42]" />
+          </button>
+        )}
         {/* Fixed height container for the entire sidebar content */}
         <div className="flex flex-col h-full w-full">
           {/* Logo area - fixed height and width to prevent blinking during transitions */}
-          <div className="h-[180px] flex items-center justify-center">
+          <div className="h-[120px] sm:h-[180px] flex items-center justify-center overflow-visible">
             <div 
               className={cn(
                 'transition-all duration-500 overflow-visible',
                 isExpanded || isMobileMenuOpen ? 'w-[95%] max-w-[300px]' : 'w-16'
               )}
               style={{
-                height: isExpanded || isMobileMenuOpen ? '150px' : '70px', // Further enlarge height when expanded
+                height: isExpanded || isMobileMenuOpen ? (window.innerWidth < 640 ? '100px' : '150px') : '70px',
                 aspectRatio: isExpanded || isMobileMenuOpen ? 'auto' : '1 / 1',
                 display: 'flex',
                 alignItems: 'center',
@@ -168,15 +179,16 @@ const Navbar = () => {
                 style={{
                   maxHeight: '100%',
                   objectPosition: 'center',
-                  transform: isExpanded || isMobileMenuOpen ? 'scale(1.32)' : 'scale(1)'
+                  transform: isExpanded || isMobileMenuOpen
+                    ? (window.innerWidth < 640 ? 'scale(1.08)' : 'scale(1.32)')
+                    : 'scale(1)'
                 }}
               />
             </div>
           </div>
 
           {/* Navigation links - each link has fixed height */}
-          {/* Added mt-8 to create more spacing between logo and nav links */}
-          <nav className="flex flex-col w-full px-2 mt-8 navbar-scrollbar overflow-y-auto">
+          <nav className="flex flex-col w-full px-2 mt-4 navbar-scrollbar overflow-y-auto">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
               return (
@@ -184,29 +196,29 @@ const Navbar = () => {
                   key={link.name}
                   to={link.path}
                   className={cn(
-                    'flex items-center px-4 rounded-xl transition-all duration-300',
-                    'text-base uppercase tracking-wider font-medium relative',
+                    'flex items-center px-3 rounded-xl transition-all duration-300',
+                    'text-sm md:text-base uppercase tracking-wider font-medium relative',
                     isActive 
                       ? 'bg-[#FF6F1F]/20 text-[#FF6F1F] font-bold' 
                       : 'text-white hover:bg-black/30 hover:text-[#FF6F1F]',
                     isExpanded || isMobileMenuOpen ? 'justify-start' : 'justify-center',
-                    'h-[52px] my-3' // Increased vertical spacing between buttons
+                    'h-[42px] md:h-[48px] my-1.5 md:my-2' // Reduced vertical spacing
                   )}
                 >
                   {isActive && (
-                    <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-8 bg-[#FF6F1F] rounded-r-md" />
+                    <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-1 h-6 md:h-8 bg-[#FF6F1F] rounded-r-md" />
                   )}
                   <div className={cn(
-                    'flex items-center justify-center w-[24px] h-[24px] flex-shrink-0', // Fixed width and height for icon container
+                    'flex items-center justify-center w-[20px] md:w-[24px] h-[20px] md:h-[24px] flex-shrink-0',
                     isActive ? 'text-[#FF6F1F]' : 'text-white'
                   )}>
-                    <div className="flex items-center justify-center w-5 h-5">
+                    <div className="flex items-center justify-center w-4 h-4 md:w-5 md:h-5">
                       {link.icon}
                     </div>
                   </div>
                   <span 
                     className={cn(
-                      'transition-all duration-300 ml-3 whitespace-nowrap overflow-hidden',
+                      'transition-all duration-300 ml-2 md:ml-3 whitespace-nowrap overflow-hidden text-sm md:text-base',
                       (isExpanded || isMobileMenuOpen) ? 'opacity-100 max-w-[200px]' : 'opacity-0 max-w-0 md:w-0'
                     )}
                   >
@@ -219,7 +231,7 @@ const Navbar = () => {
 
           {/* Book table button - fixed height */}
           <div className={cn(
-            'px-4 py-4 mt-auto flex',
+            'px-3 md:px-4 py-3 md:py-4 mt-auto flex',
             isExpanded || isMobileMenuOpen ? 'justify-start' : 'justify-center'
           )}>
             <Link to="/book-table">
@@ -227,8 +239,8 @@ const Navbar = () => {
                 variant="outline" 
                 className={cn(
                   isExpanded || isMobileMenuOpen 
-                    ? 'w-full h-[56px] px-4' 
-                    : 'w-[56px] h-[56px] p-0 flex items-center justify-center',
+                    ? 'w-full h-[48px] md:h-[56px] px-3 md:px-4' 
+                    : 'w-[48px] md:w-[56px] h-[48px] md:h-[56px] p-0 flex items-center justify-center',
                   'border-[#FF6F1F] text-[#FF6F1F] bg-black/30',
                   'hover:bg-[#FF6F1F] hover:text-white transition-all duration-300',
                   'rounded-xl font-bold shadow-lg',
@@ -237,14 +249,14 @@ const Navbar = () => {
               >
                 {/* Glow effect in the background */}
                 <div className="absolute -inset-[1px] bg-[#FF6F1F]/10 rounded-xl blur-sm opacity-70" />
-                <div className="w-[26px] h-[26px] flex items-center justify-center flex-shrink-0 relative z-10">
-                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-[#FF6F1F]/20 p-1">
-                    <UtensilsCrossed className="w-4 h-4" />
+                <div className="w-[22px] md:w-[26px] h-[22px] md:h-[26px] flex items-center justify-center flex-shrink-0 relative z-10" style={{position: 'relative', left: '7%'}}>
+                  <div className="flex items-center justify-center w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#FF6F1F]/20 p-1">
+                    <UtensilsCrossed className="w-3 h-3 md:w-4 md:h-4" />
                   </div>
                 </div>
                 <span 
                   className={cn(
-                    'transition-all duration-300 ml-3 whitespace-nowrap overflow-hidden font-bold',
+                    'transition-all duration-300 ml-2 md:ml-3 whitespace-nowrap overflow-hidden font-bold text-sm md:text-base',
                     (isExpanded || isMobileMenuOpen) ? 'opacity-100 max-w-[200px] block' : 'opacity-0 max-w-0 w-0 h-0 p-0 m-0 block'
                   )}
                   aria-hidden={!(isExpanded || isMobileMenuOpen)}

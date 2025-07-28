@@ -1,108 +1,71 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, BookOpen, Users, Calendar, Star } from 'lucide-react';
+import { Menu as MenuIcon } from 'lucide-react';
 
-// Updated GlassCard for better glassmorphism
-const GlassCard = ({ children, className = "" }) => (
-  <div className={`relative ${className}`}>
-    <div className="absolute inset-0 bg-white/10 backdrop-blur-2xl rounded-2xl border border-white/20 shadow-xl" />
-    <div className="relative z-10">{children}</div>
-  </div>
-);
-
-const aboutLinks = [
-  { icon: <BookOpen className="h-5 w-5 text-[#FF8C42]" />, label: 'About Us', href: '#' },
-  { icon: <Users className="h-5 w-5 text-[#FF8C42]" />, label: 'Neighborhood Stories', href: '#' },
-  { icon: <Calendar className="h-5 w-5 text-[#FF8C42]" />, label: 'Events Calendar', href: '#' },
-  { icon: <Star className="h-5 w-5 text-[#FF8C42]" />, label: 'Digital Regulars', href: '#' },
-];
-
-const weekEvents = [
-  { icon: '📅', text: 'Trivia Night – Tuesday, 8pm' },
-  { icon: '🎷', text: 'Live Jazz – Friday, 9pm' },
-  { icon: '🥃', text: 'Whiskey Tasting – Saturday, 7pm' },
-];
-
-const hours = [
-  { day: 'Monday - Thursday', time: '4pm - 12am' },
-  { day: 'Friday', time: '4pm - 2am' },
-  { day: 'Saturday', time: '2pm - 2am' },
-  { day: 'Sunday', time: '2pm - 10pm' },
-];
-
-const About = () => (
-  <section className="pt-4 pb-4 min-h-screen relative overflow-hidden flex items-center justify-center">
-    {/* Bar-themed background image and overlay */}
-    <div className="absolute inset-0 z-0">
-      <img
-        src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1500&q=80"
-        alt="Bar background"
-        className="absolute top-1/2 left-1/2 w-auto h-auto min-w-full min-h-full object-cover transform -translate-x-1/2 -translate-y-1/2 scale-105"
-      />
-      <div className="absolute inset-0 bg-black/60 z-10" />
-    </div>
-    {/* Unified glassmorphic panel */}
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7 }}
-      className="relative z-20 w-full max-w-3xl mx-auto px-6 py-8 md:py-10 rounded-3xl bg-white/10 backdrop-blur-2xl border border-white/20 shadow-2xl flex flex-col gap-0"
-      style={{ boxShadow: '0 8px 40px 0 rgba(0,0,0,0.25), 0 1.5px 8px 0 #FF8C42' }}
-    >
-      {/* Hero Section */}
-      <div className="text-center mb-2">
-        <h1 className="text-[#FF8C42] font-bold uppercase tracking-wide text-4xl md:text-5xl mb-1 font-['League_Spartan']" style={{ letterSpacing: '0.04em', fontFamily: 'Anton, sans-serif' }}>KENNY'S</h1>
-        <p className="text-white/80 font-['Montserrat'] text-base md:text-lg font-medium mb-1">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bangalore</p>
+const About = () => {
+  return (
+    <section id="menu" className="py-24 relative overflow-hidden min-h-screen">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/90 z-10"></div>
       </div>
-      {/* Contact */}
-      <div className="flex justify-center items-center gap-2 mb-4">
-        <Phone className="h-5 w-5 text-[#FF8C42]" />
-        <span className="text-white text-base font-semibold">+91 9317417517</span>
-      </div>
-      {/* Divider */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#FF8C42]/40 to-transparent mb-4" />
-      {/* Explore */}
-      <div className="mb-4">
-        <h2 className="text-[#FF8C42] font-semibold font-['League_Spartan'] text-xl mb-2 text-center">Explore</h2>
-        <ul className="flex flex-wrap gap-4 justify-center">
-          {aboutLinks.map((link, i) => (
-            <li key={link.label} className="flex items-center gap-2">
-              {link.icon}
-              <a href={link.href} className="text-white/90 hover:text-[#FF8C42] font-['Montserrat'] font-medium text-base transition-colors duration-300">{link.label}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-      {/* Divider */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#FF8C42]/40 to-transparent mb-4" />
-      {/* This Week at Kenny's */}
-      <div className="mb-4">
-        <h2 className="text-[#FF8C42] font-semibold font-['League_Spartan'] text-xl mb-2 text-center">This Week at Kenny's</h2>
-        <ul className="space-y-2">
-          {weekEvents.map((event, i) => (
-            <li key={event.text} className="flex items-center gap-2 text-white/90 font-['Montserrat'] text-base justify-center">
-              <span className="text-xl">{event.icon}</span>
-              {event.text}
-            </li>
-          ))}
-        </ul>
-      </div>
-      {/* Divider */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#FF8C42]/40 to-transparent mb-4" />
-      {/* Hours */}
-      <div>
-        <h2 className="text-[#FF8C42] font-semibold font-['League_Spartan'] text-xl mb-2 text-center">Hours</h2>
-        <ul className="divide-y divide-white/10">
-          {hours.map((h, i) => (
-            <li key={h.day} className="flex justify-between items-center py-1 text-white/90 font-['Montserrat'] text-base">
-              <span>{h.day}</span>
-              <span className="font-semibold">{h.time}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </motion.div>
-  </section>
-);
+      
+      <div className="container mx-auto px-4 relative z-30">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16 relative"
+        >
+          <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-[#FF6F1F] to-transparent"></div>
+          <h2 className="text-[#FF8C42] font-bold font-sans text-5xl md:text-6xl mb-4 relative inline-block">
+            Kenny's Bar
+            <div className="absolute -bottom-3 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FF6F1F] to-transparent"></div>
+          </h2>
+          
+          {/* Kenny's Bar Intro Section */}
+          <div className="max-w-3xl mx-auto mb-10">
+            <div className="bg-black/70 border-l-8 border-[#FF8C42] rounded-2xl shadow-lg p-8 md:p-10 mb-6 text-left">
+              <h3 className="text-[#FF8C42] text-2xl md:text-3xl font-bold mb-3 font-sans">Welcome to Kenny's, Bengaluru</h3>
+              <p className="text-white/90 text-lg md:text-xl mb-4 leading-relaxed">
+                Kenny's, Bengaluru's a true neighbourhood bar, where every visit feels like coming home. We're not just a place to grab a drink; we're your community's favourite hangout, where our bartenders remember your usual and a spot at the bar always feels reserved just for you.
+              </p>
+              <p className="text-white/80 text-base md:text-lg mb-2">
+                <span className="font-semibold text-[#FF8C42]">Your Perfect Local Escape:</span> Whether you're unwinding after a long day with our happy hour specials, cheering on your favourite team at our bar, or simply looking for a cozy pub to connect with friends, Kenny's offers the ideal setting. We've curated an exceptional experience with a focus on:
+              </p>
+              <ul className="list-none pl-0 space-y-2 mt-4">
+                <li className="flex items-start gap-3">
+                  <span className="text-[#FF8C42] text-xl">•</span>
+                  <span className="text-white/90"><span className="font-semibold text-[#FF8C42]">Warm & Welcoming Atmosphere:</span> Enjoy the genuine hospitality that makes us Bengaluru's go-to neighbourhood bar, fostering intimate conversations and unforgettable evenings.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#FF8C42] text-xl">•</span>
+                  <span className="text-white/90"><span className="font-semibold text-[#FF8C42]">Classic Spirits:</span> Explore a diverse selection of local and international beers, single malts, gins, and more alongside expertly mixed classic cocktails designed to delight your palate.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-export default About; 
+          {/* Menu Philosophy Section */}
+          <div className="max-w-2xl mx-auto mb-12">
+            <h2 className="text-[#FF8C42] text-3xl font-bold mb-4 text-center">Our Menu Philosophy</h2>
+            <div className="bg-[#1a120b]/80 border border-[#FF8C42]/30 rounded-xl shadow-md p-6 md:p-8">
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90 text-base md:text-lg list-none pl-0">
+                <li className="flex items-start gap-3 text-left"><span className="text-[#FF8C42] text-lg flex-shrink-0">✔</span> <span>Limited Choices: Not overwhelming with too many options.</span></li>
+                <li className="flex items-start gap-3 text-left"><span className="text-[#FF8C42] text-lg flex-shrink-0">✔</span> <span>Familiar Items: Dishes most people recognize and enjoy.</span></li>
+                <li className="flex items-start gap-3 text-left"><span className="text-[#FF8C42] text-lg flex-shrink-0">✔</span> <span>Pub-Friendly: Items that are easy to eat in a casual bar setting.</span></li>
+                <li className="flex items-start gap-3 text-left"><span className="text-[#FF8C42] text-lg flex-shrink-0">✔</span> <span>Pairs with Drinks: Food that complements beer, cocktails, etc.</span></li>
+                <li className="flex items-start gap-3 text-left"><span className="text-[#FF8C42] text-lg flex-shrink-0">✔</span> <span>Clear Descriptions: No overly flowery language.</span></li>
+                <li className="flex items-start gap-3 text-left"><span className="text-[#FF8C42] text-lg flex-shrink-0">✔</span> <span>Dietary Notes: Simple V/NV indicators for quick reference.</span></li>
+                <li className="flex items-start gap-3 text-left"><span className="text-[#FF8C42] text-lg flex-shrink-0">✔</span> <span>Value: Implies good portions for the price.</span></li>
+              </ul>
+            </div>
+            <p className="text-[#FF8C42] text-lg font-semibold mt-6 text-center">Discover why so many choose Kenny's as their favourite watering hole. We look forward to welcoming you!</p>
+          </div>
+          
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
