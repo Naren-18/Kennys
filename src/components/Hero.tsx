@@ -12,6 +12,7 @@ const Hero = () => {
   const [loaded, setLoaded] = useState(false);
   const [showSpecialOffers, setShowSpecialOffers] = useState(false);
   const [heroShrunk, setHeroShrunk] = useState(false);
+  const [showAddress, setShowAddress] = useState(false);
 
   useEffect(() => {
     setLoaded(true);
@@ -20,6 +21,19 @@ const Hero = () => {
       setHeroShrunk(true);
     }, 5000); // 5 seconds delay
     return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const bodyHeight = document.body.offsetHeight;
+      // Show if scrolled to within 40px of bottom
+      setShowAddress(scrollY + windowHeight >= bodyHeight - 40);
+    };
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -246,6 +260,19 @@ const Hero = () => {
           </div>
         </div> */}
       </section>
+      {/* Address Card at the bottom of Hero, as a normal block */}
+      <div className="w-full flex justify-center mt-12 mb-8">
+        <div className="bg-black/60 backdrop-blur-md border border-[#FF6F1F]/40 rounded-2xl shadow-xl px-8 py-6 flex items-center gap-6 max-w-xl mx-auto">
+          <div className="bg-[#1a120b] rounded-full w-14 h-14 flex items-center justify-center shadow-md">
+            <MapPin className="text-[#FF8C42] w-7 h-7" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="text-lg md:text-xl font-semibold text-[#FF8C42] mb-1 truncate">Kenny's Bar, Bengaluru</div>
+            <div className="text-white/90 text-base md:text-lg leading-snug ">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bengaluru, Karnataka 560037</div>
+            <div className="text-white/70 text-sm mt-1">Open daily: 11:00 AM – 1:00 AM</div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
