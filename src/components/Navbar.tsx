@@ -21,6 +21,18 @@ const Navbar = () => {
   const collapseTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
   const sidebarRef = React.useRef<HTMLDivElement>(null);
 
+  // Update CSS variable when navbar expands/collapses
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isExpanded) {
+      root.style.setProperty('--navbar-width', '256px');
+      document.body.classList.add('navbar-expanded');
+    } else {
+      root.style.setProperty('--navbar-width', '80px');
+      document.body.classList.remove('navbar-expanded');
+    }
+  }, [isExpanded]);
+
   // Handle desktop sidebar expansion with debounce
   const handleMouseEnter = () => {
     // Clear any pending collapse timeout

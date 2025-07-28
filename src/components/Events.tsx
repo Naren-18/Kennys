@@ -26,34 +26,34 @@ const Events = () => {
   const events: Event[] = [
     {
       id: 1,
-      title: "Live Jazz Night",
-      date: "Friday, May 22",
-      time: "8:00 PM - 11:00 PM",
-      description: "Join us for an evening of smooth jazz with local favorites The Bourbon Street Quartet.",
+      title: "Coming Soon",
+      date: "TBA",
+      time: "TBA",
+      description: "Exciting events are being planned! Stay tuned for updates on our upcoming entertainment.",
       category: 'music'
     },
     {
       id: 2,
-      title: "Whiskey Tasting",
-      date: "Saturday, May 23",
-      time: "7:00 PM - 9:00 PM",
-      description: "Discover the unique flavors of small-batch bourbons with our expert tasting guide.",
+      title: "Coming Soon",
+      date: "TBA",
+      time: "TBA",
+      description: "Amazing tasting experiences are in the works! Check back soon for details.",
       category: 'tasting'
     },
     {
       id: 3,
-      title: "Neighborhood ",
-      date: "Sunday, May 24",
-      time: "4:00 PM - 7:00 PM",
-      description: "Bring your favorite dish and join for our monthly community gathering.",
+      title: "Coming Soon",
+      date: "TBA",
+      time: "TBA",
+      description: "Community gatherings are being organized! We'll announce details soon.",
       category: 'community'
     },
     {
       id: 4,
-      title: "Anniversary Celebration",
-      date: "Thursday, May 28",
-      time: "7:00 PM - Close",
-      description: "Help us celebrate 23 years of Kenny's with special drinks, memory sharing, and surprise guests.",
+      title: "Coming Soon",
+      date: "TBA",
+      time: "TBA",
+      description: "Special celebrations are being planned! Keep an eye out for announcements.",
       category: 'special'
     }
   ];
@@ -105,7 +105,7 @@ const Events = () => {
           </h2>
           <h3 className="text-white font-semibold font-['League_Spartan'] text-2xl md:text-3xl mb-6">Upcoming Events</h3>
           <p className="text-white/80 font-['Montserrat'] max-w-2xl mx-auto text-base md:text-lg">
-            There's always something happening at Kenny's. Check out our upcoming events and mark your calendar!
+            Exciting events are being planned at Kenny's. Stay tuned for announcements!
           </p>
           <div className="flex justify-center mt-8">
             <div className="flex items-center gap-2">
@@ -173,18 +173,11 @@ const Events = () => {
                       <p className="text-white/80 mb-6 text-sm flex-grow">{event.description}</p>
                       <div className="mt-auto">
                         <Button
-                          asChild
-                          className="relative cursor-pointer py-3 px-6 text-center inline-flex justify-center items-center gap-2 text-base rounded-lg transition-all duration-300 w-full bg-gradient-to-r from-[#FF6F1F]/10 to-[#FF8C42]/10 hover:from-[#FF6F1F]/20 hover:to-[#FF8C42]/20 border border-[#FF6F1F]/30 text-white group"
+                          disabled
+                          className="relative cursor-not-allowed py-3 px-6 text-center inline-flex justify-center items-center gap-2 text-base rounded-lg transition-all duration-300 w-full bg-gradient-to-r from-[#FF6F1F]/20 to-[#FF8C42]/20 border border-[#FF6F1F]/30 text-white/50"
                         >
-                          <a
-                            href={`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=&details=${encodeURIComponent(event.description)}&location=Kenny's Neighbourhood Bar`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-2 w-full"
-                          >
-                            <CalendarClock className="h-4 w-4 text-[#FF8C42] group-hover:scale-110 transition-transform duration-300" />
-                            <span>Add to Calendar</span>
-                          </a>
+                          <CalendarClock className="h-4 w-4 text-[#FF8C42]/50" />
+                          <span>Details Coming Soon</span>
                         </Button>
                       </div>
                     </div>
@@ -206,23 +199,17 @@ const Events = () => {
                   </div>
                   <h4 className="text-[#FF6F1F] font-semibold font-['League_Spartan'] text-xl mb-4 flex items-center gap-2">
                     <Star className="h-5 w-5" />
-                    <span>Looking for More?</span>
+                    <span>Stay Tuned!</span>
                   </h4>
                   <p className="text-white/80 font-['Montserrat'] mb-6 max-w-xs">
-                    Check out our full calendar to see all upcoming events, or suggest one of your own!
+                    We're planning amazing events for you! Follow us on social media for the latest updates.
                   </p>
                   <Button
-                    asChild
-                    className="relative cursor-pointer py-3 px-6 text-center inline-flex justify-center items-center gap-2 text-base rounded-lg transition-all duration-300 w-full"
-                    style={{
-                      background: 'linear-gradient(to right, #FF6F1F, #FF8C42)',
-                      color: '#fff',
-                    }}
+                    disabled
+                    className="relative cursor-not-allowed py-3 px-6 text-center inline-flex justify-center items-center gap-2 text-base rounded-lg transition-all duration-300 w-full bg-gradient-to-r from-[#FF6F1F]/20 to-[#FF8C42]/20 text-white/50"
                   >
-                    <a className="flex items-center justify-center gap-2 w-full">
-                      <Calendar className="h-5 w-5" />
-                      <span className="font-medium">View Full Calendar</span>
-                    </a>
+                    <Calendar className="h-5 w-5" />
+                    <span className="font-medium">Events Coming Soon</span>
                   </Button>
                 </CardContent>
               </GlassCard>
@@ -242,7 +229,7 @@ const Events = () => {
           </div>
           <GlassCard className="inline-block px-6 py-3">
             <p className="text-white/70 font-['Montserrat'] italic">
-              All events take place at Kenny's Bar unless otherwise noted. Events are subject to change.
+              Exciting events are being planned at Kenny's Bar. Stay connected for updates!
             </p>
           </GlassCard>
         </motion.div>

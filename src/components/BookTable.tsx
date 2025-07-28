@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, Users, Phone, Mail, PartyPopper, Utensils } from 'lucide-react';
+import { Calendar, Clock, Users, Phone, Mail, PartyPopper, Utensils, MapPin } from 'lucide-react';
 import emailjs from 'emailjs-com';
 
 const BookTable = () => {
@@ -7,6 +7,7 @@ const BookTable = () => {
     name: '',
     email: '',
     phone: '',
+    location: 'bangalore', // Default to Bangalore
     date: '',
     time: '',
     guests: '2',
@@ -15,7 +16,7 @@ const BookTable = () => {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<string | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -32,6 +33,7 @@ const BookTable = () => {
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
+          location: formData.location,
           date: formData.date,
           time: formData.time,
           guests: formData.guests,
@@ -44,6 +46,7 @@ const BookTable = () => {
         name: '',
         email: '',
         phone: '',
+        location: 'bangalore',
         date: '',
         time: '',
         guests: '2',
@@ -85,6 +88,35 @@ const BookTable = () => {
           <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-[#FF6F1F]/40 rounded-tl-2xl"></div>
           <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#FF6F1F]/40 rounded-br-2xl"></div>
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Location Selection */}
+            <div className="space-y-2 relative">
+              <label htmlFor="location" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
+                <span>Select Location</span>
+              </label>
+              <div className="relative">
+                <select
+                  id="location"
+                  name="location"
+                  required
+                  value={formData.location}
+                  onChange={handleChange}
+                  className="w-full rounded-lg border border-[#FF6F1F]/30 bg-black/50 p-3 pl-10 text-white focus:border-[#FF8C42]/50 focus:ring-1 focus:ring-[#FF8C42]/50 transition-all duration-300 appearance-none cursor-pointer"
+                  disabled={loading}
+                >
+                  <option value="bangalore" className="bg-black text-white">Bangalore - Marathahalli</option>
+                  <option value="hyderabad" className="bg-black text-white">Hyderabad - Coming Soon</option>
+                </select>
+                <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
+                  <MapPin className="h-4 w-4" />
+                </div>
+                <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70 pointer-events-none">
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2 relative">
                 <label htmlFor="name" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
@@ -129,6 +161,7 @@ const BookTable = () => {
                 </div>
               </div>
             </div>
+            
             <div className="space-y-2 relative">
               <label htmlFor="email" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
                 <span>Email Address</span>
@@ -150,6 +183,7 @@ const BookTable = () => {
                 </div>
               </div>
             </div>
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2 relative">
                 <label htmlFor="date" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
@@ -193,6 +227,7 @@ const BookTable = () => {
                 </div>
               </div>
             </div>
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2 relative">
                 <label htmlFor="guests" className="text-sm font-medium flex items-center gap-2 text-[#FF8C42]">
@@ -238,6 +273,16 @@ const BookTable = () => {
                 </div>
               </div>
             </div>
+            
+            {/* Location-specific message */}
+            {formData.location === 'hyderabad' && (
+              <div className="bg-[#FF8C42]/10 border border-[#FF8C42]/30 rounded-lg p-4 text-center">
+                <p className="text-[#FF8C42] font-medium">
+                  🎉 Hyderabad location coming soon! We'll contact you once we're open.
+                </p>
+              </div>
+            )}
+            
             <button
               type="submit"
               className="w-full py-3 px-6 rounded-lg bg-gradient-to-r from-[#FF6F1F] to-[#FF8C42] text-white font-semibold text-lg shadow-md hover:scale-[1.03] transition-transform duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
@@ -245,6 +290,7 @@ const BookTable = () => {
             >
               {loading ? 'Submitting...' : 'Submit Reservation'}
             </button>
+            
             {result === 'success' && (
               <div className="text-green-400 text-center mt-4">Reservation request submitted! We'll confirm your table soon.</div>
             )}
