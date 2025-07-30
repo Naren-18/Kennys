@@ -186,7 +186,6 @@ const Hero = () => {
             <div className="flex-1 min-w-0">
               <div className="text-lg md:text-xl font-semibold text-[#FF8C42] mb-1 truncate">Kenny's Bar, Bengaluru</div>
               <div className="text-white/90 text-base md:text-lg leading-snug">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bengaluru, Karnataka 560037</div>
-              <div className="text-white/70 text-sm mt-1">Open daily: 11:00 AM – 1:00 AM</div>
             </div>
           </div>
           

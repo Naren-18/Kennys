@@ -277,8 +277,7 @@ const BookTableCards = () => {
           </div>
           <div className="text-center md:text-left">
             <h3 className="text-[#FF8C42] font-title text-xl mb-2">Find Us</h3>
-            <p className="text-white/80 mb-1">123 Main Street, Downtown</p>
-            <p className="text-white/80 mb-3">Open daily from 11:00 AM to 1:00 AM</p>
+            <p className="text-white/80 mb-3">123 Main Street, Downtown</p>
             <div className="flex flex-wrap justify-center md:justify-start gap-3">
               <a 
                 href="https://maps.google.com" 

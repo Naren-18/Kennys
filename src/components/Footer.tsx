@@ -16,9 +16,9 @@ const weekEvents = [
 ];
 
 const hours = [
-  { day: 'Monday - Friday', time: '4pm - 1am' },
-  { day: 'Saturday', time: '2pm - 1am' },
-  { day: 'Sunday', time: '2pm - 1pm' },
+  { day: 'Monday - Friday', time: '4pm - 12am' },
+  { day: 'Saturday', time: '2pm - 12am' },
+  { day: 'Sunday', time: '2pm - 12am' },
 ];
 
 const Footer = () => {
