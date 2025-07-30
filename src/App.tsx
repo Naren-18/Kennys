@@ -16,129 +16,114 @@ import { useEffect, useState } from "react";
 import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { NavbarContext } from "@/components/Navbar";
 
 const queryClient = new QueryClient();
 
 const ScrollButtons = () => {
-  const [visible, setVisible] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [showScrollBottom, setShowScrollBottom] = useState(false);
 
-  const toggleVisible = () => {
-    const scrolled = document.documentElement.scrollTop;
-    setVisible(scrolled > 100);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      // Show scroll to top button when user has scrolled down 300px
+      setShowScrollTop(scrollTop > 300);
+      
+      // Show scroll to bottom button when user is not at the bottom
+      setShowScrollBottom(scrollTop + windowHeight < documentHeight - 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check initial state
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: 'smooth'
     });
   };
 
   const scrollToBottom = () => {
     window.scrollTo({
       top: document.documentElement.scrollHeight,
-      behavior: "smooth",
+      behavior: 'smooth'
     });
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", toggleVisible);
-    return () => window.removeEventListener("scroll", toggleVisible);
-  }, []);
-
   return (
-    <div
-      style={{
-        position: "fixed",
-        right: "20px",
-        bottom: "40px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "10px",
-        zIndex: 999,
-      }}
-    >
+    <>
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-20 right-4 z-50 p-3 bg-[#FF8C42] hover:bg-[#E0601A] text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
+          aria-label="Scroll to top"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+        </button>
+      )}
       
-      <style>{`
-        .scroll-uiverse-btn {
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          background: linear-gradient(#ffb97a, #fff3e5);
-          border: none;
-          font-weight: 600;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0px 0px 0px 4px rgba(255, 111, 31, 0.15);
-          cursor: pointer;
-          transition-duration: 0.3s;
-          overflow: hidden;
-          position: relative;
-        }
-        .svgIcon {
-          width: 22px;
-          height: 22px;
-          transition-duration: 0.3s;
-        }
-        .svgIcon path {
-          fill: #FF6F1F;
-          transition: fill 0.3s;
-        }
-        .scroll-uiverse-btn:hover {
-          background-color: #FF6F1F;
-        }
-        .scroll-uiverse-btn:hover .svgIcon path {
-          fill: #fff;
-        }
-      `}</style>
-    </div>
+      {showScrollBottom && (
+        <button
+          onClick={scrollToBottom}
+          className="fixed bottom-4 right-4 z-50 p-3 bg-[#FF8C42] hover:bg-[#E0601A] text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-110"
+          aria-label="Scroll to bottom"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </button>
+      )}
+    </>
   );
 };
 
 const Loader = () => {
-  const text = "KENNY'S ";
   return (
-    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black">
-      <div className="flex gap-1 funky-loader-text font-sans" aria-label="KENNY'S">
-        {text.split("").map((char, i) => (
-          <span
-            key={i}
-            style={{
-              display: "inline-block",
-              animation: `letterBounce 4s cubic-bezier(.22,1,.36,1) forwards, funkyGlow 2.5s infinite alternate`,
-              animationDelay: `${i * 0.09 + 0.1}s`,
-              opacity: 0,
-              color: "#FF8C42",
-              textShadow: "0 2px 16px #FF8C42aa, 0 0 0 2px #FF8C42, 0 1px 0 #fff, 0 4px 12px rgba(0,40,120,0.10), 0 0 24px rgba(255, 111, 31, 0.10)",
-              fontFamily: "Trebuchet MS, sans-serif",
-              fontSize: "4.2rem",
-              letterSpacing: "0.13em",
-            }}
-          >
-            {char}
-          </span>
-        ))}
+    <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
+      <div className="text-center">
+        <div className="relative">
+          <div className="w-32 h-32 border-4 border-[#FF8C42]/20 rounded-full animate-spin">
+            <div className="absolute top-0 left-0 w-full h-full border-4 border-transparent border-t-[#FF8C42] rounded-full animate-spin"></div>
+          </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <img 
+              src="/lovable-uploads/logo.png" 
+              alt="Kenny's Bar Logo" 
+              className="w-16 h-16 object-contain animate-pulse"
+            />
+          </div>
+        </div>
+        <p className="text-[#FF8C42] text-xl font-semibold mt-6 animate-pulse">
+          Loading Kenny's Bar...
+        </p>
+        <div className="flex justify-center mt-4 space-x-1">
+          <div className="w-2 h-2 bg-[#FF8C42] rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+          <div className="w-2 h-2 bg-[#FF8C42] rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+          <div className="w-2 h-2 bg-[#FF8C42] rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+        </div>
       </div>
-      
-      <style>{`
-        @keyframes letterBounce {
-          0% { opacity: 0; transform: translateY(40px) scale(0.7) rotate(-8deg);}
-          60% { opacity: 1; transform: translateY(-10px) scale(1.12) rotate(2deg);}
-          80% { opacity: 1; transform: translateY(2px) scale(0.98) rotate(-1deg);}
-          100% { opacity: 1; transform: translateY(0) scale(1) rotate(0);}
-        }
-        @keyframes funkyGlow {
-          0% { text-shadow: 0 2px 16px #FF8C42aa, 0 0 0 2px #FF8C42, 0 1px 0 #fff, 0 4px 12px rgba(0,40,120,0.10), 0 0 24px rgba(255, 111, 31, 0.10);}
-          100% { text-shadow: 0 4px 32px #FF8C42, 0 0 0 4px #FF8C42, 0 2px 0 #fff, 0 8px 24px rgba(0,40,120,0.18), 0 0 48px rgba(255, 111, 31, 0.18);}
-        }
-        @keyframes typeIn {
-          0% { opacity: 0; width: 0; }
-          10% { opacity: 1; width: 0; }
-          100% { opacity: 1; width: 100%; }
-        }
-      `}</style>
     </div>
+  );
+};
+
+// Create a wrapper component that provides navbar state
+const NavbarProvider = ({ children }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  return (
+    <NavbarContext.Provider value={{ isMobileMenuOpen, isExpanded, setIsMobileMenuOpen, setIsExpanded }}>
+      {children}
+    </NavbarContext.Provider>
   );
 };
 
@@ -147,16 +132,16 @@ const AppContent = () => {
   const isHomePage = location.pathname === "/";
 
   return (
-    <>
+    <NavbarProvider>
       <ScrollToTop />
       <div className="page-content flex-grow">
         <Routes>
           <Route path="/" element={
             <>
               <SEO 
-                title="Kenny's Neighbourhood Bar | Best Bar in Marathahalli, Bengaluru | Live Music & Events"
-                description="Kenny's Bar - Marathahalli's premier neighbourhood bar offering craft cocktails, live music, trivia nights, and whiskey tastings. Book your table today for an unforgettable experience in Bengaluru."
-                keywords="Kenny's Bar, Marathahalli bar, Bengaluru bar, neighbourhood bar, craft cocktails, live music, trivia night, whiskey tasting, book table, Outer Ring Road, best bar Bengaluru"
+                title="Kenny's Bar | Best Bar in India | Premium Neighbourhood Bar Marathahalli Bengaluru"
+                description="Kenny's Bar - India's premier neighbourhood bar in Marathahalli, Bengaluru. Award-winning craft cocktails, live music, premium spirits, whiskey tastings. Voted best bar in Karnataka. Experience India's top-rated bar experience."
+                keywords="best bar in India, Kenny's Bar, top bar India, premium bar Bengaluru, best bar Karnataka, Marathahalli bar, craft cocktails India, live music bar, whiskey tasting India, neighbourhood bar, award winning bar, top rated bar Bengaluru, best pub India, premium spirits bar, cocktail bar India, live entertainment bar, book table bar India, Outer Ring Road bar, best nightlife Bengaluru, top bar Marathahalli, India's finest bar, luxury bar experience"
               />
               <Index />
             </>
@@ -164,9 +149,9 @@ const AppContent = () => {
           <Route path="/menu" element={
             <>
               <SEO 
-                title="Menu | Kenny's Neighbourhood Bar | Craft Cocktails & Bar Food in Marathahalli"
-                description="Explore Kenny's Bar menu featuring craft cocktails, classic spirits, and delicious bar food. Limited choices, familiar items, perfect for pairing with drinks in Marathahalli, Bengaluru."
-                keywords="Kenny's Bar menu, craft cocktails, bar food, Marathahalli restaurant, Bengaluru bar menu, classic spirits, pub food"
+                title="Menu | Kenny's Bar | Best Bar Menu in India | Craft Cocktails & Premium Spirits"
+                description="Explore Kenny's Bar menu - India's best bar menu featuring award-winning craft cocktails, premium spirits, and delicious bar food. Experience the finest cocktail menu in Bengaluru at Marathahalli's top-rated bar."
+                keywords="Kenny's Bar menu, best bar menu India, craft cocktails menu, premium spirits menu, bar food menu, cocktail menu Bengaluru, best drinks menu Karnataka, Marathahalli bar menu, top bar menu India, mixology menu, whiskey menu India"
               />
               <MenuPage />
             </>
@@ -174,9 +159,9 @@ const AppContent = () => {
           <Route path="/gallery" element={
             <>
               <SEO 
-                title="Gallery | Kenny's Neighbourhood Bar | Photos from Marathahalli's Best Bar"
-                description="Browse photos from Kenny's Bar - see our vibrant atmosphere, events, and happy customers. Experience the best neighbourhood bar in Marathahalli, Bengaluru."
-                keywords="Kenny's Bar gallery, Marathahalli bar photos, Bengaluru bar images, neighbourhood bar atmosphere, bar events photos"
+                title="Gallery | Kenny's Bar | Best Bar in India Photos | Marathahalli Bengaluru"
+                description="Browse photos from Kenny's Bar - India's best bar experience. See our vibrant atmosphere, events, and happy customers at Marathahalli's premier neighbourhood bar in Bengaluru."
+                keywords="Kenny's Bar gallery, best bar India photos, Marathahalli bar photos, Bengaluru bar images, neighbourhood bar atmosphere, bar events photos, India's top bar gallery, premium bar photos"
               />
               <GalleryPage />
             </>
@@ -235,20 +220,11 @@ const AppContent = () => {
         </Routes>
       </div>
       {!isHomePage && <Footer />}
-    </>
+    </NavbarProvider>
   );
 };
 
 const App = () => {
-  // const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => setLoading(false), 5000);
-  //   return () => clearTimeout(timer);
-  // }, []);
-
-  // if (loading) return <Loader />;
-
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>

@@ -1,21 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext, useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Home, BookOpen, Image, Users, Calendar, Info, UtensilsCrossed, CircleCheck, Mail } from 'lucide-react';
+import { Menu, X, Home, BookOpen, Images, Users, Calendar, Info, UtensilsCrossed, CircleCheck, Mail } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { cn } from '@/lib/utils';
+
+// Create context for navbar state
+export const NavbarContext = createContext({
+  isMobileMenuOpen: false,
+  isExpanded: false,
+  setIsMobileMenuOpen: () => {},
+  setIsExpanded: () => {}
+});
 
 const navLinks = [
   { name: 'Home', path: '/', icon: <Home className="w-5 h-5" /> },
   { name: 'About Us', path: '/about', icon: <Info className="w-5 h-5" /> },
-  { name: 'Gallery', path: '/gallery', icon: <Image className="w-5 h-5" /> },
+  { name: 'Gallery', path: '/gallery', icon: <Images className="w-5 h-5" /> },
   { name: 'Stories', path: '/stories', icon: <Users className="w-5 h-5" /> },
   { name: 'Events', path: '/events', icon: <Calendar className="w-5 h-5" /> },
   { name: 'Contact', path: '/contact', icon: <Mail className="w-5 h-5" /> },
 ];
 
 const Navbar = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isMobileMenuOpen, isExpanded, setIsMobileMenuOpen, setIsExpanded } = useContext(NavbarContext);
   const location = useLocation();
   const expandTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
   const collapseTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
@@ -31,7 +38,16 @@ const Navbar = () => {
       root.style.setProperty('--navbar-width', '80px');
       document.body.classList.remove('navbar-expanded');
     }
-  }, [isExpanded]);
+
+    // Update footer position based on mobile menu state
+    if (isMobileMenuOpen) {
+      root.style.setProperty('--footer-transform', 'translateX(70%)');
+      document.body.classList.add('mobile-menu-open');
+    } else {
+      root.style.setProperty('--footer-transform', 'translateX(0)');
+      document.body.classList.remove('mobile-menu-open');
+    }
+  }, [isExpanded, isMobileMenuOpen]);
 
   // Handle desktop sidebar expansion with debounce
   const handleMouseEnter = () => {
@@ -165,9 +181,9 @@ const Navbar = () => {
             <X className="w-6 h-6 text-[#FF8C42]" />
           </button>
         )}
-        {/* Fixed height container for the entire sidebar content */}
+        {/* Rest of the navbar content remains the same */}
         <div className="flex flex-col h-full w-full">
-          {/* Logo area - fixed height and width to prevent blinking during transitions */}
+          {/* Logo area */}
           <div className="h-[120px] sm:h-[180px] flex items-center justify-center overflow-visible">
             <div 
               className={cn(
@@ -199,7 +215,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Navigation links - each link has fixed height */}
+          {/* Navigation links */}
           <nav className="flex flex-col w-full px-2 mt-4 navbar-scrollbar overflow-y-auto">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
@@ -214,7 +230,7 @@ const Navbar = () => {
                       ? 'bg-[#FF6F1F]/20 text-[#FF6F1F] font-bold' 
                       : 'text-white hover:bg-black/30 hover:text-[#FF6F1F]',
                     isExpanded || isMobileMenuOpen ? 'justify-start' : 'justify-center',
-                    'h-[42px] md:h-[48px] my-1.5 md:my-2' // Reduced vertical spacing
+                    'h-[42px] md:h-[48px] my-1.5 md:my-2'
                   )}
                 >
                   {isActive && (
@@ -241,7 +257,7 @@ const Navbar = () => {
             })}
           </nav>
 
-          {/* Book table button - fixed height */}
+          {/* Book table button */}
           <div className={cn(
             'px-3 md:px-4 py-3 md:py-4 mt-auto flex',
             isExpanded || isMobileMenuOpen ? 'justify-start' : 'justify-center'
@@ -259,7 +275,6 @@ const Navbar = () => {
                   'overflow-hidden relative'
                 )}
               >
-                {/* Glow effect in the background */}
                 <div className="absolute -inset-[1px] bg-[#FF6F1F]/10 rounded-xl blur-sm opacity-70" />
                 <div className="w-[22px] md:w-[26px] h-[22px] md:h-[26px] flex items-center justify-center flex-shrink-0 relative z-10" style={{position: 'relative', left: '7%'}}>
                   <div className="flex items-center justify-center w-5 h-5 md:w-6 md:h-6 rounded-full bg-[#FF6F1F]/20 p-1">

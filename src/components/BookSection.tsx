@@ -73,24 +73,9 @@ const Footer = () => {
               <h4 className="text-white text-lg font-medium mb-4">This Week at Kenny's</h4>
               <ul className="space-y-3">
                 <li className="flex">
-                  <Calendar size={16} className="mr-2 text-kenny-amber flex-shrink-0 mt-1" />
                   <div>
-                    <p className="text-white">Trivia Night</p>
-                    <p className="text-white/50 text-sm">Tuesday, 8pm</p>
-                  </div>
-                </li>
-                <li className="flex">
-                  <Music size={16} className="mr-2 text-kenny-amber flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="text-white">Live Jazz</p>
-                    <p className="text-white/50 text-sm">Friday, 9pm</p>
-                  </div>
-                </li>
-                <li className="flex">
-                  <Calendar size={16} className="mr-2 text-kenny-amber flex-shrink-0 mt-1" />
-                  <div>
-                    <p className="text-white">Whiskey Tasting</p>
-                    <p className="text-white/50 text-sm">Saturday, 7pm</p>
+                    <p className="text-white">Coming Soon</p>
+                    <p className="text-white/50 text-sm">Stay tuned for exciting events</p>
                   </div>
                 </li>
               </ul>

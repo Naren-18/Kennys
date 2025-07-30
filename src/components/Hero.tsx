@@ -85,24 +85,6 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, ease: 'easeInOut' }}
               >
-                {/* <motion.img
-                  layout
-                  src="/kennys_orange_glass_funky_spaced40.svg"
-                  alt="KENNY'S"
-                  initial={false}
-                  animate={false}
-                  className={
-                    "mx-auto block w-full " +
-                    (heroShrunk
-                      ? "max-w-[320px] sm:max-w-[420px] md:max-w-[600px] lg:max-w-[800px] xl:max-w-[1000px]"
-                      : "max-w-[420px] sm:max-w-[480px] md:max-w-[600px] lg:max-w-[800px] xl:max-w-[1000px]")
-                  }
-                  style={{
-                    filter: 'drop-shadow(0 2px 8px rgba(255, 111, 31, 0.25))',
-                    position: 'relative',
-                    left: '-4%'
-                  }}
-                /> */}
                 <BeerPourLogo/>
               </motion.div>
               {/* Redesigned Subtitle */}
@@ -147,11 +129,6 @@ const Hero = () => {
                  
                 </div>
               </motion.div>
-              {/* Redesigned Tagline */}
-              {/* <p className={`text-gray-300 text-md md:text-lg mb-12 font-normal tracking-widest transition-all duration-700 ease-out ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
-                style={{ transitionDelay: loaded ? '300ms' : '0ms' }}>
-                GOOD DRINKS • GOOD TIMES • SINCE 2010
-              </p> */}
             </motion.div>
           </AnimatePresence>
           {/* Special Offers section fade/slide in */}
@@ -193,83 +170,40 @@ const Hero = () => {
         {/* Info Cards Section - below Promotions */}
         <div className="w-full flex flex-col items-center justify-center mt-12 gap-10 z-30">
           <div className="flex flex-col md:flex-row gap-8 w-full max-w-5xl">
-            {/* Book a Table */}
-            {/* <Card className="flex-1 bg-black/60 border-[#FF6F1F] border rounded-2xl shadow-lg p-0 relative overflow-hidden">
-              <div className="p-8 flex flex-col h-full justify-between">
-                <div className="flex items-center gap-3 mb-4">
-                  <Calendar className="text-[#FF8C42] w-7 h-7" />
-                  <span className="text-2xl font-semibold text-[#FF8C42]">Book A Table</span>
-                  <span className="ml-auto bg-black/40 rounded-full p-2"><Calendar className="text-[#FF8C42] w-5 h-5" /></span>
-                </div>
-                <p className="text-white/90 text-lg mb-6">Reserve your spot at Kenny's and skip the wait. We'll hold your table for 15 minutes past your reservation time.</p>
-                <button className="w-full bg-[#FF8C42] hover:bg-[#FF6F1F] text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2 text-lg transition-all">
-                  <Users className="w-5 h-5" /> Make Reservation
-                </button>
-              </div>
-            </Card> */}
-            {/* Order Online */}
-            {/* <Card className="flex-1 bg-black/60 border-[#FF6F1F] border rounded-2xl shadow-lg p-0 relative overflow-hidden">
-              <div className="p-8 flex flex-col h-full justify-between">
-                <div className="flex items-center gap-3 mb-4">
-                  <Utensils className="text-[#FF8C42] w-7 h-7" />
-                  <span className="text-2xl font-semibold text-[#FF8C42]">Order Online</span>
-                  <span className="ml-auto bg-black/40 rounded-full p-2"><ShoppingBag className="text-[#FF8C42] w-5 h-5" /></span>
-                </div>
-                <p className="text-white/90 text-lg mb-6">Craving Kenny's at home? Order through our delivery partners for the same great taste, delivered to your door.</p>
-                <div className="flex gap-4">
-                  <button className="flex-1 bg-[#1a120b] border border-[#FF8C42] rounded-lg py-3 flex items-center justify-center gap-2 text-white text-lg font-semibold hover:bg-[#FF8C42]/20 transition-all">
-                    <span className=" w-12 h-12 rounded-full flex items-center justify-center overflow-hidden">
-                      <img src="/lovable-uploads/swiggy.png" alt="Swiggy" className="w-12 h-12 object-contain" />
-                    </span> Swiggy
-                  </button>
-                  <button className="flex-1 bg-[#1a120b] border border-[#FF8C42] rounded-lg py-3 flex items-center justify-center gap-2 text-white text-lg font-semibold hover:bg-[#FF8C42]/20 transition-all">
-                    <span className=" w-12 h-12 rounded-full flex items-center justify-center overflow-hidden">
-                      <img src="/lovable-uploads/zomato.png" alt="Zomato" className="w-12 h-12 object-contain" />
-                    </span> Zomato
-                  </button>
-                </div>
-              </div>
-            </Card> */}
+            {/* Commented out cards remain the same */}
           </div>
-          {/* Find Us */}
-          {/* <div className="w-full max-w-2xl">
-            <Card className="flex items-center bg-black/60 border-[#FF6F1F] border rounded-2xl shadow-lg p-0 overflow-hidden">
-              <div className="flex items-center gap-6 p-8 w-full">
-                <div className="bg-[#1a120b] rounded-full w-16 h-16 flex items-center justify-center">
-                  <MapPin className="text-[#FF8C42] w-8 h-8" />
-                </div>
-                <div className="flex-1">
-                  <span className="text-2xl font-semibold text-[#FF8C42] mb-2 block">Find Us</span>
-                  <div className="text-white/90 text-lg mb-2">123 Main Street, Downtown<br />Open daily from 11:00 AM to 1:00 AM</div>
-                  <div className="flex gap-4 mt-2">
-                    <button className="bg-[#1a120b] border border-[#FF8C42] rounded-lg px-4 py-2 text-white font-semibold hover:bg-[#FF8C42]/20 transition-all">Get Directions</button>
-                    <button className="bg-[#1a120b] border border-[#FF8C42] rounded-lg px-4 py-2 text-white font-semibold flex items-center gap-2 hover:bg-[#FF8C42]/20 transition-all"><Phone className="w-5 h-5" />(123) 456-7890</button>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div> */}
         </div>
-
-        {/* Simple scroll indicator
-        <div className="absolute bottom-8 left-0 right-0 flex justify-center z-30 opacity-70">
-          <div className="animate-bounce">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 5L12 19M12 19L5 12M12 19L19 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-        </div> */}
       </section>
-      {/* Address Card at the bottom of Hero, as a normal block */}
+      
+      {/* Location Cards at the bottom of Hero */}
       <div className="w-full flex justify-center mt-12 mb-8">
-        <div className="bg-black/60 backdrop-blur-md border border-[#FF6F1F]/40 rounded-2xl shadow-xl px-8 py-6 flex items-center gap-6 max-w-xl mx-auto">
-          <div className="bg-[#1a120b] rounded-full w-14 h-14 flex items-center justify-center shadow-md">
-            <MapPin className="text-[#FF8C42] w-7 h-7" />
+        <div className="flex flex-col lg:flex-row gap-6 max-w-6xl mx-auto px-4">
+          {/* Current Location - Bengaluru */}
+          <div className="bg-black/60 backdrop-blur-md border border-[#FF6F1F]/40 rounded-2xl shadow-xl px-8 py-6 flex items-center gap-6 flex-1">
+            <div className="bg-[#1a120b] rounded-full w-14 h-14 flex items-center justify-center shadow-md">
+              <MapPin className="text-[#FF8C42] w-7 h-7" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="text-lg md:text-xl font-semibold text-[#FF8C42] mb-1 truncate">Kenny's Bar, Bengaluru</div>
+              <div className="text-white/90 text-base md:text-lg leading-snug">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bengaluru, Karnataka 560037</div>
+              <div className="text-white/70 text-sm mt-1">Open daily: 11:00 AM – 1:00 AM</div>
+            </div>
           </div>
-          <div className="flex-1 min-w-0">
-            <div className="text-lg md:text-xl font-semibold text-[#FF8C42] mb-1 truncate">Kenny's Bar, Bengaluru</div>
-            <div className="text-white/90 text-base md:text-lg leading-snug ">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bengaluru, Karnataka 560037</div>
-            <div className="text-white/70 text-sm mt-1">Open daily: 11:00 AM – 1:00 AM</div>
+          
+          {/* Coming Soon Location - Hyderabad */}
+          <div className="bg-black/40 backdrop-blur-md border border-[#FF8C42]/30 rounded-2xl shadow-xl px-8 py-6 flex items-center gap-6 flex-1 relative overflow-hidden">
+            {/* Coming Soon Badge */}
+            <div className="absolute top-4 right-4 bg-[#FF8C42] text-white px-3 py-1 rounded-full text-sm font-semibold">
+              Coming Soon
+            </div>
+            <div className="bg-white/10 rounded-full w-14 h-14 flex items-center justify-center shadow-md">
+              <MapPin className="text-white/60 w-7 h-7" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="text-lg md:text-xl font-semibold text-white/80 mb-1 truncate">Kenny's Bar, Hyderabad</div>
+              <div className="text-white/60 text-base md:text-lg leading-snug">Location details will be announced soon. Stay tuned for updates!</div>
+              <div className="text-white/50 text-sm mt-1">Opening Soon</div>
+            </div>
           </div>
         </div>
       </div>

@@ -23,43 +23,69 @@ const About = () => {
           </h2>
           
           {/* Kenny's Bar Intro Section */}
-          <div className="max-w-3xl mx-auto mb-10">
-            <div className="bg-black/70 border-l-8 border-[#FF8C42] rounded-2xl shadow-lg p-8 md:p-10 mb-6 text-left">
-              <h3 className="text-[#FF8C42] text-2xl md:text-3xl font-bold mb-3 font-sans">Welcome to Kenny's, Bengaluru</h3>
-              <p className="text-white/90 text-lg md:text-xl mb-4 leading-relaxed">
+          <div className="max-w-3xl mx-auto mb-12">
+            <div className="bg-black/70 border-l-8 border-[#FF8C42] rounded-2xl shadow-lg p-8 md:p-10 mb-8 text-left">
+              <h3 className="text-[#FF8C42] text-2xl md:text-3xl font-bold mb-6 font-sans">Welcome to Kenny's, Bengaluru</h3>
+              
+              <p className="text-white/90 text-lg leading-relaxed mb-6">
                 Kenny's, Bengaluru's a true neighbourhood bar, where every visit feels like coming home. We're not just a place to grab a drink; we're your community's favourite hangout, where our bartenders remember your usual and a spot at the bar always feels reserved just for you.
               </p>
-              <p className="text-white/80 text-base md:text-lg mb-2">
+              
+              <p className="text-white/90 text-lg leading-relaxed mb-6">
                 <span className="font-semibold text-[#FF8C42]">Your Perfect Local Escape:</span> Whether you're unwinding after a long day with our happy hour specials, cheering on your favourite team at our bar, or simply looking for a cozy pub to connect with friends, Kenny's offers the ideal setting. We've curated an exceptional experience with a focus on:
               </p>
-              <ul className="list-none pl-0 space-y-2 mt-4">
+              
+              <ul className="list-none pl-0 space-y-4 mt-6">
                 <li className="flex items-start gap-3">
-                  <span className="text-[#FF8C42] text-xl">•</span>
-                  <span className="text-white/90"><span className="font-semibold text-[#FF8C42]">Warm & Welcoming Atmosphere:</span> Enjoy the genuine hospitality that makes us Bengaluru's go-to neighbourhood bar, fostering intimate conversations and unforgettable evenings.</span>
+                  <span className="text-[#FF8C42] text-xl flex-shrink-0">•</span>
+                  <span className="text-white/90 text-lg leading-relaxed">
+                    <span className="font-semibold text-[#FF8C42]">Warm & Welcoming Atmosphere:</span> Enjoy the genuine hospitality that makes us Bengaluru's go-to neighbourhood bar, fostering intimate conversations and unforgettable evenings.
+                  </span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-[#FF8C42] text-xl">•</span>
-                  <span className="text-white/90"><span className="font-semibold text-[#FF8C42]">Classic Spirits:</span> Explore a diverse selection of local and international beers, single malts, gins, and more alongside expertly mixed classic cocktails designed to delight your palate.</span>
+                  <span className="text-[#FF8C42] text-xl flex-shrink-0">•</span>
+                  <span className="text-white/90 text-lg leading-relaxed">
+                    <span className="font-semibold text-[#FF8C42]">Classic Spirits:</span> Explore a diverse selection of local and international beers, single malts, gins, and more alongside expertly mixed classic cocktails designed to delight your palate.
+                  </span>
                 </li>
               </ul>
             </div>
           </div>
 
           {/* Menu Philosophy Section */}
-          <div className="max-w-2xl mx-auto mb-12">
-            <h2 className="text-[#FF8C42] text-3xl font-bold mb-4 text-center">Our Menu Philosophy</h2>
-            <div className="bg-[#1a120b]/80 border border-[#FF8C42]/30 rounded-xl shadow-md p-6 md:p-8">
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-white/90 text-base md:text-lg list-none pl-0">
-                <li className="flex items-start gap-3 text-left"><span className="text-[#FF8C42] text-lg flex-shrink-0">✔</span> <span>Limited Choices: Not overwhelming with too many options.</span></li>
-                <li className="flex items-start gap-3 text-left"><span className="text-[#FF8C42] text-lg flex-shrink-0">✔</span> <span>Familiar Items: Dishes most people recognize and enjoy.</span></li>
-                <li className="flex items-start gap-3 text-left"><span className="text-[#FF8C42] text-lg flex-shrink-0">✔</span> <span>Pub-Friendly: Items that are easy to eat in a casual bar setting.</span></li>
-                <li className="flex items-start gap-3 text-left"><span className="text-[#FF8C42] text-lg flex-shrink-0">✔</span> <span>Pairs with Drinks: Food that complements beer, cocktails, etc.</span></li>
-                <li className="flex items-start gap-3 text-left"><span className="text-[#FF8C42] text-lg flex-shrink-0">✔</span> <span>Clear Descriptions: No overly flowery language.</span></li>
-                <li className="flex items-start gap-3 text-left"><span className="text-[#FF8C42] text-lg flex-shrink-0">✔</span> <span>Dietary Notes: Simple V/NV indicators for quick reference.</span></li>
-                <li className="flex items-start gap-3 text-left"><span className="text-[#FF8C42] text-lg flex-shrink-0">✔</span> <span>Value: Implies good portions for the price.</span></li>
+          <div className="max-w-3xl mx-auto mb-12">
+            <h2 className="text-[#FF8C42] text-2xl md:text-3xl font-bold mb-6 text-center">Our Menu Philosophy</h2>
+            <div className="bg-[#1a120b]/80 border border-[#FF8C42]/30 rounded-xl shadow-md p-8">
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 text-white/90 text-lg list-none pl-0">
+                <li className="flex items-start gap-3 text-left">
+                  <span className="text-[#FF8C42] text-xl flex-shrink-0">✔</span> 
+                  <span className="leading-relaxed">Limited Choices: Not overwhelming with too many options.</span>
+                </li>
+                <li className="flex items-start gap-3 text-left">
+                  <span className="text-[#FF8C42] text-xl flex-shrink-0">✔</span> 
+                  <span className="leading-relaxed">Familiar Items: Dishes most people recognize and enjoy.</span>
+                </li>
+                <li className="flex items-start gap-3 text-left">
+                  <span className="text-[#FF8C42] text-xl flex-shrink-0">✔</span> 
+                  <span className="leading-relaxed">Pub-Friendly: Items that are easy to eat in a casual bar setting.</span>
+                </li>
+                <li className="flex items-start gap-3 text-left">
+                  <span className="text-[#FF8C42] text-xl flex-shrink-0">✔</span> 
+                  <span className="leading-relaxed">Pairs with Drinks: Food that complements beer, cocktails, etc.</span>
+                </li>
+                <li className="flex items-start gap-3 text-left">
+                  <span className="text-[#FF8C42] text-xl flex-shrink-0">✔</span> 
+                  <span className="leading-relaxed">Clear Descriptions: No overly flowery language.</span>
+                </li>
+                <li className="flex items-start gap-3 text-left">
+                  <span className="text-[#FF8C42] text-xl flex-shrink-0">✔</span> 
+                  <span className="leading-relaxed">Value: Implies good portions for the price.</span>
+                </li>
               </ul>
             </div>
-            <p className="text-[#FF8C42] text-lg font-semibold mt-6 text-center">Discover why so many choose Kenny's as their favourite watering hole. We look forward to welcoming you!</p>
+            <p className="text-[#FF8C42] text-lg font-semibold mt-8 text-center leading-relaxed">
+              Discover why so many choose Kenny's as their favourite watering hole. We look forward to welcoming you!
+            </p>
           </div>
           
         </motion.div>

@@ -11,12 +11,12 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = "Kenny's Neighbourhood Bar | Best Bar in Marathahalli, Bengaluru",
-  description = "Kenny's Bar - Marathahalli's premier neighbourhood bar offering craft cocktails, live music, trivia nights, and whiskey tastings. Book your table today!",
-  keywords = "Kenny's Bar, Marathahalli bar, Bengaluru bar, neighbourhood bar, craft cocktails, live music, trivia night, whiskey tasting",
+  title = "Kenny's Bar | Best Bar in India | Premium Neighbourhood Bar Marathahalli Bengaluru",
+  description = "Kenny's Bar - India's premier neighbourhood bar in Marathahalli, Bengaluru. Award-winning craft cocktails, live music, premium spirits, whiskey tastings. Voted best bar in Karnataka. Experience India's top-rated bar.",
+  keywords = "best bar in India, Kenny's Bar, top bar India, premium bar Bengaluru, best bar Karnataka, Marathahalli bar, craft cocktails India, live music bar, whiskey tasting India, neighbourhood bar, award winning bar, top rated bar Bengaluru, best pub India, premium spirits bar, cocktail bar India, live entertainment bar, book table bar India, Outer Ring Road bar, best nightlife Bengaluru, top bar Marathahalli, India's finest bar, luxury bar experience, craft beer India, mixology bar India, weekend bar India, date night bar, corporate events bar, private dining bar, authentic bar experience India",
   image = "https://kennys.bar/lovable-uploads/logo.png",
   url = "https://kennys.bar",
-  type = "website"
+  type = "business.bar"
 }) => {
   const location = useLocation();
   const currentUrl = `${url}${location.pathname}`;
@@ -64,6 +64,11 @@ const SEO: React.FC<SEOProps> = ({
     updateMetaTag('twitter:description', description, true);
     updateMetaTag('twitter:image', image, true);
     updateMetaTag('twitter:url', currentUrl, true);
+    
+    // Add additional SEO meta tags
+    updateMetaTag('revisit-after', '3 days');
+    updateMetaTag('rating', 'general');
+    updateMetaTag('distribution', 'global');
   }, [title, description, keywords, image, currentUrl, type]);
 
   return null;
