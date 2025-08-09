@@ -25,10 +25,10 @@ const About = () => {
           {/* Kenny's Bar Intro Section */}
           <div className="max-w-3xl mx-auto mb-12">
             <div className="bg-black/70 border-l-8 border-[#FF8C42] rounded-2xl shadow-lg p-8 md:p-10 mb-8 text-left">
-              <h3 className="text-[#FF8C42] text-2xl md:text-3xl font-bold mb-6 font-sans">Welcome to Kenny's, Bengaluru</h3>
+              <h3 className="text-[#FF8C42] text-2xl md:text-3xl font-bold mb-6 font-sans">Welcome to Kenny's</h3>
               
               <p className="text-white/90 text-lg leading-relaxed mb-6">
-                Kenny's, Bengaluru's a true neighbourhood bar, where every visit feels like coming home. We're not just a place to grab a drink; we're your community's favourite hangout, where our bartenders remember your usual and a spot at the bar always feels reserved just for you.
+                Kenny's, a true neighbourhood bar, where every visit feels like coming home. We're not just a place to grab a drink; we're your community's favourite hangout, where our bartenders remember your usual and a spot at the bar always feels reserved just for you.
               </p>
               
               <p className="text-white/90 text-lg leading-relaxed mb-6">
@@ -39,7 +39,7 @@ const About = () => {
                 <li className="flex items-start gap-3">
                   <span className="text-[#FF8C42] text-xl flex-shrink-0">•</span>
                   <span className="text-white/90 text-lg leading-relaxed">
-                    <span className="font-semibold text-[#FF8C42]">Warm & Welcoming Atmosphere:</span> Enjoy the genuine hospitality that makes us Bengaluru's go-to neighbourhood bar, fostering intimate conversations and unforgettable evenings.
+                    <span className="font-semibold text-[#FF8C42]">Warm & Welcoming Atmosphere:</span> Enjoy the genuine hospitality that makes us your go-to neighbourhood bar, fostering intimate conversations and unforgettable evenings.
                   </span>
                 </li>
                 <li className="flex items-start gap-3">

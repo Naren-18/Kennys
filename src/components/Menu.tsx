@@ -25,9 +25,9 @@ const Menu = () => {
           {/* Kenny's Bar Intro Section */}
           <div className="max-w-3xl mx-auto mb-10">
             <div className="bg-black/70 border-l-8 border-[#FF8C42] rounded-2xl shadow-lg p-8 md:p-10 mb-6 text-left">
-              <h3 className="text-[#FF8C42] text-2xl md:text-3xl font-bold mb-3 font-sans">Welcome to Kenny's, Bengaluru</h3>
+              <h3 className="text-[#FF8C42] text-2xl md:text-3xl font-bold mb-3 font-sans">Kenny's</h3>
               <p className="text-white/90 text-lg md:text-xl mb-4 leading-relaxed">
-                Kenny's, Bengaluru's a true neighbourhood bar, where every visit feels like coming home. We're not just a place to grab a drink; we're your community's favourite hangout, where our bartenders remember your usual and a spot at the bar always feels reserved just for you.
+                Kenny's true neighbourhood bar, where every visit feels like coming home. We're not just a place to grab a drink; we're your community's favourite hangout, where our bartenders remember your usual and a spot at the bar always feels reserved just for you.
               </p>
               <p className="text-white/80 text-base md:text-lg mb-2">
                 <span className="font-semibold text-[#FF8C42]">Your Perfect Local Escape:</span> Whether you're unwinding after a long day with our happy hour specials, cheering on your favourite team at our bar, or simply looking for a cozy pub to connect with friends, Kenny's offers the ideal setting. We've curated an exceptional experience with a focus on:
