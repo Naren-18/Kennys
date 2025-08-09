@@ -13,7 +13,7 @@ interface SEOProps {
 const SEO: React.FC<SEOProps> = ({
   title = "Kenny's Bar | Best Bar in India | Premium Neighbourhood Bar Marathahalli Bengaluru",
   description = "Kenny's Bar - India's premier neighbourhood bar in Marathahalli, Bengaluru. Award-winning craft cocktails, live music, premium spirits, whiskey tastings. Voted best bar in Karnataka. Experience India's top-rated bar.",
-  keywords = "best bar in India, Kenny's Bar, top bar India, premium bar Bengaluru, best bar Karnataka, Marathahalli bar, craft cocktails India, live music bar, whiskey tasting India, neighbourhood bar, award winning bar, top rated bar Bengaluru, best pub India, premium spirits bar, cocktail bar India, live entertainment bar, book table bar India, Outer Ring Road bar, best nightlife Bengaluru, top bar Marathahalli, India's finest bar, luxury bar experience, craft beer India, mixology bar India, weekend bar India, date night bar, corporate events bar, private dining bar, authentic bar experience India",
+  keywords = "best bar in India, Kenny's Bar, top bar India, premium bar Bengaluru, best bar Karnataka, Marathahalli bar, craft cocktails India, live music bar, whiskey tasting India, neighbourhood bar, award winning bar, top rated bar Bengaluru, best pub India, premium spirits bar, cocktail bar India, bars near me Bengaluru, weekend hangout Marathahalli, date night bar Bengaluru, corporate party venue Karnataka, craft beer India, mixology bar Bengaluru, rooftop bar experience, live DJ nights India, happy hour deals Bengaluru",
   image = "https://kennys.bar/lovable-uploads/logo.png",
   url = "https://kennys.bar",
   type = "business.bar"
