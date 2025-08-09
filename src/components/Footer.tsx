@@ -38,7 +38,7 @@ const Footer = () => {
       }}
       transition={{
         duration: 0.4,
-        ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic-bezier for smoother animation
+        ease: [0.25, 0.46, 0.45, 0.94],
         type: "tween"
       }}
       style={{
@@ -322,7 +322,7 @@ const Footer = () => {
                         className="bg-white/10 text-white px-4 py-3 sm:px-4 sm:py-2 rounded-lg hover:bg-white/20 transition-colors flex items-center justify-center gap-2 min-h-[44px] touch-manipulation text-sm sm:text-base"
                       >
                         <Phone className="h-4 w-4" />
-                        Call Now
+                        +91 9317 417 517
                       </a>
                     </div>
                   </div>
@@ -353,7 +353,7 @@ const Footer = () => {
                         className="bg-white/10 text-white px-4 py-3 sm:px-4 sm:py-2 rounded-lg hover:bg-white/20 transition-colors flex items-center justify-center gap-2 min-h-[44px] touch-manipulation text-sm sm:text-base"
                       >
                         <Phone className="h-4 w-4" />
-                        Call Now
+                        +91 96378 19999
                       </a>
                     </div>
                   </div>
