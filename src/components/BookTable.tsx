@@ -104,7 +104,7 @@ const BookTable = () => {
                   disabled={loading}
                 >
                   <option value="bangalore" className="bg-black text-white">Bangalore - Marathahalli</option>
-                  <option value="hyderabad" className="bg-black text-white">Hyderabad - Coming Soon</option>
+                  <option value="hyderabad" className="bg-black text-white">Hyderabad - Financial District</option>
                 </select>
                 <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#FF6F1F]/70">
                   <MapPin className="h-4 w-4" />
@@ -275,12 +275,13 @@ const BookTable = () => {
             </div>
             
             {/* Location-specific message */}
+            // Remove or update the location-specific message:
             {formData.location === 'hyderabad' && (
-              <div className="bg-[#FF8C42]/10 border border-[#FF8C42]/30 rounded-lg p-4 text-center">
-                <p className="text-[#FF8C42] font-medium">
-                  🎉 Hyderabad location coming soon! We'll contact you once we're open.
-                </p>
-              </div>
+            <div className="bg-[#FF8C42]/10 border border-[#FF8C42]/30 rounded-lg p-4 text-center">
+            <p className="text-[#FF8C42] font-medium">
+            📍 Your table reservation for Hyderabad location has been submitted. We'll confirm shortly.
+            </p>
+            </div>
             )}
             
             <button

@@ -185,23 +185,18 @@ const Hero = () => {
             </div>
             <div className="flex-1 min-w-0">
               <div className="text-lg md:text-xl font-semibold text-[#FF8C42] mb-1 truncate">Kenny's Bar, Bengaluru</div>
-              <div className="text-white/90 text-base md:text-lg leading-snug">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bengaluru, Karnataka 560037</div>
+              <div className="text-white/90 text-base md:text-lg leading-snug">4th Floor, NTR Royal Plaza, Home Building, Outer Ring Rd, Marathahalli Village, Marathahalli, Bengaluru, Karnataka 560037</div>
             </div>
           </div>
           
-          {/* Coming Soon Location - Hyderabad */}
-          <div className="bg-black/40 backdrop-blur-md border border-[#FF8C42]/30 rounded-2xl shadow-xl px-8 py-6 flex items-center gap-6 flex-1 relative overflow-hidden">
-            {/* Coming Soon Badge */}
-            <div className="absolute top-4 right-4 bg-[#FF8C42] text-white px-3 py-1 rounded-full text-sm font-semibold">
-              Coming Soon
-            </div>
-            <div className="bg-white/10 rounded-full w-14 h-14 flex items-center justify-center shadow-md">
-              <MapPin className="text-white/60 w-7 h-7" />
+          {/* Hyderabad Location */}
+          <div className="bg-black/60 backdrop-blur-md border border-[#FF8C42]/40 rounded-2xl shadow-xl px-8 py-6 flex items-center gap-6 flex-1">
+            <div className="bg-[#1a120b] rounded-full w-14 h-14 flex items-center justify-center shadow-md">
+              <MapPin className="text-[#FF8C42] w-7 h-7" />
             </div>
             <div className="flex-1 min-w-0">
-              <div className="text-lg md:text-xl font-semibold text-white/80 mb-1 truncate">Kenny's Bar, Hyderabad</div>
-              <div className="text-white/60 text-base md:text-lg leading-snug">Location details will be announced soon. Stay tuned for updates!</div>
-              <div className="text-white/50 text-sm mt-1">Opening Soon</div>
+              <div className="text-lg md:text-xl font-semibold text-[#FF8C42] mb-1 truncate">Kenny's Bar, Hyderabad</div>
+              <div className="text-white/90 text-base md:text-lg leading-snug">The District, Myscape Rd, Financial District, Nanakramguda, Hyderabad, Telangana 500032</div>
             </div>
           </div>
         </div>

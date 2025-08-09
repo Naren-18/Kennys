@@ -147,7 +147,7 @@ const ContactPage = () => {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-white mb-2">Kenny's Bar - Marathahalli</h3>
-                    <p className="text-white/80 mb-3">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bengaluru, Karnataka 560037</p>
+                    <p className="text-white/80 mb-3">4th Floor, NTR Royal Plaza, Home Building, Outer Ring Rd, Marathahalli Village, Marathahalli, Bengaluru, Karnataka 560037</p>
                     <div className="flex gap-3">
                       <a 
                         href="https://maps.google.com/?q=Kenny's+Bar+Marathahalli" 
@@ -171,25 +171,24 @@ const ContactPage = () => {
               </div>
               
               {/* Upcoming Location - Hyderabad */}
-              <div className="bg-white/5 rounded-xl p-6 border border-white/10 relative overflow-hidden">
-                <div className="absolute top-4 right-4 bg-[#FF8C42] text-white px-3 py-1 rounded-full text-sm font-semibold">
-                  Coming Soon
-                </div>
+              <div className="bg-white/5 rounded-xl p-6 border border-white/10">
                 <div className="flex items-start gap-4">
-                  <div className="bg-white/20 rounded-full p-2 mt-1">
-                    <MapPin className="h-5 w-5 text-white/60" />
+                  <div className="bg-[#FF8C42]/20 rounded-full p-2 mt-1">
+                    <MapPin className="h-5 w-5 text-[#FF8C42]" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-white/80 mb-2">Kenny's Bar - Hyderabad</h3>
-                    <p className="text-white/60 mb-3">Location details will be announced soon. Stay tuned for updates!</p>
+                    <h3 className="text-xl font-semibold text-white mb-2">Kenny's Bar - Hyderabad</h3>
+                    <p className="text-white/80 mb-3">The District, Myscape Rd, Financial District, Nanakramguda, Hyderabad, Telangana 500032</p>
                     <div className="flex gap-3">
-                      <button 
-                        disabled
-                        className="bg-white/10 text-white/50 px-4 py-2 rounded-lg cursor-not-allowed flex items-center gap-2"
+                      <a 
+                        href="https://maps.google.com/?q=The+District,+Myscape+Rd,+Financial+District,+Nanakramguda,+Hyderabad,+Telangana+500032" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-[#FF8C42] hover:bg-[#E0601A] text-white px-4 py-2 rounded-lg transition-colors duration-300 flex items-center gap-2"
                       >
                         <MapPin className="h-4 w-4" />
-                        Location TBA
-                      </button>
+                        Get Directions
+                      </a>
                     </div>
                   </div>
                 </div>

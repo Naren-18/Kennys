@@ -23,6 +23,7 @@ const hours = [
 
 const Footer = () => {
   const [showLocationPopup, setShowLocationPopup] = useState(false);
+  const [showInstagramPopup, setShowInstagramPopup] = useState(false);
   const { isMobileMenuOpen, isExpanded } = useContext(NavbarContext);
 
   return (
@@ -88,9 +89,13 @@ const Footer = () => {
           
           {/* Social Icons */}
           <div className="flex gap-4 mb-6 flex-wrap">
-            <a href="https://www.instagram.com/kenny.sbar?igsh=ajFkamh0dzZueXR6" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full p-3 transition-all duration-300 transform hover:scale-110 hover:shadow-lg" aria-label="Instagram">
+            <button 
+              onClick={() => setShowInstagramPopup(true)}
+              className="flex items-center justify-center bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full p-3 transition-all duration-300 transform hover:scale-110 hover:shadow-lg" 
+              aria-label="Instagram"
+            >
               <Instagram className="h-5 w-5 text-[#FF8C42] transition-transform duration-200 hover:rotate-12" />
-            </a>
+            </button>
             <a href="https://www.facebook.com/people/Kennys-Bar/61576548480813/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full p-3 transition-all duration-300 transform hover:scale-110 hover:shadow-lg" aria-label="Facebook">
               <Facebook className="h-5 w-5 text-[#FF8C42] transition-transform duration-200 hover:rotate-12" />
             </a>
@@ -198,6 +203,81 @@ const Footer = () => {
         </p>
       </motion.div>
 
+      {/* Instagram Popup */}
+      {showInstagramPopup && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ 
+              duration: 0.3,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
+            className="bg-black/90 border border-[#FF8C42]/30 rounded-2xl p-8 max-w-2xl w-full relative"
+          >
+            <button
+              onClick={() => setShowInstagramPopup(false)}
+              className="absolute top-4 right-4 text-white/60 hover:text-white transition-colors"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            
+            <h2 className="text-2xl font-bold text-[#FF8C42] mb-6 text-center">Follow Us on Instagram</h2>
+            
+            <div className="space-y-6">
+              {/* Bengaluru Instagram */}
+              <div className="bg-[#FF8C42]/10 rounded-xl p-6 border border-[#FF8C42]/20">
+                <div className="flex items-start gap-4">
+                  <div className="bg-[#FF8C42]/20 rounded-full p-2 mt-1">
+                    <Instagram className="h-5 w-5 text-[#FF8C42]" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-white mb-2">Kenny's Bar - Bengaluru</h3>
+                    <p className="text-white/80 mb-3">Follow our Bengaluru location for updates, events, and behind-the-scenes content!</p>
+                    <a 
+                      href="https://www.instagram.com/kenny.sbar?igsh=ajFkamh0dzZueXR6" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="bg-[#FF8C42] text-white px-4 py-2 rounded-lg hover:bg-[#E0601A] transition-colors flex items-center gap-2 w-max"
+                    >
+                      <Instagram className="h-4 w-4" />
+                      Follow @kenny.sbar
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Hyderabad Instagram */}
+              <div className="bg-[#FF8C42]/10 rounded-xl p-6 border border-[#FF8C42]/20">
+                <div className="flex items-start gap-4">
+                  <div className="bg-[#FF8C42]/20 rounded-full p-2 mt-1">
+                    <Instagram className="h-5 w-5 text-[#FF8C42]" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-white mb-2">Kenny's Bar - Hyderabad</h3>
+                    <p className="text-white/80 mb-3">Follow our Hyderabad location for local updates, events, and exclusive content!</p>
+                    <a 
+                      href="https://www.instagram.com/kennysbar.hyd?igsh=MW5zOTh5MGdxdmt1Zg==" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="bg-[#FF8C42] text-white px-4 py-2 rounded-lg hover:bg-[#E0601A] transition-colors flex items-center gap-2 w-max"
+                    >
+                      <Instagram className="h-4 w-4" />
+                      Follow @kennysbar.hyd
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-6 text-center">
+              <p className="text-white/60 text-sm">Stay connected with both our locations for the latest updates!</p>
+            </div>
+          </motion.div>
+        </div>
+      )}
+
       {/* Location Popup */}
       {showLocationPopup && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
@@ -221,15 +301,15 @@ const Footer = () => {
             <h2 className="text-2xl font-bold text-[#FF8C42] mb-6 text-center">Our Locations</h2>
             
             <div className="space-y-6">
-              {/* Current Location - Marathahalli */}
+              {/* Current Location - Bengaluru */}
               <div className="bg-[#FF8C42]/10 rounded-xl p-6 border border-[#FF8C42]/20">
                 <div className="flex items-start gap-4">
                   <div className="bg-[#FF8C42]/20 rounded-full p-2 mt-1">
                     <MapPin className="h-5 w-5 text-[#FF8C42]" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-white mb-2">Kenny's Bar - Marathahalli</h3>
-                    <p className="text-white/80 mb-3">89/1, Monnekollal Village, Varthur Hobli, Outer Ring Road, Marathahalli, Bengaluru, Karnataka 560037</p>
+                    <h3 className="text-xl font-semibold text-white mb-2">Kenny's Bar - Bengaluru</h3>
+                    <p className="text-white/80 mb-3">4th Floor, NTR Royal Plaza, Home Building, Outer Ring Rd, Marathahalli Village, Marathahalli, Bengaluru, Karnataka 560037</p>
                     <div className="flex gap-3">
                       <a 
                         href="https://maps.google.com/?q=Kenny's+Bar+Marathahalli" 
@@ -253,25 +333,31 @@ const Footer = () => {
               </div>
               
               {/* Upcoming Location - Hyderabad */}
-              <div className="bg-white/5 rounded-xl p-6 border border-white/10 relative overflow-hidden">
-                <div className="absolute top-4 right-4 bg-[#FF8C42] text-white px-3 py-1 rounded-full text-sm font-semibold">
-                  Coming Soon
-                </div>
+              <div className="bg-[#FF8C42]/10 rounded-xl p-6 border border-[#FF8C42]/20">
                 <div className="flex items-start gap-4">
-                  <div className="bg-white/20 rounded-full p-2 mt-1">
-                    <MapPin className="h-5 w-5 text-white/60" />
+                  <div className="bg-[#FF8C42]/20 rounded-full p-2 mt-1">
+                    <MapPin className="h-5 w-5 text-[#FF8C42]" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-white/80 mb-2">Kenny's Bar - Hyderabad</h3>
-                    <p className="text-white/60 mb-3">Location details will be announced soon. Stay tuned for updates!</p>
+                    <h3 className="text-xl font-semibold text-white mb-2">Kenny's Bar - Hyderabad</h3>
+                    <p className="text-white/80 mb-3">The District, Myscape Rd, Financial District, Nanakramguda, Hyderabad, Telangana 500032</p>
                     <div className="flex gap-3">
-                      <button 
-                        disabled
-                        className="bg-white/10 text-white/50 px-4 py-2 rounded-lg cursor-not-allowed flex items-center gap-2"
+                      <a 
+                        href="https://maps.google.com/?q=The+District,+Myscape+Rd,+Financial+District,+Nanakramguda,+Hyderabad,+Telangana+500032" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-[#FF8C42] text-white px-4 py-2 rounded-lg hover:bg-[#E0601A] transition-colors flex items-center gap-2"
                       >
-                        <MapPin className="h-4 w-4" />
-                        Location TBA
-                      </button>
+                        <Navigation className="h-4 w-4" />
+                        Get Directions
+                      </a>
+                      <a 
+                        href="tel:+919637819999"
+                        className="bg-white/10 text-white px-4 py-2 rounded-lg hover:bg-white/20 transition-colors flex items-center gap-2"
+                      >
+                        <Phone className="h-4 w-4" />
+                        Call Now
+                      </a>
                     </div>
                   </div>
                 </div>
