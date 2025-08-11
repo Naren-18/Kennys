@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { GalleryHorizontal, Image, Utensils, Menu, Camera, Wine, Star } from 'lucide-react';
+import { GalleryHorizontal, Image, Utensils, Menu, Camera, Wine, Star, Instagram } from 'lucide-react';
 import { motion } from 'framer-motion';
 import InstagramEmbed from './InstagramEmbed';
 
@@ -64,11 +64,12 @@ const GalleryGrid = ({ images }: { images: Array<{src: string, alt: string}> }) 
   );
 };
 
-const instagramPosts = [
-   "https://www.instagram.com/reel/DK1Lf73PBm7/",
-  "https://www.instagram.com/reel/DLPpkIMSr6j/",
-  "https://www.instagram.com/reel/DLbl6vzzfGa/",
-];
+// Remove this array:
+// const instagramPosts = [
+//    "https://www.instagram.com/reel/DK1Lf73PBm7/",
+//   "https://www.instagram.com/reel/DLPpkIMSr6j/",
+//   "https://www.instagram.com/reel/DLbl6vzzfGa/",
+// ];
 
 const Gallery = () => {
   return (
@@ -102,10 +103,9 @@ const Gallery = () => {
           {/* Corner decorative elements */}
           <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-[#FF6F1F]/40 rounded-tl-2xl"></div>
           <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-[#FF6F1F]/40 rounded-br-2xl"></div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {instagramPosts.map((url) => (
-              <InstagramEmbed key={url} url={url} />
-            ))}
+          <div className="text-center py-16">
+            <h3 className="text-[#FF8C42] text-2xl font-bold mb-4">Gallery Content</h3>
+            <p className="text-white/70 text-lg">Coming Soon</p>
           </div>
         </GlassCard>
         <motion.div 
@@ -119,17 +119,31 @@ const Gallery = () => {
             <Star className="h-4 w-4 text-[#FF8C42]" />
             <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#FF6F1F]/50"></div>
           </div>
-          <GlassCard className="inline-block px-6 py-3">
-            <p className="text-white/70 font-['Montserrat'] italic">
-              Follow us on Instagram{' '}
-              <a
-                href="https://instagram.com/kenny.sbar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#FF8C42] hover:text-[#FF6F1F] font-medium transition-colors duration-300"
+          <GlassCard className="inline-block px-8 py-6">
+            <p className="text-white/70 font-['Montserrat'] italic text-center mb-4">
+              Follow us on Instagram
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <a 
+                href="https://www.instagram.com/kennysbar.blr?igsh=bWt1b2thb3U0cDRx" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-[#FF8C42] text-white px-6 py-3 rounded-full hover:bg-[#E0601A] transition-colors flex items-center gap-2 text-sm font-medium min-w-[180px] justify-center"
               >
-                @kenny.sbar
-              </a>{' '}
+                <Instagram className="h-4 w-4" />
+                @kennysbar.blr
+              </a>
+              <a 
+                href="https://www.instagram.com/kennysbar.hyd" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-[#FF8C42] text-white px-6 py-3 rounded-full hover:bg-[#E0601A] transition-colors flex items-center gap-2 text-sm font-medium min-w-[180px] justify-center"
+              >
+                <Instagram className="h-4 w-4" />
+                @kennysbar.hyd
+              </a>
+            </div>
+            <p className="text-white/60 font-['Montserrat'] italic text-sm mt-4 text-center">
               for more photos and behind-the-scenes moments.
             </p>
           </GlassCard>

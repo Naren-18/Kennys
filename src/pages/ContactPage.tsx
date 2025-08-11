@@ -92,7 +92,7 @@ const ContactPage = () => {
                 >
                   <Instagram className="h-5 w-5 text-[#FF8C42]" />
                 </button>
-                <a href="https://www.facebook.com/people/Kennys-Bar/61576548480813/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full p-3 transition-colors" aria-label="Facebook">
+                <a href="https://www.facebook.com/profile.php?id=61576740711799" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full p-3 transition-colors" aria-label="Facebook">
                   <Facebook className="h-5 w-5 text-[#FF8C42]" />
                 </a>
               </div>
@@ -142,7 +142,7 @@ const ContactPage = () => {
             <div className="space-y-4">
               {/* Bengaluru Instagram */}
               <a 
-                href="https://www.instagram.com/kenny.sbar?igsh=ajFkamh0dzZueXR6" 
+                href="https://www.instagram.com/kennysbar.blr?igsh=bWt1b2thb3U0cDRx" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="block bg-[#FF8C42]/10 hover:bg-[#FF8C42]/20 rounded-xl p-4 border border-[#FF8C42]/20 transition-colors"
@@ -153,7 +153,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <h3 className="text-white font-semibold">Kenny's Bar - Bengaluru</h3>
-                    <p className="text-white/60 text-sm">@kenny.sbar</p>
+                    <p className="text-white/60 text-sm">@kennysbar.blr</p>
                   </div>
                 </div>
               </a>

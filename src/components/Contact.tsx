@@ -102,9 +102,9 @@ const About = () => {
               >
                 <Instagram className="h-5 w-5 text-[#FF8C42] transition-transform duration-200 hover:rotate-12" />
               </button>
-              <a href="https://www.facebook.com/people/Kennys-Bar/61576548480813/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full p-2 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:translate-x-1 min-h-[44px] min-w-[44px] touch-manipulation" aria-label="Facebook">
-                <Facebook className="h-5 w-5 text-[#FF8C42] transition-transform duration-200 hover:rotate-12" />
-              </a>
+              <a href="https://www.facebook.com/profile.php?id=61576740711799" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full p-2 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:translate-x-1 min-h-[44px] min-w-[44px] touch-manipulation" aria-label="Facebook">
+                  <Facebook className="h-5 w-5 text-[#FF8C42] transition-transform duration-200 hover:rotate-12" />
+                </a>
             </div>
             
             <a href="/book-table">
@@ -278,17 +278,17 @@ const About = () => {
             
             <div className="space-y-3 sm:space-y-4">
               {/* Bengaluru Instagram - Mobile optimized */}
-              <a
-                href="https://www.instagram.com/kenny.sbar?igsh=ajFkamh0dzZueXR6"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block p-3 sm:p-4 bg-[#FF8C42]/10 hover:bg-[#FF8C42]/20 rounded-xl border border-[#FF8C42]/20 transition-all duration-300 group min-h-[60px] touch-manipulation"
-              >
+              <a 
+                  href="https://www.instagram.com/kennysbar.blr?igsh=bWt1b2thb3U0cDRx" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block bg-[#FF8C42]/10 hover:bg-[#FF8C42]/20 rounded-xl p-4 border border-[#FF8C42]/20 transition-colors"
+                >
                 <div className="flex items-center gap-3">
                   <Instagram className="h-5 w-5 text-[#FF8C42]" />
                   <div>
                     <h3 className="font-semibold text-white group-hover:text-[#FF8C42] transition-colors text-sm sm:text-base">Kenny's Bar - Bengaluru</h3>
-                    <p className="text-xs sm:text-sm text-white/60">@kenny.sbar</p>
+                    <p className="text-xs sm:text-sm text-white/60">@kennysbar.blr</p>
                   </div>
                   <Instagram className="h-4 w-4 ml-auto opacity-60" />
                 </div>

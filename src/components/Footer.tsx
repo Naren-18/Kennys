@@ -83,20 +83,8 @@ const Footer = () => {
               <span className="text-sm">info@kennys.bar</span>
             </a>
           </div>
-            
-            {/* Social Icons */}
-            <div className="flex gap-4 mb-6 flex-wrap">
-              <button 
-                onClick={() => setShowInstagramPopup(true)}
-                className="flex items-center justify-center bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full p-3 transition-all duration-300 transform hover:scale-110 hover:shadow-lg" 
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5 text-[#FF8C42] transition-transform duration-200 hover:rotate-12" />
-              </button>
-              <a href="https://www.facebook.com/people/Kennys-Bar/61576548480813/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full p-3 transition-all duration-300 transform hover:scale-110 hover:shadow-lg" aria-label="Facebook">
-                <Facebook className="h-5 w-5 text-[#FF8C42] transition-transform duration-200 hover:rotate-12" />
-              </a>
-            </div>
+          
+          {/* Social Icons section removed */}
         </motion.div>
         
         {/* Explore Section - Mobile optimized */}
@@ -233,13 +221,13 @@ const Footer = () => {
                     <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">Kenny's Bar - Bengaluru</h3>
                     <p className="text-white/80 mb-3 text-sm sm:text-base">Follow our Bengaluru location for updates, events, and behind-the-scenes content!</p>
                     <a 
-                      href="https://www.instagram.com/kenny.sbar?igsh=ajFkamh0dzZueXR6" 
+                      href="https://www.instagram.com/kennysbar.blr?igsh=bWt1b2thb3U0cDRx" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="bg-[#FF8C42] text-white px-4 py-3 sm:px-4 sm:py-2 rounded-lg hover:bg-[#E0601A] transition-colors flex items-center justify-center sm:justify-start gap-2 w-full sm:w-max min-h-[44px] touch-manipulation text-sm sm:text-base"
+                      className="bg-[#FF8C42] text-white px-4 py-3 sm:px-4 sm:py-2 rounded-lg hover:bg-[#E0601A] transition-colors flex items-center justify-center gap-2 min-h-[44px] touch-manipulation text-sm sm:text-base"
                     >
                       <Instagram className="h-4 w-4" />
-                      Follow @kenny.sbar
+                      Follow @kennysbar.blr
                     </a>
                   </div>
                 </div>
@@ -258,7 +246,7 @@ const Footer = () => {
                       href="https://www.instagram.com/kennysbar.hyd?igsh=MW5zOTh5MGdxdmt1Zg==" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="bg-[#FF8C42] text-white px-4 py-3 sm:px-4 sm:py-2 rounded-lg hover:bg-[#E0601A] transition-colors flex items-center justify-center sm:justify-start gap-2 w-full sm:w-max min-h-[44px] touch-manipulation text-sm sm:text-base"
+                      className="bg-[#FF8C42] text-white px-4 py-3 sm:px-4 sm:py-2 rounded-lg hover:bg-[#E0601A] transition-colors flex items-center justify-center gap-2 min-h-[44px] touch-manipulation text-sm sm:text-base"
                     >
                       <Instagram className="h-4 w-4" />
                       Follow @kennysbar.hyd
@@ -325,6 +313,27 @@ const Footer = () => {
                         +91 9317 417 517
                       </a>
                     </div>
+                    {/* Social Media Buttons for Bengaluru */}
+                    <div className="flex gap-3 mt-3 justify-center sm:justify-start">
+                      <a 
+                        href="https://www.instagram.com/kennysbar.blr?igsh=bWt1b2thb3U0cDRx"
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full p-3 transition-all duration-300 transform hover:scale-110 hover:shadow-lg flex items-center justify-center min-h-[44px] min-w-[44px] touch-manipulation"
+                        aria-label="Instagram - Bengaluru"
+                      >
+                        <Instagram className="h-5 w-5 text-[#FF8C42] transition-transform duration-200 hover:rotate-12" />
+                      </a>
+                      <a 
+                        href="https://www.facebook.com/people/Kennys-Bar/61576548480813/"
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full p-3 transition-all duration-300 transform hover:scale-110 hover:shadow-lg flex items-center justify-center min-h-[44px] min-w-[44px] touch-manipulation"
+                        aria-label="Facebook - Hyderabad"
+                      >
+                        <Facebook className="h-5 w-5 text-[#FF8C42] transition-transform duration-200 hover:rotate-12" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -354,6 +363,27 @@ const Footer = () => {
                       >
                         <Phone className="h-4 w-4" />
                         +91 96378 19999
+                      </a>
+                    </div>
+                    {/* Social Media Buttons for Hyderabad */}
+                    <div className="flex gap-3 mt-3 justify-center sm:justify-start">
+                      <a 
+                        href="https://www.instagram.com/kennysbar.hyd?igsh=MW5zOTh5MGdxdmt1Zg==" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full p-3 transition-all duration-300 transform hover:scale-110 hover:shadow-lg flex items-center justify-center min-h-[44px] min-w-[44px] touch-manipulation"
+                        aria-label="Instagram - Hyderabad"
+                      >
+                        <Instagram className="h-5 w-5 text-[#FF8C42] transition-transform duration-200 hover:rotate-12" />
+                      </a>
+                      <a 
+                        href="https://www.facebook.com/people/Kennys-Bar-Hyd/61576740711799/"
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full p-3 transition-all duration-300 transform hover:scale-110 hover:shadow-lg flex items-center justify-center min-h-[44px] min-w-[44px] touch-manipulation"
+                        aria-label="Facebook - Hyderabad"
+                      >
+                        <Facebook className="h-5 w-5 text-[#FF8C42] transition-transform duration-200 hover:rotate-12" />
                       </a>
                     </div>
                   </div>
