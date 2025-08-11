@@ -82,7 +82,14 @@ const ContactPage = () => {
               
               <div className="flex items-center gap-3">
                 <Mail className="text-[#FF8C42] w-6 h-6" />
-                <a href="mailto:info@kennys.bar" className="text-white/90 hover:text-[#FF8C42] transition">info@kennys.bar</a>
+                <a 
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=info@kennys.bar" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-white/90 hover:text-[#FF8C42] transition"
+                >
+                  info@kennys.bar
+                </a>
               </div>
               <div className="flex gap-4 mt-2">
                 <button 

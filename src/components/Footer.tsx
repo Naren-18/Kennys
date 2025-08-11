@@ -78,7 +78,7 @@ const Footer = () => {
           
           {/* Contact Button - Email only */}
           <div className="flex flex-col gap-3 mb-4">
-            <a href="mailto:info@kennys.bar" className="flex items-center gap-2 bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full px-3 py-2 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:translate-x-1 font-medium text-white w-max">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@kennys.bar" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full px-3 py-2 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:translate-x-1 font-medium text-white w-max">
               <Mail className="h-5 w-5 text-[#FF8C42] transition-transform duration-200 hover:rotate-12" />
               <span className="text-sm">info@kennys.bar</span>
             </a>
