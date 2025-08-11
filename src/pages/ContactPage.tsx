@@ -11,7 +11,7 @@ const ContactPage = () => {
   const [result, setResult] = useState<string | null>(null);
   const [showLocationPopup, setShowLocationPopup] = useState(false);
   const [showInstagramPopup, setShowInstagramPopup] = useState(false);
-
+  const [showFacebookPopup, setShowFacebookPopup] = useState(false);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -92,9 +92,13 @@ const ContactPage = () => {
                 >
                   <Instagram className="h-5 w-5 text-[#FF8C42]" />
                 </button>
-                <a href="https://www.facebook.com/profile.php?id=61576740711799" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full p-3 transition-colors" aria-label="Facebook">
+                <button 
+                  onClick={() => setShowFacebookPopup(true)}
+                  className="flex items-center justify-center bg-[#FF8C42]/10 hover:bg-[#FF8C42]/30 rounded-full p-3 transition-colors" 
+                  aria-label="Facebook"
+                >
                   <Facebook className="h-5 w-5 text-[#FF8C42]" />
-                </a>
+                </button>
               </div>
             </div>
             {/* Contact Form */}
@@ -172,6 +176,69 @@ const ContactPage = () => {
                   <div>
                     <h3 className="text-white font-semibold">Kenny's Bar - Hyderabad</h3>
                     <p className="text-white/60 text-sm">@kennysbar_hyderabad</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      )}
+
+      {/* Facebook Popup */}
+      {showFacebookPopup && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ 
+              duration: 0.3,
+              ease: [0.25, 0.46, 0.45, 0.94]
+            }}
+            className="bg-black/90 border border-[#FF8C42]/30 rounded-2xl p-8 max-w-md w-full relative"
+          >
+            <button
+              onClick={() => setShowFacebookPopup(false)}
+              className="absolute top-4 right-4 text-white/60 hover:text-white transition-colors"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            
+            <h2 className="text-2xl font-bold text-[#FF8C42] mb-6 text-center">Follow Us on Facebook</h2>
+            
+            <div className="space-y-4">
+              {/* Bengaluru Facebook */}
+              <a 
+                href="https://www.facebook.com/profile.php?id=61576740711799" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block bg-[#FF8C42]/10 hover:bg-[#FF8C42]/20 rounded-xl p-4 border border-[#FF8C42]/20 transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="bg-[#FF8C42]/20 rounded-full p-2">
+                    <Facebook className="h-5 w-5 text-[#FF8C42]" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold">Kenny's Bar - Bengaluru</h3>
+                    <p className="text-white/60 text-sm">Marathahalli Location</p>
+                  </div>
+                </div>
+              </a>
+              
+              {/* Hyderabad Facebook */}
+              <a 
+                href="https://www.facebook.com/people/Kennys-Bar-Hyd/61576740711799/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block bg-[#FF8C42]/10 hover:bg-[#FF8C42]/20 rounded-xl p-4 border border-[#FF8C42]/20 transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="bg-[#FF8C42]/20 rounded-full p-2">
+                    <Facebook className="h-5 w-5 text-[#FF8C42]" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold">Kenny's Bar - Hyderabad</h3>
+                    <p className="text-white/60 text-sm">Financial District Location</p>
                   </div>
                 </div>
               </a>
