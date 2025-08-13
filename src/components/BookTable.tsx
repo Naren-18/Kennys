@@ -25,22 +25,49 @@ const BookTable = () => {
     e.preventDefault();
     setLoading(true);
     setResult(null);
+    
+    console.log('Form submitted with data:', formData);
+    
     try {
-      await emailjs.send(
-        'service_tnzidfj', // Replace with your actual service ID
-        'template_99mma4f', // Replace with your actual template ID
-        {
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          location: formData.location,
-          date: formData.date,
-          time: formData.time,
-          guests: formData.guests,
-          occasion: formData.occasion,
-        },
-        'z0yL-CfuTqtMyFvRr' // Replace with your actual public key
-      );
+      // Save reservation to localStorage FIRST
+      const reservation = {
+        id: Date.now().toString(),
+        ...formData,
+        createdAt: new Date().toISOString()
+      };
+      
+      console.log('Saving reservation:', reservation);
+      
+      const existingReservations = JSON.parse(localStorage.getItem('reservations') || '[]');
+      console.log('Existing reservations:', existingReservations);
+      
+      existingReservations.push(reservation);
+      localStorage.setItem('reservations', JSON.stringify(existingReservations));
+      
+      console.log('Reservation saved to localStorage');
+      
+      // Try to send email (but don't let it block the localStorage save)
+      try {
+        await emailjs.send(
+          'service_tnzidfj',
+          'template_99mma4f',
+          {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            location: formData.location,
+            date: formData.date,
+            time: formData.time,
+            guests: formData.guests,
+            occasion: formData.occasion,
+          },
+          'z0yL-CfuTqtMyFvRr'
+        );
+        console.log('Email sent successfully');
+      } catch (emailError) {
+        console.log('Email failed but reservation was saved:', emailError);
+      }
+      
       setResult('success');
       setFormData({
         name: '',
@@ -53,6 +80,7 @@ const BookTable = () => {
         occasion: '',
       });
     } catch (error) {
+      console.error('Reservation error:', error);
       setResult('error');
     } finally {
       setLoading(false);
@@ -275,7 +303,6 @@ const BookTable = () => {
             </div>
             
             {/* Location-specific message */}
-            // Remove or update the location-specific message:
             {formData.location === 'hyderabad' && (
             <div className="bg-[#FF8C42]/10 border border-[#FF8C42]/30 rounded-lg p-4 text-center">
             <p className="text-[#FF8C42] font-medium">

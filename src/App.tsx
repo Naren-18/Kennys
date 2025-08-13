@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import MenuPage from "./pages/MenuPage";
 import GalleryPage from "./pages/GalleryPage";
@@ -17,6 +17,8 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { NavbarContext } from "@/components/Navbar";
+import AdminLoginPage from '@/pages/AdminLoginPage';
+import AdminDashboardPage from '@/pages/AdminDashboardPage';
 
 const queryClient = new QueryClient();
 
@@ -129,12 +131,12 @@ const NavbarProvider = ({ children }) => {
 
 const AppContent = () => {
   const location = useLocation();
-  const isHomePage = location.pathname === "/";
+  const isHomePage = location.pathname === '/';
+  const isAdminPage = location.pathname.startsWith('/admin');
 
   return (
     <NavbarProvider>
-      <ScrollToTop />
-      <div className="page-content flex-grow">
+      <div className="App">
         <Routes>
           <Route path="/" element={
             <>
@@ -216,10 +218,16 @@ const AppContent = () => {
               <AboutPage />
             </>
           } />
+          
+          {/* Admin Routes */}
+          <Route path="/admin/login" element={<AdminLoginPage />} />
+          <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
+          <Route path="/admin" element={<Navigate to="/admin/login" replace />} />
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
-      {!isHomePage && <Footer />}
+      {!isHomePage && !isAdminPage && <Footer />}
     </NavbarProvider>
   );
 };

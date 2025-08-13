@@ -20,7 +20,22 @@ const ContactPage = () => {
     e.preventDefault();
     setLoading(true);
     setResult(null);
+    
     try {
+      // Save feedback to localStorage for admin dashboard
+      const feedback = {
+        id: Date.now().toString(),
+        name: form.name,
+        email: form.mobile, // Note: using mobile as email since that's what the form collects
+        message: form.message,
+        createdAt: new Date().toISOString()
+      };
+      
+      const existingFeedback = JSON.parse(localStorage.getItem('feedback') || '[]');
+      existingFeedback.push(feedback);
+      localStorage.setItem('feedback', JSON.stringify(existingFeedback));
+      
+      // Send email via EmailJS
       await emailjs.send(
         'service_tnzidfj',
         'template_tu15umd',
@@ -31,6 +46,7 @@ const ContactPage = () => {
         },
         'z0yL-CfuTqtMyFvRr'
       );
+      
       setResult('Message sent successfully!');
       setForm({ name: '', mobile: '', message: '' });
     } catch (error) {

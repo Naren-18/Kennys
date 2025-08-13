@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Navbar from '@/components/Navbar';
-import BookTable from '@/components/BookTable';
+import BookTableCards from '@/components/BookTableCards';
 import Footer from '@/components/Footer';
 
 const BookTablePage = () => {
@@ -14,7 +14,7 @@ const BookTablePage = () => {
       </div>
       <Navbar />
       <div className="">
-        <BookTable />
+        <BookTableCards />
       </div>
     </div>
   );
