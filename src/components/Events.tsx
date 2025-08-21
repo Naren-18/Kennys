@@ -10,7 +10,7 @@ interface Event {
   date: string;
   time: string;
   description: string;
-  category: 'music' | 'tasting' | 'special' | 'community';
+  category: 'Hyderabad' | 'Bangalore';
 }
 
 const GlassCard = ({ children, className = "" }) => (
@@ -26,60 +26,84 @@ const Events = () => {
   const events: Event[] = [
     {
       id: 1,
-      title: "Coming Soon",
-      date: "TBA",
-      time: "TBA",
-      description: "Exciting events are being planned! Stay tuned for updates on our upcoming entertainment.",
-      category: 'music'
+      title: "AKSHAY PATTANSHETTI and Madhu S S Live Music",
+      date: "Aug 23, 2025 Saturday",
+      time: "Evening Show",
+      description: "Join us for an incredible live music performance featuring AKSHAY PATTANSHETTI and Madhu S S in Bangalore. An unforgettable evening of music awaits!",
+      category: 'Bangalore'
     },
     {
       id: 2,
-      title: "Coming Soon",
-      date: "TBA",
-      time: "TBA",
-      description: "Amazing tasting experiences are in the works! Check back soon for details.",
-      category: 'tasting'
+      title: "Nandini Rakesh, Abhijit Gogoi & D Strings - The Band",
+      date: "Aug 30, 2025 Saturday",
+      time: "Evening Show",
+      description: "Get ready for an electrifying performance featuring Nandini Rakesh, Abhijit Gogoi, and D Strings - The Band! Join us for an unforgettable night of live music in Bangalore.",
+      category: 'Bangalore'
     },
     {
       id: 3,
-      title: "Coming Soon",
-      date: "TBA",
-      time: "TBA",
-      description: "Community gatherings are being organized! We'll announce details soon.",
-      category: 'community'
+      title: "Danny and Krishnan Live Performance",
+      date: "Aug 23, 2025 Saturday",
+      time: "Evening Show",
+      description: "Join us for an amazing live performance featuring Danny and Krishnan in Hyderabad. Don't miss this incredible evening of music!",
+      category: 'Hyderabad'
     },
     {
       id: 4,
-      title: "Coming Soon",
-      date: "TBA",
-      time: "TBA",
-      description: "Special celebrations are being planned! Keep an eye out for announcements.",
-      category: 'special'
+      title: "Vanishree Live Performance",
+      date: "Aug 27, 2025 Wednesday",
+      time: "Evening Show",
+      description: "Experience a captivating live performance by Vanishree in Hyderabad. Join us for an enchanting evening of music!",
+      category: 'Hyderabad'
+    },
+    {
+      id: 5,
+      title: "Abhijeet Dubey Live Performance",
+      date: "Aug 30, 2025 Saturday",
+      time: "Evening Show",
+      description: "Join us for an outstanding live performance by Abhijeet Dubey in Hyderabad. Don't miss this spectacular evening of music!",
+      category: 'Hyderabad'
     }
   ];
-
+  
   const filteredEvents = filter ? events.filter(event => event.category === filter) : events;
   
   const categoryColor = {
-    music: "from-[#FF6F1F] to-[#FF8C42]",
-    tasting: "from-[#FF6F1F] to-[#FF8C42]",
-    special: "from-[#FF6F1F] to-[#FF8C42]",
-    community: "from-[#FF6F1F] to-[#FF8C42]"
+    Hyderabad: "from-[#FF6F1F] to-[#FF8C42]",
+    Bangalore: "from-[#FF6F1F] to-[#FF8C42]"
   };
   
   const categoryLabel = {
-    music: "Music",
-    tasting: "Tasting",
-    special: "Special",
-    community: "Community"
+    Hyderabad: "Hyderabad",
+    Bangalore: "Bangalore"
   };
   
   const categoryIcon = {
-    music: <Music className="h-4 w-4" />,
-    tasting: <GlassWater className="h-4 w-4" />,
-    special: <Star className="h-4 w-4" />,
-    community: <Users className="h-4 w-4" />
+    Hyderabad: <MapPin className="h-4 w-4" />,
+    Bangalore: <MapPin className="h-4 w-4" />
   };
+  
+  // Remove these duplicate old category objects:
+  // const categoryColor = {
+  //   music: "from-[#FF6F1F] to-[#FF8C42]",
+  //   tasting: "from-[#FF6F1F] to-[#FF8C42]",
+  //   special: "from-[#FF6F1F] to-[#FF8C42]",
+  //   community: "from-[#FF6F1F] to-[#FF8C42]"
+  // };
+  // 
+  // const categoryLabel = {
+  //   music: "Music",
+  //   tasting: "Tasting",
+  //   special: "Special",
+  //   community: "Community"
+  // };
+  // 
+  // const categoryIcon = {
+  //   music: <Music className="h-4 w-4" />,
+  //   tasting: <GlassWater className="h-4 w-4" />,
+  //   special: <Star className="h-4 w-4" />,
+  //   community: <Users className="h-4 w-4" />
+  // };
     return (
     <section className="pt-8 pb-16 min-h-screen relative overflow-hidden">
       {/* Unique background image and overlay */}
@@ -122,7 +146,7 @@ const Events = () => {
                 <CalendarClock className="h-4 w-4" />
                 <span>All Events</span>
               </button>
-              {['music', 'tasting', 'special', 'community'].map((category) => (
+              {['Hyderabad', 'Bangalore'].map((category) => (
                 <button
                   key={category}
                   className={`relative cursor-pointer py-3 px-6 text-center font-medium inline-flex justify-center items-center gap-2 text-base rounded-lg transition-all duration-300 ${filter === category ? 'bg-gradient-to-r from-[#FF6F1F] to-[#FF8C42] text-white' : 'text-white/80 hover:text-white'}`}
@@ -171,15 +195,7 @@ const Events = () => {
                         <span className="text-sm">{event.time}</span>
                       </div>
                       <p className="text-white/80 mb-6 text-sm flex-grow">{event.description}</p>
-                      <div className="mt-auto">
-                        <Button
-                          disabled
-                          className="relative cursor-not-allowed py-3 px-6 text-center inline-flex justify-center items-center gap-2 text-base rounded-lg transition-all duration-300 w-full bg-gradient-to-r from-[#FF6F1F]/20 to-[#FF8C42]/20 border border-[#FF6F1F]/30 text-white/50"
-                        >
-                          <CalendarClock className="h-4 w-4 text-[#FF8C42]/50" />
-                          <span>Details Coming Soon</span>
-                        </Button>
-                      </div>
+                      {/* Removed the "Details Coming Soon" button */}
                     </div>
                   </CardContent>
                 </GlassCard>
