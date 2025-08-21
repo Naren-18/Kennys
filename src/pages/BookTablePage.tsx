@@ -95,7 +95,7 @@ const BookTablePage = () => {
         </div>
       </div>
       
-      <Footer />
+      {/* Remove this line: <Footer /> */}
     </div>
   );
 };
