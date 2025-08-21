@@ -52,7 +52,7 @@ const BookTablePage = () => {
                     href="tel:+919876543210" 
                     className="text-2xl font-bold text-[#FF8C42] hover:text-[#FF8C42]/80 transition-colors"
                   >
-                    +91 98765 43210
+                    +91 93174 17517
                   </a>
                 </div>
               </div>
