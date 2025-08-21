@@ -112,6 +112,48 @@ const BookTable = () => {
             </div>
           </div>
         </div>
+        
+        {/* Location Information Cards */}
+        <div className="w-full max-w-6xl mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Bengaluru Location */}
+            <div className="bg-black/60 backdrop-blur-md border border-[#FF6F1F]/40 rounded-2xl shadow-xl p-6">
+              <div className="text-center">
+                <div className="bg-[#1a120b] rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="text-[#FF8C42] w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-semibold text-[#FF8C42] mb-2">Kenny's Bar - Bengaluru</h3>
+                <p className="text-white/80 text-sm mb-4">4th Floor, NTR Royal Plaza, Home Building, Outer Ring Rd, Marathahalli Village, Marathahalli, Bengaluru, Karnataka 560037</p>
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <Phone className="text-[#FF8C42] w-4 h-4" />
+                  <a href="tel:+919317417517" className="text-[#FF8C42] hover:text-white transition-colors text-sm font-medium">
+                    +91 93174 17517
+                  </a>
+                </div>
+                <p className="text-white/60 text-xs">Open: 4:00 PM - 1:00 AM (Daily)</p>
+              </div>
+            </div>
+            
+            {/* Hyderabad Location */}
+            <div className="bg-black/60 backdrop-blur-md border border-[#FF6F1F]/40 rounded-2xl shadow-xl p-6">
+              <div className="text-center">
+                <div className="bg-[#1a120b] rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="text-[#FF8C42] w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-semibold text-[#FF8C42] mb-2">Kenny's Bar - Hyderabad</h3>
+                <p className="text-white/80 text-sm mb-4">The District, Myscape Rd, Financial District, Nanakramguda, Hyderabad, Telangana 500032</p>
+                <div className="flex items-center justify-center gap-2 mb-2">
+                  <Phone className="text-[#FF8C42] w-4 h-4" />
+                  <a href="tel:+919637819999" className="text-[#FF8C42] hover:text-white transition-colors text-sm font-medium">
+                    +91 96378 19999
+                  </a>
+                </div>
+                <p className="text-white/60 text-xs">Open: 4:00 PM - 1:00 AM (Daily)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <div className="w-full max-w-2xl bg-black/60 backdrop-blur-md rounded-2xl border border-[#FF6F1F]/30 shadow-2xl p-10 relative mb-12">
           <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-[#FF6F1F]/40 rounded-tl-2xl"></div>
           <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#FF6F1F]/40 rounded-br-2xl"></div>
