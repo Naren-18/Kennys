@@ -17,6 +17,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { NavbarContext } from "@/components/Navbar";
+import AgeVerification from "@/components/AgeVerification";
 
 const queryClient = new QueryClient();
 
@@ -225,12 +226,54 @@ const AppContent = () => {
 };
 
 const App = () => {
+  const [isAgeVerified, setIsAgeVerified] = useState(false);
+  const [showDeniedMessage, setShowDeniedMessage] = useState(false);
+
+  useEffect(() => {
+    // Check if user has already verified their age
+    const ageVerified = localStorage.getItem('ageVerified');
+    if (ageVerified === 'true') {
+      setIsAgeVerified(true);
+    }
+  }, []);
+
+  const handleAgeVerified = () => {
+    setIsAgeVerified(true);
+  };
+
+  const handleAgeDenied = () => {
+    setShowDeniedMessage(true);
+  };
+
+  // If age is denied, show denial message
+  if (showDeniedMessage) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="text-center p-8">
+          <h1 className="text-3xl font-bold text-red-600 mb-4">Access Denied</h1>
+          <p className="text-lg text-gray-700 mb-4">
+            You must be 21 or older to access this website.
+          </p>
+          <p className="text-gray-600">
+            Thank you for your understanding.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <div className="page-container min-h-screen flex flex-col">
           <Toaster />
           <Sonner />
+          {!isAgeVerified && (
+            <AgeVerification 
+              onVerified={handleAgeVerified}
+              onDenied={handleAgeDenied}
+            />
+          )}
           <BrowserRouter>
             <AppContent />
           </BrowserRouter>

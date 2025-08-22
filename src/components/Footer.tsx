@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { Instagram, Facebook, Phone, Mail, BookOpen, Users, Calendar, Images, MapPin, Navigation, Home, X } from "lucide-react";
+import { Instagram, Facebook, Phone, Mail, Users, Calendar, Images, MapPin, Navigation, Home, X } from "lucide-react";
 import { motion } from 'framer-motion';
 import { NavbarContext } from './Navbar';
 
@@ -24,6 +24,8 @@ const hours = [
 const Footer = () => {
   const [showLocationPopup, setShowLocationPopup] = useState(false);
   const [showInstagramPopup, setShowInstagramPopup] = useState(false);
+  const [showPrivacyPopup, setShowPrivacyPopup] = useState(false);
+  const [showTermsPopup, setShowTermsPopup] = useState(false);
   const { isMobileMenuOpen, isExpanded } = useContext(NavbarContext);
 
   return (
@@ -186,6 +188,32 @@ const Footer = () => {
             Cognitimax
           </a>
         </p>
+        
+        {/* Responsible Drinking Disclaimer */}
+        <div className="mt-6 pt-6 border-t border-white/10">
+          <div className="text-center space-y-3">
+            <div className="space-y-1">
+              <p className="text-[#FF8C42] font-semibold text-sm sm:text-base">DRINK RESPONSIBLY</p>
+              <p className="text-white/70 text-xs sm:text-sm">This communication is meant for people above the legal drinking age of 25 years</p>
+            </div>
+            
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-4 text-xs sm:text-sm">
+              <a 
+                onClick={() => setShowTermsPopup(true)}
+                className="text-white/60 hover:text-[#FF8C42] transition-colors underline cursor-pointer"
+              >
+                Website Terms
+              </a>
+              <span className="text-white/40">|</span>
+              <button 
+                onClick={() => setShowPrivacyPopup(true)}
+                className="text-white/60 hover:text-[#FF8C42] transition-colors underline cursor-pointer"
+              >
+                Privacy Notice
+              </button>
+            </div>
+          </div>
+        </div>
       </motion.div>
 
       {/* Instagram Popup - Mobile optimized */}
@@ -203,7 +231,7 @@ const Footer = () => {
           >
             <button
               onClick={() => setShowInstagramPopup(false)}
-              className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white/60 hover:text-white transition-colors z-10 bg-black/50 rounded-full p-2 min-h-[44px] min-w-[44px] touch-manipulation"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white/60 hover:text-white transition-colors"
             >
               <X className="h-5 w-5 sm:h-6 sm:w-6" />
             </button>
@@ -278,7 +306,7 @@ const Footer = () => {
           >
             <button
               onClick={() => setShowLocationPopup(false)}
-              className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white/60 hover:text-white transition-colors z-10 bg-black/50 rounded-full p-2 min-h-[44px] min-w-[44px] touch-manipulation"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white/60 hover:text-white transition-colors"
             >
               <X className="h-5 w-5 sm:h-6 sm:w-6" />
             </button>
@@ -393,6 +421,108 @@ const Footer = () => {
             
             <div className="mt-4 sm:mt-6 text-center">
               <p className="text-white/60 text-xs sm:text-sm">Follow us on social media for updates on our new location!</p>
+            </div>
+          </motion.div>
+        </div>
+      )}
+      
+      {showPrivacyPopup && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="bg-[#1a120b] border border-[#FF8C42]/30 rounded-lg p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto relative"
+          >
+            <button 
+              onClick={() => setShowPrivacyPopup(false)}
+              className="absolute top-4 right-4 text-white/60 hover:text-[#FF8C42] transition-colors"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            
+            <div className="space-y-4">
+              <h2 className="text-[#FF8C42] text-xl font-bold mb-4">Privacy Notice</h2>
+              
+              <div className="text-white/80 space-y-4 text-sm leading-relaxed">
+                <p>
+                  Nothing contained in this website is intended to be an advertisement of any product nor should it be construed or viewed as soliciting the use of or offering any intoxicant to any person accessing the website.
+                </p>
+                
+                <p>
+                  You must be at least 25 years of age and accessing Kenny's Bar from a jurisdiction where the consumption of alcohol is legal in order to enter the Website. You represent and affirm that you satisfy these conditions by accessing the Website, whether directly or through another website.
+                </p>
+              </div>
+              
+              <div className="flex justify-center mt-6">
+                <button 
+                  onClick={() => setShowPrivacyPopup(false)}
+                  className="bg-[#FF8C42] text-white px-6 py-2 rounded-lg hover:bg-[#E0601A] transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      )}
+      
+      {showTermsPopup && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            className="bg-[#1a120b] border border-[#FF8C42]/30 rounded-lg p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto relative"
+          >
+            <button 
+              onClick={() => setShowTermsPopup(false)}
+              className="absolute top-4 right-4 text-white/60 hover:text-[#FF8C42] transition-colors"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            
+            <div className="space-y-4">
+              <h2 className="text-[#FF8C42] text-xl font-bold mb-4">Website Terms</h2>
+              
+              <div className="text-white/80 space-y-4 text-sm leading-relaxed">
+                <p>
+                  <strong>Terms and Conditions:</strong> By accessing this website, you agree to comply with all applicable laws and regulations regarding alcohol consumption and age verification.
+                </p>
+                
+                <p>
+                  <strong>Alcohol Consumption:</strong> All patrons must be 25 years or older to consume alcoholic beverages. Valid government-issued photo identification is required.
+                </p>
+                
+                <p>
+                  <strong>ID Requirements:</strong> We reserve the right to request identification from any patron regardless of apparent age. Entry may be denied without proper identification.
+                </p>
+                
+                <p>
+                  <strong>Price Changes:</strong> Menu prices and availability are subject to change without notice. All prices listed are in Indian Rupees (INR).
+                </p>
+                
+                <p>
+                  <strong>Table Reservations:</strong> Reservations are recommended but not guaranteed. Tables may be released if parties are more than 15 minutes late without notification.
+                </p>
+                
+                <p>
+                  <strong>Service Denial:</strong> Management reserves the right to refuse service to anyone at their discretion, particularly for intoxication, disruptive behavior, or failure to meet age requirements.
+                </p>
+                
+                <p>
+                  <strong>Content Ownership:</strong> All content, images, and branding on this website are the property of Kenny's Bar and may not be reproduced without written permission.
+                </p>
+              </div>
+              
+              <div className="flex justify-center mt-6">
+                <button 
+                  onClick={() => setShowTermsPopup(false)}
+                  className="bg-[#FF8C42] text-white px-6 py-2 rounded-lg hover:bg-[#E0601A] transition-colors"
+                >
+                  Close
+                </button>
+              </div>
             </div>
           </motion.div>
         </div>
