@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Events from '@/components/Events';
+import ScrollResponsibleMessage from '@/components/ScrollResponsibleMessage';
 // import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
@@ -29,6 +30,7 @@ const EventsPage = () => {
           <Events />
         </div>
       </div>
+      <ScrollResponsibleMessage />
     </div>
   );
 };

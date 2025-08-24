@@ -28,21 +28,11 @@ const GalleryGrid = ({ images }: { images: Array<{src: string, alt: string}> }) 
             whileHover={{ scale: 1.03 }}
             onClick={() => setSelectedImage(image.src)}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#FF6F1F]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
             <img 
               src={image.src} 
               alt={image.alt} 
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-[0.85] group-hover:brightness-100"
+              className="w-full h-full object-cover"
             />
-            {/* Corner decorative elements */}
-            <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-[#FF6F1F]/60 rounded-tl-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
-            <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-[#FF6F1F]/60 rounded-br-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-70 group-hover:opacity-40 transition-opacity duration-500 flex items-end p-5 z-10">
-              <p className="text-white text-sm font-['Montserrat'] font-medium group-hover:text-[#FF8C42] transition-colors duration-300">{image.alt}</p>
-            </div>
-            <div className="absolute top-3 right-3 bg-black/50 backdrop-blur-sm p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0 z-20">
-              <Camera className="h-4 w-4 text-[#FF8C42]" />
-            </div>
           </motion.div>
         ))}
       </div>
@@ -64,13 +54,25 @@ const GalleryGrid = ({ images }: { images: Array<{src: string, alt: string}> }) 
   );
 };
 
-// Remove this array:
-// const instagramPosts = [
-//    "https://www.instagram.com/reel/DK1Lf73PBm7/",
-//   "https://www.instagram.com/reel/DLPpkIMSr6j/",
-//   "https://www.instagram.com/reel/DLbl6vzzfGa/",
-// ];
+// Image arrays for different categories
+const ambianceImages = [
+  { src: "/images/6.jpg", alt: "Kenny's Bar Interior Ambiance" },
+  { src: "/images/7.jpg", alt: "Kenny's Neighborhood Bar Atmosphere" },
+  { src: "/images/8.jpg", alt: "Kenny's Bar Seating Area" },
+  { src: "/images/11.jpg", alt: "Kenny's Drinks and Beverages" }
+];
 
+const foodAndDrinksImages = [
+  { src: "/images/10.jpg", alt: "Kenny's Food Specialties" },
+  { src: "/images/12.jpg", alt: "Kenny's Culinary Offerings" },
+  { src: "/images/9.jpg", alt: "Kenny's Interior Design" }
+];
+
+const eventsImages = [
+  // Empty array - no events images
+];
+
+const allImages = [...ambianceImages, ...foodAndDrinksImages, ...eventsImages];
 const Gallery = () => {
   return (
     <section id="gallery" className="pt-8 pb-16 min-h-screen relative overflow-hidden">
@@ -99,15 +101,62 @@ const Gallery = () => {
             Take a peek at Kenny's ambiance, our delicious food, and craft drinks that keep our neighborhood coming back.
           </p>
         </motion.div>
-        <GlassCard className="p-6 sm:p-8 w-full max-w-5xl mx-auto">
+        
+        <GlassCard className="p-6 sm:p-8 w-full max-w-6xl mx-auto">
           {/* Corner decorative elements */}
           <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-[#FF6F1F]/40 rounded-tl-2xl"></div>
           <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-[#FF6F1F]/40 rounded-br-2xl"></div>
-          <div className="text-center py-16">
-            <h3 className="text-[#FF8C42] text-2xl font-bold mb-4">Gallery Content</h3>
-            <p className="text-white/70 text-lg">Coming Soon</p>
-          </div>
+          
+          <Tabs defaultValue="all" className="w-full">
+            <TabsList className="grid w-full grid-cols-4 mb-8 bg-black/40 border border-[#FF6F1F]/20">
+              <TabsTrigger 
+                value="all" 
+                className="data-[state=active]:bg-[#FF8C42] data-[state=active]:text-white text-white/70 hover:text-white transition-colors"
+              >
+                <GalleryHorizontal className="h-4 w-4 mr-2" />
+                All
+              </TabsTrigger>
+              <TabsTrigger 
+                value="ambiance" 
+                className="data-[state=active]:bg-[#FF8C42] data-[state=active]:text-white text-white/70 hover:text-white transition-colors"
+              >
+                <Image className="h-4 w-4 mr-2" />
+                Ambiance
+              </TabsTrigger>
+              <TabsTrigger 
+                value="food" 
+                className="data-[state=active]:bg-[#FF8C42] data-[state=active]:text-white text-white/70 hover:text-white transition-colors"
+              >
+                <Utensils className="h-4 w-4 mr-2" />
+                Food & Drinks
+              </TabsTrigger>
+              <TabsTrigger 
+                value="events" 
+                className="data-[state=active]:bg-[#FF8C42] data-[state=active]:text-white text-white/70 hover:text-white transition-colors"
+              >
+                <Wine className="h-4 w-4 mr-2" />
+                Events
+              </TabsTrigger>
+            </TabsList>
+            
+            <TabsContent value="all" className="mt-0">
+              <GalleryGrid images={allImages} />
+            </TabsContent>
+            
+            <TabsContent value="ambiance" className="mt-0">
+              <GalleryGrid images={ambianceImages} />
+            </TabsContent>
+            
+            <TabsContent value="food" className="mt-0">
+              <GalleryGrid images={foodAndDrinksImages} />
+            </TabsContent>
+            
+            <TabsContent value="events" className="mt-0">
+              <GalleryGrid images={eventsImages} />
+            </TabsContent>
+          </Tabs>
         </GlassCard>
+        
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

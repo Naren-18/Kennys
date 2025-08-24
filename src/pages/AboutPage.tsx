@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import About from '@/components/About';
+import ScrollResponsibleMessage from '@/components/ScrollResponsibleMessage';
 
 const AboutPage = () => {
   return (
@@ -13,6 +13,7 @@ const AboutPage = () => {
       </div>
       <Navbar />
       <About />
+      <ScrollResponsibleMessage />
     </div>
   );
 };

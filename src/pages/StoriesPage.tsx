@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Stories from '@/components/Stories';
+import ScrollResponsibleMessage from '@/components/ScrollResponsibleMessage';
 // import Footer from '@/components/Footer';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
@@ -28,6 +29,7 @@ const StoriesPage = () => {
           <Stories />
         </div>
       </div>
+      <ScrollResponsibleMessage />
     </div>
   );
 };

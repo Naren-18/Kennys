@@ -1,11 +1,10 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import Footer from '@/components/Footer';
+import ScrollResponsibleMessage from '@/components/ScrollResponsibleMessage';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const Index = () => {
-  // Use our custom hook with default settings
   useScrollAnimation();
   
   return (
@@ -34,11 +33,10 @@ const Index = () => {
       
       <Navbar />
       
-      {/* Content with z-index to appear above backdrop - Only Hero section */}
       <div className="relative z-10">
         <Hero />
+        <ScrollResponsibleMessage />
       </div>
-      
     </div>
   );
 };

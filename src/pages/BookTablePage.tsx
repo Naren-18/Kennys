@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import ScrollResponsibleMessage from '@/components/ScrollResponsibleMessage';
 import SEO from '@/components/SEO';
 
 const BookTablePage = () => {
@@ -95,7 +95,7 @@ const BookTablePage = () => {
         </div>
       </div>
       
-      {/* Remove this line: <Footer /> */}
+      <ScrollResponsibleMessage />
     </div>
   );
 };

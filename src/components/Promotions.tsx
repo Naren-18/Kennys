@@ -36,40 +36,40 @@ const promotions = [
 	{
 		id: 1,
 		title: 'Happy Hour',
-		description: 'Everyday 4PM-7PM: Half-price drafts & well drinks',
-		image: '/images/1.jpg',
+		description: '',
+		image: '/images/6.jpg',
 		backgroundColor: 'from-amber-700/80 to-amber-900/90',
 		icon: <Beer className="w-8 h-8 text-white/90" />
 	},
 	{
 		id: 2,
 		title: 'Whiskey Wednesday',
-		description: '25% off premium whiskeys every Wednesday',
-		image: '/images/2.jpg',
+		description: '',
+		image: '/images/7.jpg',
 		backgroundColor: 'from-amber-800/80 to-amber-950/90',
 		icon: <Wine className="w-8 h-8 text-white/90" />
 	},
 	{
 		id: 3,
 		title: 'Live Music Weekends',
-		description: 'No cover charge Fri-Sat 8PM-12AM',
-		image: '/images/3.jpeg',
+		description: '',
+		image: '/images/8.jpg',
 		backgroundColor: 'from-orange-700/80 to-orange-900/90',
 		icon: <Music className="w-8 h-8 text-white/90" />
 	},
 	{
 		id: 4,
 		title: 'Thursday Trivia Night',
-		description: 'Win bar tabs & prizes starting at 8PM',
-		image: '/images/4.jpg',
+		description: '',
+		image: '/images/9.jpg',
 		backgroundColor: 'from-amber-600/80 to-amber-800/90',
 		icon: <Trophy className="w-8 h-8 text-white/90" />
 	},
 	{
 		id: 5,
 		title: 'Sunday Brunch Special',
-		description: 'Bottomless mimosas with any brunch entree 11AM-3PM',
-		image: '/images/5.jpg',
+		description: '',
+		image: '/images/10.jpg',
 		backgroundColor: 'from-orange-600/80 to-orange-800/90',
 		icon: <Calendar className="w-8 h-8 text-white/90" />
 	},

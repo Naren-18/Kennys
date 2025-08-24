@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Gallery from '@/components/Gallery';
-import Footer from '@/components/Footer';
+import ScrollResponsibleMessage from '@/components/ScrollResponsibleMessage';
 
 const GalleryPage = () => {
   return (
@@ -15,6 +15,7 @@ const GalleryPage = () => {
       <div>
         <Gallery />
       </div>
+      <ScrollResponsibleMessage />
     </div>
   );
 };

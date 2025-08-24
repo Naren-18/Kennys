@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Menu from '@/components/Menu';
-import Footer from '@/components/Footer';
+import ScrollResponsibleMessage from '@/components/ScrollResponsibleMessage';
 
 const MenuPage = () => {
   return (
@@ -10,6 +10,7 @@ const MenuPage = () => {
       <div className="">
         <Menu />
       </div>
+      <ScrollResponsibleMessage />
     </div>
   );
 };

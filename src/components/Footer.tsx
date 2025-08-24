@@ -194,7 +194,7 @@ const Footer = () => {
           <div className="text-center space-y-3">
             <div className="space-y-1">
               <p className="text-[#FF8C42] font-semibold text-sm sm:text-base">DRINK RESPONSIBLY</p>
-              <p className="text-white/70 text-xs sm:text-sm">This communication is meant for people above the legal drinking age of 25 years</p>
+              <p className="text-white/70 text-xs sm:text-sm">Kenny's is meant for people above the legal drinking age of 25 years</p>
             </div>
             
             <div className="flex flex-wrap justify-center gap-2 sm:gap-4 text-xs sm:text-sm">

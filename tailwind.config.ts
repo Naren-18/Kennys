@@ -73,7 +73,8 @@ export default {
                     cream: "#FFF8E1",
                     copper: "#FF6F1F",
                     whiskey: "#FF6F1F",
-                    toast: "#FF6F1F"
+                    toast: "#FF6F1F",
+                    orange: "#FF8C42"
                 }
             },
             borderRadius: {
@@ -106,8 +107,10 @@ export default {
                     '0%': { opacity: '0' },
                     '100%': { opacity: '1' }
                 },
-                // Add the fillBeer keyframe to tailwind.config.js for consistency,
-                // although it's also defined in index.css. This allows Tailwind to be aware of it.
+                'scroll': {
+                    '0%': { transform: 'translateX(0)' },
+                    '100%': { transform: 'translateX(-50%)' }
+                },
                 'fillBeer': {
                     from: { 'background-position': '0% 100%' },
                     to: { 'background-position': '0% 0%' }
@@ -120,7 +123,8 @@ export default {
                 'gentle-bounce': 'gentle-bounce 2s ease-in-out infinite',
                 'fade-in': 'fade-in 0.5s ease-out',
                 'fade-in-slow': 'fade-in-slow 1.5s ease-out',
-                'fillBeer': 'fillBeer 2s ease-out forwards', // Link the keyframe here
+                'scroll': 'scroll 30s linear infinite',
+                'fillBeer': 'fillBeer 2s ease-out forwards',
             },
             fontFamily: {
                 handwritten: ['Trebuchet MS', 'sans-serif'],

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Phone, Instagram, Facebook, MapPin, Navigation, X } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import { motion } from 'framer-motion';
-// import Footer from '@/components/Footer';
+import ScrollResponsibleMessage from '@/components/ScrollResponsibleMessage';
 import emailjs from 'emailjs-com';
 
 const ContactPage = () => {
