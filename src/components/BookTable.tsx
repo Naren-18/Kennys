@@ -144,8 +144,8 @@ const BookTable = () => {
                 <p className="text-white/80 text-sm mb-4">The District, Myscape Rd, Financial District, Nanakramguda, Hyderabad, Telangana 500032</p>
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <Phone className="text-[#FF8C42] w-4 h-4" />
-                  <a href="tel:+919637819999" className="text-[#FF8C42] hover:text-white transition-colors text-sm font-medium">
-                    +91 96378 19999
+                  <a href="tel:+919886343434" className="text-[#FF8C42] hover:text-white transition-colors text-sm font-medium">
+                    +91 98863 43434
                   </a>
                 </div>
                 <p className="text-white/60 text-xs">Open: 4:00 PM - 1:00 AM (Daily)</p>

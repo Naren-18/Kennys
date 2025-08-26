@@ -338,7 +338,7 @@ const Footer = () => {
                         className="bg-white/10 text-white px-4 py-3 sm:px-4 sm:py-2 rounded-lg hover:bg-white/20 transition-colors flex items-center justify-center gap-2 min-h-[44px] touch-manipulation text-sm sm:text-base"
                       >
                         <Phone className="h-4 w-4" />
-                        +91 9317 417 517
+                        +91 93174 17517
                       </a>
                     </div>
                     {/* Social Media Buttons for Bengaluru */}
@@ -386,11 +386,11 @@ const Footer = () => {
                         Get Directions
                       </a>
                       <a 
-                        href="tel:+919637819999"
+                        href="tel:+919886343434"
                         className="bg-white/10 text-white px-4 py-3 sm:px-4 sm:py-2 rounded-lg hover:bg-white/20 transition-colors flex items-center justify-center gap-2 min-h-[44px] touch-manipulation text-sm sm:text-base"
                       >
                         <Phone className="h-4 w-4" />
-                        +91 96378 19999
+                        +91 98863 43434
                       </a>
                     </div>
                     {/* Social Media Buttons for Hyderabad */}

@@ -76,10 +76,10 @@ const BookTablePage = () => {
                 <div className="bg-black/50 rounded-lg p-4 border border-[#FF8C42]/20">
                   <p className="text-sm text-gray-400 mb-2">Call for Reservations</p>
                   <a 
-                    href="tel:+919637819999" 
+                    href="tel:+919886343434" 
                     className="text-2xl font-bold text-[#FF8C42] hover:text-[#FF8C42]/80 transition-colors"
                   >
-                    +91 96378 19999
+                    +91 98863 43434
                   </a>
                 </div>
               </div>

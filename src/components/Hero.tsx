@@ -205,8 +205,8 @@ const Hero = () => {
               <div className="text-white/90 text-base md:text-lg leading-snug mb-2">The District, Myscape Rd, Financial District, Nanakramguda, Hyderabad, Telangana 500032</div>
               <div className="flex items-center gap-2">
                 <Phone className="text-[#FF8C42] w-4 h-4" />
-                <a href="tel:+919637819999" className="text-[#FF8C42] hover:text-white transition-colors text-sm md:text-base font-medium">
-                  +91 96378 19999
+                <a href="tel:+919886343434" className="text-[#FF8C42] hover:text-white transition-colors text-sm md:text-base font-medium">
+                  +91 98863 43434
                 </a>
               </div>
             </div>
