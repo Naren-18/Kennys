@@ -50,8 +50,8 @@ const Footer = () => {
         paddingBottom: '1.5rem'
       }}
     >
-      {/* Mobile-optimized grid: 1 column on mobile, 2 on tablet, 4 on desktop */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 w-full">
+      {/* Mobile-optimized grid: 1 column on mobile, 2 on tablet, 3 on desktop */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 w-full">
         {/* Location Section - Mobile optimized */}
         <motion.div 
           className="text-left location-section hover:scale-105 order-1 sm:order-1"
@@ -113,39 +113,15 @@ const Footer = () => {
           </ul>
         </motion.div>
         
-        {/* This Week at Kenny's Section - Mobile optimized */}
-        <motion.div 
-          className="text-left order-4 sm:order-3 lg:order-3"
-          animate={{
-            x: isMobileMenuOpen ? 10 : 0,
-            opacity: isMobileMenuOpen ? 0.8 : 1
-          }}
-          transition={{ 
-            delay: 0.11,
-            duration: 0.4,
-            ease: [0.25, 0.46, 0.45, 0.94]
-          }}
-        >
-          <h3 className="text-[#FF8C42] text-lg sm:text-xl font-bold mb-3 sm:mb-4 tracking-wide">This Week at Kenny's</h3>
-          <ul className="flex flex-col gap-2">
-            {weekEvents.map((event) => (
-              <li key={event.text} className="flex items-center gap-2 text-white/90 text-base min-h-[44px]">
-                <span className="text-xl">{event.icon}</span>
-                {event.text}
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-        
         {/* Hours Section - Mobile optimized */}
         <motion.div 
-          className="text-left order-3 sm:order-4 lg:order-4"
+          className="text-left order-3 sm:order-3 lg:order-3"
           animate={{
             x: isMobileMenuOpen ? 5 : 0,
             opacity: isMobileMenuOpen ? 0.8 : 1
           }}
           transition={{ 
-            delay: 0.14,
+            delay: 0.11,
             duration: 0.4,
             ease: [0.25, 0.46, 0.45, 0.94]
           }}
