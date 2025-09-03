@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kenny's Bar - Launching Soon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Satisfy&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: linear-gradient(120deg, #1a120b 0%, #000 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Satisfy', cursive;
+      color: #fff;
+      overflow: hidden;
+    }
+    .glass-card {
+      background: rgba(20, 12, 6, 0.7);
+      border-radius: 2rem;
+      box-shadow: 0 8px 40px 0 rgba(0,0,0,0.25), 0 1.5px 8px 0 #FF8C42;
+      border: 1.5px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+      padding: 3rem 2rem 2.5rem 2rem;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+    }
+    .kenny-heading {
+      font-family: 'Anton', sans-serif;
+      font-size: 2.8rem;
+      color: #FF8C42;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 16px #FF8C42aa;
+    }
+    .subtitle {
+      font-family: 'Satisfy', cursive;
+      font-size: 1.5rem;
+      color: #FF8C42;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.08em;
+    }
+    .soon {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 2rem;
+      text-shadow: 0 2px 8px #FF8C4255;
+    }
+    .notify-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .notify-input {
+      padding: 0.75rem 1.2rem;
+      border-radius: 999px;
+      border: 1.5px solid #FF8C42;
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      width: 100%;
+      max-width: 220px;
+      transition: border 0.2s;
+    }
+    .notify-input:focus {
+      border: 2px solid #FF8C42;
+      background: rgba(255,255,255,0.15);
+    }
+    .notify-btn {
+      background: #FF8C42;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 0.75rem 2.2rem;
+      font-size: 1.1rem;
+      font-family: 'Anton', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      box-shadow: 0 2px 8px #FF8C4255;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .notify-btn:hover {
+      background: #e0601a;
+      transform: scale(1.04);
+    }
+    @media (max-width: 480px) {
+      .glass-card {
+        padding: 2rem 0.5rem 2rem 0.5rem;
+        max-width: 98vw;
+      }
+      .kenny-heading {
+        font-size: 2.1rem;
+      }
+      .soon {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="glass-card">
+    <div class="kenny-heading">KENNY'S</div>
+    <div class="subtitle">Neighbourhood Bar</div>
+    <div class="soon">Launching Soon</div>
+    
+  </div>
+</body>
+</html> 
