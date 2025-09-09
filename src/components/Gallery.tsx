@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { GalleryHorizontal, Image, Utensils, Menu, Camera, Wine, Star, Instagram } from 'lucide-react';
+import { GalleryHorizontal, Image, Utensils, Camera, Wine, Star, Instagram } from 'lucide-react';
 import { motion } from 'framer-motion';
 import InstagramEmbed from './InstagramEmbed';
 

@@ -4,7 +4,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
-import MenuPage from "./pages/MenuPage";
 import GalleryPage from "./pages/GalleryPage";
 import BookTablePage from "./pages/BookTablePage";
 import StoriesPage from "./pages/StoriesPage";
@@ -153,7 +152,6 @@ const AppContent = () => {
       <div className="page-content flex-1">
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/menu" element={<MenuPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/book-table" element={<BookTablePage />} />
           <Route path="/stories" element={<StoriesPage />} />

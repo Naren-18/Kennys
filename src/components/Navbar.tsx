@@ -1,6 +1,6 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Home, BookOpen, Images, Users, Calendar, Info, UtensilsCrossed, CircleCheck, Mail } from 'lucide-react';
+import { Menu, X, Home, BookOpen, Images, Users, Calendar, Info, CircleCheck, Mail, UtensilsCrossed } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { cn } from '@/lib/utils';
 
@@ -15,7 +15,6 @@ export const NavbarContext = createContext({
 const navLinks = [
   { name: 'Home', path: '/', icon: <Home className="w-5 h-5" /> },
   { name: 'About Us', path: '/about', icon: <Info className="w-5 h-5" /> },
-  { name: 'Menu', path: '/menu', icon: <UtensilsCrossed className="w-5 h-5" /> },
   { name: 'Gallery', path: '/gallery', icon: <Images className="w-5 h-5" /> },
   { name: 'Stories', path: '/stories', icon: <Users className="w-5 h-5" /> },
   { name: 'Events', path: '/events', icon: <Calendar className="w-5 h-5" /> },
