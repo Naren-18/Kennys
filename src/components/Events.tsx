@@ -26,106 +26,122 @@ const Events = () => {
   const events: Event[] = [
     {
       id: 1,
-      title: "Beer Lovers Day & Teachers Day",
-      date: "Sep 7, 2025 Sunday",
-      time: "All Day",
-      description: "Celebrate Beer Lovers Day and Teachers Day with special offers and festivities at Kenny's Bangalore. Join us for a day of appreciation and great beer!",
+      title: "Maria and Ghanshyam",
+      date: "Sep 3, 2025 Wednesday",
+      time: "Evening Show",
+      description: "Live performance by Maria and Ghanshyam at Kenny's Bangalore. Join us for an evening of great music and ambiance!",
       category: 'Bangalore'
     },
     {
       id: 2,
-      title: "World Gin Day",
-      date: "Sep 10, 2025 Wednesday",
+      title: "Aditya Veer",
+      date: "Sep 6, 2025 Saturday",
       time: "Evening Show",
-      description: "Raise a toast to World Gin Day at Kenny's Bangalore! Enjoy premium gin cocktails and special gin-based drinks all evening long.",
-      category: 'Bangalore'
-    },
-    {
-      id: 6,
-      title: "Rum Punch Day",
-      date: "Sep 20, 2025 Saturday",
-      time: "Evening Show",
-      description: "Celebrate Rum Punch Day with our signature rum punches and tropical cocktails at Kenny's Bangalore. A perfect evening for rum enthusiasts!",
-      category: 'Bangalore'
-    },
-    {
-      id: 7,
-      title: "Navaratri Begins",
-      date: "Sep 22, 2025 Monday",
-      time: "Evening Show",
-      description: "Join us as Navaratri begins! Celebrate the festival of nine nights with traditional music, dance, and festive drinks at Kenny's Bangalore.",
-      category: 'Bangalore'
-    },
-    {
-      id: 8,
-      title: "Tourism Day",
-      date: "Sep 27, 2025 Saturday",
-      time: "All Day",
-      description: "Celebrate World Tourism Day at Kenny's Bangalore! Special offers for travelers and tourists exploring the beautiful city of Bangalore.",
-      category: 'Bangalore'
-    },
-    {
-      id: 9,
-      title: "Drink Beer Day",
-      date: "Sep 28, 2025 Sunday",
-      time: "All Day",
-      description: "End the month with Drink Beer Day at Kenny's Bangalore! Enjoy our finest selection of beers with special discounts and beer-themed activities.",
+      description: "Experience the amazing performance by Aditya Veer at Kenny's Bangalore. Don't miss this special Saturday night event!",
       category: 'Bangalore'
     },
     {
       id: 3,
-      title: "Beer Lovers Day & Teachers Day",
-      date: "Sep 7, 2025 Sunday",
-      time: "All Day",
-      description: "Celebrate Beer Lovers Day and Teachers Day with special offers and festivities at Kenny's Hyderabad. Join us for a day of appreciation and great beer!",
-      category: 'Hyderabad'
+      title: "Kalaahamsa",
+      date: "Sep 10, 2025 Wednesday",
+      time: "Evening Show",
+      description: "Kalaahamsa live at Kenny's Bangalore. An evening filled with captivating music and entertainment.",
+      category: 'Bangalore'
     },
     {
       id: 4,
-      title: "Telangana Language Day",
-      date: "Sep 9, 2025 Tuesday",
+      title: "Manik the Band",
+      date: "Sep 13, 2025 Saturday",
       time: "Evening Show",
-      description: "Celebrate Telangana Language Day at Kenny's Hyderabad! Join us for a special evening honoring the rich linguistic heritage of Telangana.",
-      category: 'Hyderabad'
+      description: "Manik the Band performing live at Kenny's Bangalore. Get ready for an unforgettable Saturday night!",
+      category: 'Bangalore'
     },
     {
       id: 5,
-      title: "World Gin Day",
-      date: "Sep 10, 2025 Wednesday",
+      title: "D-Strings",
+      date: "Sep 17, 2025 Wednesday",
       time: "Evening Show",
-      description: "Raise a toast to World Gin Day at Kenny's Hyderabad! Enjoy premium gin cocktails and special gin-based drinks all evening long.",
-      category: 'Hyderabad'
+      description: "D-Strings live at Kenny's Bangalore. Enjoy an evening of melodious music and great vibes.",
+      category: 'Bangalore'
+    },
+    {
+      id: 6,
+      title: "Manik the Band",
+      date: "Sep 20, 2025 Saturday",
+      time: "Evening Show",
+      description: "Manik the Band returns to Kenny's Bangalore for another spectacular performance.",
+      category: 'Bangalore'
+    },
+    {
+      id: 7,
+      title: "Kalaahamsa",
+      date: "Sep 24, 2025 Wednesday",
+      time: "Evening Show",
+      description: "Kalaahamsa back at Kenny's Bangalore with another amazing live performance.",
+      category: 'Bangalore'
+    },
+    {
+      id: 8,
+      title: "Praveen Bhat & Madhu",
+      date: "Sep 27, 2025 Saturday",
+      time: "Evening Show",
+      description: "Praveen Bhat & Madhu live at Kenny's Bangalore. Join us for a special Saturday night event.",
+      category: 'Bangalore'
+    },
+    {
+      id: 9,
+      title: "DJ Minusplus In House",
+      date: "Every Tuesday",
+      time: "Evening",
+      description: "Every Tuesday, enjoy the beats of DJ Minusplus at Kenny's Bangalore.",
+      category: 'Bangalore'
     },
     {
       id: 10,
-      title: "Rum Punch Day",
-      date: "Sep 20, 2025 Saturday",
-      time: "Evening Show",
-      description: "Celebrate Rum Punch Day with our signature rum punches and tropical cocktails at Kenny's Hyderabad. A perfect evening for rum enthusiasts!",
-      category: 'Hyderabad'
+      title: "DJ Minusplus In House",
+      date: "Every Sunday",
+      time: "Evening",
+      description: "Every Sunday, groove to the music of DJ Minusplus at Kenny's Bangalore.",
+      category: 'Bangalore'
     },
     {
       id: 11,
-      title: "Navaratri Begins",
-      date: "Sep 22, 2025 Monday",
-      time: "Evening Show",
-      description: "Join us as Navaratri begins! Celebrate the festival of nine nights with traditional music, dance, and festive drinks at Kenny's Hyderabad.",
+      title: "Borah",
+      date: "Sep 19, 2025 Friday",
+      time: "Evening",
+      description: "Live performance by Borah at Kenny's Hyderabad. Join us for an unforgettable evening of music and entertainment.",
       category: 'Hyderabad'
     },
     {
       id: 12,
-      title: "Tourism Day",
-      date: "Sep 27, 2025 Saturday",
-      time: "All Day",
-      description: "Celebrate World Tourism Day at Kenny's Hyderabad! Special offers for travelers and tourists exploring the beautiful city of Hyderabad.",
+      title: "Shiv",
+      date: "Sep 24, 2025 Wednesday",
+      time: "Evening",
+      description: "Enjoy the musical performance by Shiv at Kenny's Hyderabad. A perfect mid-week entertainment.",
       category: 'Hyderabad'
     },
     {
       id: 13,
-      title: "Drink Beer Day",
-      date: "Sep 28, 2025 Sunday",
-      time: "All Day",
-      description: "End the month with Drink Beer Day at Kenny's Hyderabad! Enjoy our finest selection of beers with special discounts and beer-themed activities.",
+      title: "Parth Joshi",
+      date: "Sep 17, 2025 Wednesday",
+      time: "Evening",
+      description: "Live music by Parth Joshi at Kenny's Hyderabad. Come and experience his amazing talent.",
+      category: 'Hyderabad'
+    },
+    {
+      id: 14,
+      title: "Rohit",
+      date: "Sep 20, 2025 Saturday",
+      time: "Evening",
+      description: "Weekend special with Rohit performing live at Kenny's Hyderabad. Don't miss this exciting show.",
+      category: 'Hyderabad'
+    },
+    {
+      id: 15,
+      title: "D&K",
+      date: "Sep 27, 2025 Saturday",
+      time: "Evening",
+      description: "D&K live performance at Kenny's Hyderabad. End your week with great music and atmosphere.",
       category: 'Hyderabad'
     }
   ];
